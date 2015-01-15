@@ -1,5 +1,3 @@
-# visailu
+# Ohjelmoinnin harjoitustyö, kevät 2015
 
-Tähän tekstiä 14.1 klo 21.57
-
-Tähän vielä vähän tekstiä 14.1 klo 22.17
+## Visailu
