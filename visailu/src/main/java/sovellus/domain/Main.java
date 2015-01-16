@@ -1,4 +1,4 @@
-package visailu.visailu;
+package sovellus.domain;
 
 public class Main {
 
