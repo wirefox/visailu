@@ -1,0 +1,170 @@
+Suomi,Helsinki
+Ruotsi,Tukholma                   
+Norja,Oslo
+Tanska,Kööpenhamina
+Viro,Tallinna
+Latvia,Riika
+Espanja,Madrid
+Portugali,Lissabon
+Italia,Rooma
+Kreikka,Ateena
+Ranska,Pariisi
+Iso-Britannia,Lontoo
+Tsekki,Praha
+Unkari,Budapest
+Itävalta,Wien
+Islanti,Reykjavik
+Liettua,Vilna
+Venäjä,Moskova
+Valko-Venäjä,Minsk
+Ukraina,Kiova
+Irlanti,Dublin
+Alankomaat,Amsterdam
+Belgia,Bryssel
+Saksa,Berliini
+Puola,Varsova
+Slovakia,Bratislava
+Sveitsi,Bern
+Slovenia,Ljubljana
+Kroatia,Zagreb
+Bosnia-Herzegovina,Sarajevo
+Serbia,Belgrad
+Romania,Bukarest
+Moldova,Kisinjov
+Albania,Tirana
+Makedonia,Skopje
+Bulgaria,Sofia
+Turkki,Ankara
+Malta,Valletta
+Liechtenstein,Vaduz
+Luxemburg,Luxemburg
+Andorra,Andorra la Vella
+Montenegro,Podgorica
+Kosovo,Pristina
+Monaco,Monaco-Ville
+San Marino,San Marino
+USA,Washington (DC)
+Kanada,Ottawa
+Meksiko,México/Mexico City
+Paraguay,Asunción
+Argentiina,Buenos Aires
+Panama,Panamá
+Venezuela,Caracas
+Kolumbia,Bogotá
+Bolivia,Sucre/La Paz
+El Salvador,San Salvador
+Guyana,Georgetown
+Ecuador,Quito
+Costa Rica,San José
+Dominikaaninen tasavalta,Santo Domingo
+Belize,Belmopan
+Peru,Lima
+Nicaragua,Managua
+Barbados,Bridgetown
+Haiti,Port-au-Prince
+Honduras,Tegucigalpa
+Trinidad-Tobago,Port of Spain
+Kuuba,Havanna
+Falklandinsaaret,Port Stanley
+Uruguay,Montevideo
+Caymansaaret,George Town
+Brasilia,Brasília
+Jamaika,Kingston
+Guatemala,Guatemala
+Chile,Santiago
+Qatar,Doha
+Indonesia,Jakarta
+Japani,Tokio
+Kambodža,Phnom Penh
+Oman,Masqat
+Sri Lanka,Sri Jayewardanapura-Kotte
+Malediivit,Malé
+Afganistan,Kabul
+Brunei,Bandar Seri Begawan
+Saudi-Arabia,Riad
+Pakistan,Islamabad
+Filippiinit,Manila
+Jordania,Amman
+Malesia,Kuala Lumpur
+Turkmenistan,Ašgabat
+Itä-Timor,Dili
+Kiina,Peking
+Etelä-Korea,Soul
+Singapore,Singapore
+Kazakstan,Astana
+Nepal,Kathmandu
+Armenia,Jerevan
+Israel,Jerusalem
+Myanmar,Naypyidaw
+Vietnam,Hanoi
+Iran,Teheran
+Bangladesh,Dhaka
+Taiwan,Taipei
+Yhdistyneet arabiemiirikunnat,Abu Dhabi
+Bahrain,Manama
+Intia,New Delhi
+Papua-Uusi-Guinea,Port Moresby
+Azerbaidžan,Baku
+Pohjois-Korea,Pjongjang
+Jemen,Sanaa
+Irak,Bagdad
+Kuwait,Kuwait
+Libanon,Beirut
+Uzbekistan,Taškent
+Georgia,Tbilisi
+Bhutan,Thimphu
+Thaimaa,Bangkok
+Tadžikistan,Dušanbe
+Mongolia,Ulan Bator
+Laos,Vientiane
+Kirgisia,Biškek
+Syyria,Damaskos
+Marokko,Rabat
+Liberia,Monrovia
+Djibouti,Djibouti
+Botswana,Gaborone
+Guinea,Conakry
+Kenia,Nairobi
+Päiväntasaajan Guinea,Malabo
+Somalia,Mogadishu
+Senegal,Dakar
+Norsunluurannikko,Yamoussoukro
+Benin,Porto-Novo
+Sambia,Lusaka
+Uganda,Kampala
+Togo,Lomé
+Zimbabwe,Harare
+Guinea-Bissau,Bissau
+Gabon,Libreville
+Namibia,Windhoek
+Libya,Tripoli
+Egypti,Kairo
+Niger,Niamey
+Etelä-Sudan,Juba
+Etelä-Afrikka,Kapkaupunki/Pretoria/Bloemfontein
+Eritrea,Asmara
+Malawi,Lilongwe
+Sudan,Khartum
+Gambia,Banjul
+Etiopia,Addis Abeba
+Mosambik,Maputo
+Kongon tasavalta,Brazzaville
+Madagaskar,Antananarivo
+Nigeria,Abuja
+Tšad,N'Djamena
+Tansania,Dodoma
+Mali,Bamako
+Lesotho,Maseru
+Kongon demokraattinen tasavalta,Kinshasa
+Swazimaa,Mbabane/Lobamba
+Burundi,Bujumbura
+Burkina Faso,Ouagadougou
+Ruanda,Kigali
+Angola,Luanda
+Ghana,Accra
+Mauritania,Nouakchott
+Keski-Afrikan tasavalta,Bangui
+Tunisia,Tunis
+Kamerun,Yaoundé
+Algeria,Alger
+Sierra Leone,Freetown
