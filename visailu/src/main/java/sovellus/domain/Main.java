@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Visailukoordinaattori visailu = new Visailukoordinaattori();
-        visailu.kaynnista();
+        Visailukoordinaattori visailukoordinaattori = new Visailukoordinaattori();
+        visailukoordinaattori.kaynnista();
     }
 }
