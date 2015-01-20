@@ -8,4 +8,4 @@ Päivämäärä | Tuntia | Selite
 16.1.2015 | 1 | Pitin ja Coberturan konffaus ja JavaDocin generointi sekä checkstyle.xml
 18.1.2015 | 2 | oman projektin ja sen luokkakaavion alustavaa pohdintaa, ja työssä alkuun pääsemisen suurta tuskailua
 19.1.2015 | 2 | luokkakaavion piirtämistä ja projektin toiminnallisuuden miettimistä - kokonaisuuden hahmottaminen, joidenkin luokkien lisääminen projektiin, JUnit testien luomisen aloittaminen
-20.1.2015
+20.1.2015 | 6 | luokkien hahmottelua ja alustavaa ohjelmointia, testejä ei vielä tehty
