@@ -40,7 +40,7 @@
                 <configuration>
                     <instrumentation>
                         <includes>
-                            <include>visailu.logiikka/*.class</include>
+                            <include>sovellus.logiikka/*.class</include>
                         </includes>
                     </instrumentation>
                 </configuration>
@@ -53,10 +53,10 @@
                 <version>0.30</version>
                 <configuration>
                     <targetClasses>
-                        <param>visailu.logiikka.*</param>
+                        <param>sovellus.logiikka.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>visailu.logiikka.*</param>
+                        <param>sovellus.logiikka.*</param>
                     </targetTests>
                 </configuration>
             </plugin>
