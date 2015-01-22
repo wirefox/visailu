@@ -15,14 +15,13 @@ public class Tiedonkasittelija {
 
     public Kysymyssarja muodostaKysymyssarja() {
         Kysymyssarja kysymyssarja = new Kysymyssarja();
-        for (String kysymysSana : this.kysymyksetJaVastaukset.keySet()) {
+        for (String kysymyssana : this.kysymyksetJaVastaukset.keySet()) {
             Kysymys kysymys = new Kysymys();
-            //pyydetään kysymykseltä:
-            //lisäämään kysymyssanan (eli maan nimen)
-            //lisäämään oikean vastauksen (eli pääkaupungin nimen)
-            //lisäämään väärät vastaukset, jotka on pyydetty arvoVaaratVastaukset-metodilta
+            kysymys.lisaaKysymyssana(kysymyssana);
+            kysymys.lisaaOikeaVastaus(this.kysymyksetJaVastaukset.get(kysymyssana));
+            kysymys.lisaaVaaratVastaukset(arvoVaaratVastaukset());
 
-            //lisätään lopuksi luotu kysymys kysymyssarjaan
+            kysymyssarja.lisaaKysymys(kysymys);
         }
         return kysymyssarja;
     }
@@ -38,6 +37,7 @@ public class Tiedonkasittelija {
 
         //annetaan kaikki mahdolliset vastaukset metodin parametrina Vastausarpojalle
         //ja pyydetään sitä arpomaan meille yhden kysymyksen väärät vastausvaihtoehdot
+        vaaratVastaukset = vastausarpoja.arvoVastauksetKysymykselle(kaikkiVastaukset);
         return vaaratVastaukset;
     }
 }
