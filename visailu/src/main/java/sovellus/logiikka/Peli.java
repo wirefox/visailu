@@ -1,6 +1,10 @@
 package sovellus.logiikka;
 
+import sovellus.domain.Kysymyssarja;
+
 public class Peli {
+
+    private Kysymyssarja kysymyssarja;
     //tässä pitäisi ehkä olla muuttujina:
     //kierroksen numero
     //kuinka paljon pelaajalla tällä hetkellä pisteitä
@@ -8,8 +12,8 @@ public class Peli {
     //Scanner, nyt kun ei ole graafista käyttistä
     //oikea vastaus
 
-    public Peli() {
-        //Kysymyssarja tulisi varmaankin metodin parametrina
+    public Peli(Kysymyssarja kysymyssarja) {
+        this.kysymyssarja = new Kysymyssarja();
     }
 
     public void pelaaKierros() {
