@@ -1,18 +1,22 @@
 package sovellus.domain;
 
+import java.util.ArrayList;
+
 public class Kysymyssarja {
-    // tähän tarvinnee muuttujaksi:
-    //ArrayListin, jossa on kysymykset
+
+    private ArrayList<Kysymys> kysymykset;
 
     public Kysymyssarja() {
-        //ArrayListin alustus
+        this.kysymykset = new ArrayList<Kysymys>();
+        System.out.println("TESTI1");
     }
 
     public void lisaaKysymys(Kysymys kysymys) {
-        //kysymyksen lisäys ArrayListiin
+        System.out.println("TESTI2");
+        this.kysymykset.add(kysymys);
     }
 
     public Kysymys getKysymys(int i) {
-        return null;
+        return this.kysymykset.get(i);
     }
 }
