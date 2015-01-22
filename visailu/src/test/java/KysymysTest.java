@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -25,6 +26,17 @@ public class KysymysTest {
     @Before
     public void setUp() {
         this.kysymys = new Kysymys();
+        this.kysymys.lisaaOikeaVastaus("Madrid");
+
+        this.kysymys.lisaaKysymyssana("Mikä on Espanjan pääkaupunki?");
+
+        ArrayList<String> vaaratVastaukset = new ArrayList();
+        vaaratVastaukset.add("Helsinki");
+        vaaratVastaukset.add("Tukholma");
+        vaaratVastaukset.add("Berliini");
+        vaaratVastaukset.add("Moskova");
+
+        this.kysymys.lisaaVaaratVastaukset(vaaratVastaukset);
     }
 
     @After
@@ -32,9 +44,22 @@ public class KysymysTest {
     }
 
     @Test
-    public void kysymyssananLisaamisenJalkeenKysymyssanaOnListassa() {
-        this.kysymys.lisaaKysymyssana("olut");
-        String vastaus = this.kysymys.getKysymyssana();
-        assertEquals("olut", vastaus);
+    public void oikeaVastausOnOikein() {
+        assertEquals("Madrid", this.kysymys.getOikeaVastaus());
+    }
+
+    @Test
+    public void vaarienVastaustenMaaraOnNelja() {
+        Kysymys k = new Kysymys();
+
+        ArrayList<String> vaaratVastaukset = new ArrayList();
+        vaaratVastaukset.add("Helsinki");
+        vaaratVastaukset.add("Tukholma");
+        vaaratVastaukset.add("Berliini");
+        vaaratVastaukset.add("Moskova");
+
+        k.lisaaVaaratVastaukset(vaaratVastaukset);
+
+        assertEquals(4, k.getVaaratVastaukset().size());
     }
 }
