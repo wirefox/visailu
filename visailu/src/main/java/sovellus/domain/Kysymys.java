@@ -4,35 +4,38 @@ import java.util.ArrayList;
 
 public class Kysymys {
 
-    //tähän tarvitsisi ehkäpä muuttujiksi:
-    //kysymyssanan
-    //oikean vastauksen
-    //ArrayListin, jossa kysymykseen liittyvät väärät vastausvaihtoehdot
-    
+    private Kysymyssarja kysymyssarja;
+    private String kysymyssana;
+    private String oikeaVastaus;
+    private ArrayList<String> vaaratVastausvaihtoehdot;
+
     public Kysymys() {
-        //alustetaan arraylist
+        this.vaaratVastausvaihtoehdot = new ArrayList<String>();
     }
 
     public void lisaaKysymyssana(String kysymyssana) {
+        this.kysymyssana = kysymyssana;
     }
 
     public void lisaaOikeaVastaus(String oikeaVastaus) {
+        this.oikeaVastaus = oikeaVastaus;
     }
 
-    public void lisaaVaaratVastaukset() {
-        //metodin parametrina väärät vastaukset
-        //lisätään for:illa arraylistiinn
+    public void lisaaVaaratVastaukset(ArrayList<String> vaaratVastaukset) {
+        for (String vaaraVastaus : vaaratVastaukset) {
+            this.vaaratVastausvaihtoehdot.add(vaaraVastaus);
+        }
     }
 
     public String getKysymyssana() {
-        return null;
+        return this.kysymyssana;
     }
 
     public String getOikeaVastaus() {
-        return null;
+        return this.oikeaVastaus;
     }
 
     public ArrayList<String> getVaaratVastaukset() {
-        return null;
+        return this.vaaratVastausvaihtoehdot;
     }
 }
