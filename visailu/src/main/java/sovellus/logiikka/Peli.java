@@ -36,11 +36,15 @@ public class Peli {
     }
 
     public boolean onkoVikaKierros() {
-        if (this.kierroksenNumero > 20) {
+        if (getKierroksenNumero() > 20) {
             return true;
         } else {
             return false;
         }
+    }
+
+    public int getKierroksenNumero() {
+        return this.kierroksenNumero;
     }
 
     public int getPisteitaPelaajalla() {
@@ -48,7 +52,7 @@ public class Peli {
     }
 
     private void annaKysymyssana() {
-        this.kysymys = this.kysymyssarja.getKysymys(this.kierroksenNumero - 1);
+        this.kysymys = this.kysymyssarja.getKysymys(getKierroksenNumero() - 1);
         System.out.println(this.kysymys.getKysymyssana().toUpperCase());
     }
 
@@ -75,7 +79,7 @@ public class Peli {
     }
 
     private void pistetilanteenTulostus() {
-        System.out.println(this.pisteitaPelaajalla + " / " + (this.kierroksenNumero));
+        System.out.println(this.pisteitaPelaajalla + " / " + (getKierroksenNumero()));
         System.out.println("");
     }
 }
