@@ -41,6 +41,8 @@
                     <instrumentation>
                         <includes>
                             <include>sovellus.logiikka/*.class</include>
+                            <include>sovellus.domain/*.class</include>
+                            <include>sovellus.gui/*.class</include>
                         </includes>
                     </instrumentation>
                 </configuration>
@@ -54,6 +56,8 @@
                 <configuration>
                     <targetClasses>
                         <param>sovellus.logiikka.*</param>
+                        <param>sovellus.domain.*</param>
+                        <param>sovellus.gui.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>sovellus.logiikka.*</param>
