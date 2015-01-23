@@ -17,17 +17,17 @@ Visailun pelaajat
 ## Pelin ajatellut luokat ja niiden toiminnallisuus lyhyesti:
 
 - sovellus.domain:
--- Main (käynnistää visailukoordinaattorin)
--- Kysymys
--- Kysymyssarja
+  - Main (käynnistää visailukoordinaattorin)
+  - Kysymys
+  - Kysymyssarja
 
 - sovellus.gui:
--- Kayttoliittyma (ei vielä aloitettu toteuttamaan)
--- Tapahtumankuuntelija (ei vielä aloitettu toteuttamaan)
+  - Kayttoliittyma (ei vielä aloitettu toteuttamaan)
+  - Tapahtumankuuntelija (ei vielä aloitettu toteuttamaan)
 
 - sovellus.logiikka:
--- Visailukoordinaattori (koordinoi visailua, kokonaisuuden hallinta)
--- Tiedostonlukija (lukee tiedoston sisään HashMapiin)
--- Tiedonkasittelija (käsittelee luetun tiedon ja muodostaa siitä kysymyksiä ja kysymyssarjoja)
--- Vastausarpoja (arpoo väärät vastausvaihtoehdot)
--- Peli (pyörittää pelin kierroksen ja pitää huolta kierros- ja pistetilanteesta)
+  - Visailukoordinaattori (koordinoi visailua, kokonaisuuden hallinta, GUI:in myöhemmin siirrettäviä osia)
+  - Tiedostonlukija (lukee tiedoston sisään HashMapiin)
+  - Tiedonkasittelija (käsittelee luetun tiedon ja muodostaa siitä kysymyksiä ja kysymyssarjoja)
+  - Vastausarpoja (arpoo väärät vastausvaihtoehdot)
+  - Peli (pyörittää pelin kierroksen ja pitää huolta kierros- ja pistetilanteesta, GUI:in myöhemmin siirrettäviä osia)
