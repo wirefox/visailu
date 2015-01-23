@@ -11,3 +11,5 @@ Päivämäärä | Tuntia | Selite
 20.1.2015 | 6 | luokkien hahmottelua ja alustavaa ohjelmointia, testejä ei vielä tehty
 22.1.2015 | 5 | luokkien toiminnallisuuden ohjelmointia, ohjelman virheiden korjailua,  muutamien yksikkötestiluokkien ja testitapausten tekeminen
 23.1.2015 | 1 | luokkien testitapausten pohtiminen, pit-raportin ajaminen ja gittiin puskeminen (raportti osoittaa, että testit vielä olemattomia)
+23.1.2015 | 1 | hätäisiä korjauksia aamulla ennen työpäivää ja lounastunnilla: luokkiin korjauksia, testiluokkien muokkaamista. Todettu, että ohjelmoijan pitää perehtyä erilaisten yksikkötestien tekemiseen lisää; ei ole osaamista tarpeeksi pelin testiluokkien luomiseen.
+
