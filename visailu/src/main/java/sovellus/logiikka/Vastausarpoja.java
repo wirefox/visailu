@@ -8,7 +8,8 @@ public class Vastausarpoja {
     public ArrayList<String> arvoVastauksetKysymykselle(ArrayList<String> listaVastauksia) {
         ArrayList<String> vastaukset = new ArrayList<String>();
 
-        //arvotaan yhdelle kysymykselle neljä väärää vastausvaihtoehtoa
+        //TODO: vastausarpojan pitää tietää ko. kysymys ja oikea vastaus,
+        //jottei se arvo oikeaa vastausta vääräksi
         for (int i = 0; vastaukset.size() < 4; i++) {
             Random arpoja = new Random();
             int vastauksenNro = arpoja.nextInt(listaVastauksia.size());
