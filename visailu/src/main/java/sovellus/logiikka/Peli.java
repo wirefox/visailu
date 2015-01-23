@@ -23,10 +23,10 @@ public class Peli {
 
     public void pelaaKierros() {
         annaKysymyssana();
-        System.out.println("Mikä on ylläolevan valtion pääkaupunki, valitse vaihtoehdoista:");
+        System.out.println("Mikä on ylläolevan valtion pääkaupunki, valitse vaihtoehdoista:"); //GUI
         annaVastausvaihtoehdot();
 
-        System.out.print("Kirjoita arvauksesi: ");
+        System.out.print("Kirjoita arvauksesi: "); //GUI
         String vastaus = this.lukija.nextLine();
 
         vastauksenArviointi(vastaus);
@@ -70,11 +70,11 @@ public class Peli {
     private void vastauksenArviointi(String vastaus) {
         //tässä metodissa tarkastetaan pelaajan vastaus
         if (vastaus.toUpperCase().equals(this.kysymys.getOikeaVastaus().toUpperCase())) {
-            System.out.println("Hienoa, oikea vastaus!");
+            System.out.println("Hienoa, oikea vastaus!"); //GUI
             this.pisteitaPelaajalla++;
         } else {
-            System.out.println("Nyt meni väärin");
-            System.out.println("Oikea vastaus olisi ollut " + this.kysymys.getOikeaVastaus());
+            System.out.println("Nyt meni väärin"); //GUI
+            System.out.println("Oikea vastaus olisi ollut " + this.kysymys.getOikeaVastaus()); //GUI
         }
     }
 

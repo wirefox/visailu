@@ -11,7 +11,7 @@ public class Visailukoordinaattori {
     }
 
     public void kaynnista() {
-        System.out.println("Hei, tervetuloa visailuun!");
+        System.out.println("Hei, tervetuloa visailuun!"); //GUI
         System.out.println("");
 
         Tiedostonlukija tiedostonlukija = new Tiedostonlukija();
@@ -34,15 +34,15 @@ public class Visailukoordinaattori {
 
     private void pelinLopetus() {
         if (this.pisteitaPelinLopussa == 20) {
-            System.out.println("Olet loistava, kaikki oikein!");
+            System.out.println("Olet loistava, kaikki oikein!"); //GUI
         } else if (this.pisteitaPelinLopussa > 15) {
-            System.out.println("Hieno suoritus!");
+            System.out.println("Hieno suoritus!"); //GUI
         } else if (this.pisteitaPelinLopussa > 10) {
-            System.out.println("Enemmän kuin puolet oikein!");
+            System.out.println("Enemmän kuin puolet oikein!"); //GUI
         } else if (this.pisteitaPelinLopussa == 10) {
-            System.out.println("Puolet oikein!");
+            System.out.println("Puolet oikein!"); //GUI
         } else if (this.pisteitaPelinLopussa < 10) {
-            System.out.println("Vielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)");
+            System.out.println("Vielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)"); //GUI
         }
     }
 }
