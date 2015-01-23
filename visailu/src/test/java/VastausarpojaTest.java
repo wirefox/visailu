@@ -44,6 +44,10 @@ public class VastausarpojaTest {
     }
 
     @Test
+    public void hello() {
+    }
+
+    @Test
     public void vastausarpojaArpooNeljaVaaraaVastausta() {
         ArrayList<String> vaaratVastaukset = new ArrayList<String>();
         vaaratVastaukset = this.vastausarpoja.arvoVastauksetKysymykselle(this.vastauksia);
