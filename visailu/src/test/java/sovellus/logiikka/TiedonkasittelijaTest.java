@@ -1,3 +1,4 @@
+package sovellus.logiikka;
 
 
 import org.junit.After;
@@ -7,27 +8,28 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class KysymyssarjaTest {
-    
-    public KysymyssarjaTest() {
+public class TiedonkasittelijaTest {
+
+    public TiedonkasittelijaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
 
-     @Test
-     public void hello() {}
+    @Test
+    public void hello() {
+    }
 }

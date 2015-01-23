@@ -1,3 +1,5 @@
+package sovellus.logiikka;
+
 
 import java.util.ArrayList;
 import org.junit.After;

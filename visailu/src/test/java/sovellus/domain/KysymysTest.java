@@ -1,3 +1,5 @@
+package sovellus.domain;
+
 
 import java.util.ArrayList;
 import org.junit.After;
