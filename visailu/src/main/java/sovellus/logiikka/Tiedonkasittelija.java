@@ -9,7 +9,7 @@ public class Tiedonkasittelija {
 
     private HashMap<String, String> kysymyksetJaVastaukset;
 
-    Tiedonkasittelija(HashMap<String, String> kysymyksetJaVastaukset) {
+    public Tiedonkasittelija(HashMap<String, String> kysymyksetJaVastaukset) {
         this.kysymyksetJaVastaukset = kysymyksetJaVastaukset;
     }
 
