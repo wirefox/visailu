@@ -7,6 +7,7 @@ import sovellus.domain.Kysymyssarja;
 
 public class Tiedonkasittelija {
 
+    private Kysymys kysymys;
     private HashMap<String, String> kysymyksetJaVastaukset;
 
     public Tiedonkasittelija(HashMap<String, String> kysymyksetJaVastaukset) {
@@ -16,12 +17,12 @@ public class Tiedonkasittelija {
     public Kysymyssarja muodostaKysymyssarja() {
         Kysymyssarja kysymyssarja = new Kysymyssarja();
         for (String kysymyssana : this.kysymyksetJaVastaukset.keySet()) {
-            Kysymys kysymys = new Kysymys();
-            kysymys.lisaaKysymyssana(kysymyssana);
-            kysymys.lisaaOikeaVastaus(this.kysymyksetJaVastaukset.get(kysymyssana));
-            kysymys.lisaaVaaratVastaukset(arvoVaaratVastaukset());
+            this.kysymys = new Kysymys();
+            this.kysymys.lisaaKysymyssana(kysymyssana);
+            this.kysymys.lisaaOikeaVastaus(this.kysymyksetJaVastaukset.get(kysymyssana));
+            this.kysymys.lisaaVaaratVastaukset(arvoVaaratVastaukset());
 
-            kysymyssarja.lisaaKysymys(kysymys);
+            kysymyssarja.lisaaKysymys(this.kysymys);
         }
         return kysymyssarja;
     }
@@ -32,7 +33,7 @@ public class Tiedonkasittelija {
             kaikkiVastaukset.add(vastaus);
         }
 
-        Vastausarpoja vastausarpoja = new Vastausarpoja();
+        Vastausarpoja vastausarpoja = new Vastausarpoja(this.kysymys);
         ArrayList<String> vaaratVastaukset = new ArrayList<String>();
 
         //annetaan kaikki mahdolliset vastaukset metodin parametrina Vastausarpojalle

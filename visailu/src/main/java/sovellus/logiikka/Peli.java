@@ -79,7 +79,7 @@ public class Peli {
     }
 
     private void pistetilanteenTulostus() {
-        System.out.println(this.pisteitaPelaajalla + " / " + (getKierroksenNumero()));
+        System.out.println("Pisteesi: " + this.pisteitaPelaajalla + " / " + (getKierroksenNumero()));
         System.out.println("");
     }
 }
