@@ -1,6 +1,5 @@
 package sovellus.logiikka;
 
-
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -8,12 +7,15 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import sovellus.domain.Kysymys;
 import sovellus.logiikka.Vastausarpoja;
 
 public class VastausarpojaTest {
 
     private ArrayList<String> vastauksia;
     private Vastausarpoja vastausarpoja;
+    private Kysymys kysymys;
+    private ArrayList<String> vaaratVastaukset;
 
     public VastausarpojaTest() {
     }
@@ -28,17 +30,23 @@ public class VastausarpojaTest {
 
     @Before
     public void setUp() {
+        this.kysymys = new Kysymys();
+        this.kysymys.lisaaKysymyssana("Espanja");
+        this.kysymys.lisaaOikeaVastaus("Madrid");
         this.vastauksia = new ArrayList<String>();
-        vastauksia.add("Olvi");
-        vastauksia.add("Karjala");
-        vastauksia.add("Velko");
-        vastauksia.add("Lapin Kulta");
-        vastauksia.add("375-olut");
-        vastauksia.add("A le Coq");
-        vastauksia.add("Pirkka-olut");
-        vastauksia.add("Sandels");
-        vastauksia.add("Bear Beer");
-        this.vastausarpoja = new Vastausarpoja();
+        vastauksia.add("Helsinki");
+        vastauksia.add("Tukholma");
+        vastauksia.add("Tallinna");
+        vastauksia.add("Madrid");
+        vastauksia.add("Lissabon");
+        vastauksia.add("Pariisi");
+        vastauksia.add("Berliini");
+        vastauksia.add("Praha");
+        vastauksia.add("Peking");
+        this.vastausarpoja = new Vastausarpoja(this.kysymys);
+
+        this.vaaratVastaukset = new ArrayList<String>();
+        vaaratVastaukset = this.vastausarpoja.arvoVastauksetKysymykselle(this.vastauksia);
     }
 
     @After
@@ -51,9 +59,19 @@ public class VastausarpojaTest {
 
     @Test
     public void vastausarpojaArpooNeljaVaaraaVastausta() {
-        ArrayList<String> vaaratVastaukset = new ArrayList<String>();
-        vaaratVastaukset = this.vastausarpoja.arvoVastauksetKysymykselle(this.vastauksia);
 
         assertEquals(4, vaaratVastaukset.size());
+    }
+
+    @Test
+    public void vastausarpojaEiArvoVastaukseksiOikeaaVastausta() {
+
+        Boolean onkoOikeaVastausJoukossa = false;
+
+        if (vaaratVastaukset.contains(this.kysymys.getOikeaVastaus())) {
+            onkoOikeaVastausJoukossa = true;
+        }
+
+        assertFalse(onkoOikeaVastausJoukossa);
     }
 }
