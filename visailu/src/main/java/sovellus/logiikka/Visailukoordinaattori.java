@@ -3,9 +3,11 @@ package sovellus.logiikka;
 import sovellus.domain.Kysymyssarja;
 
 public class Visailukoordinaattori {
+
     private Kysymyssarja kysymyssarja;
     private int pisteitaPelinLopussa;
-    
+    private String kysymyslause;
+
     public Visailukoordinaattori() {
         this.kysymyssarja = new Kysymyssarja();
     }
@@ -16,6 +18,7 @@ public class Visailukoordinaattori {
 
         Tiedostonlukija tiedostonlukija = new Tiedostonlukija();
         Tiedonkasittelija tiedonkasittelija = new Tiedonkasittelija(tiedostonlukija.lueTiedosto());
+        this.kysymyslause = tiedostonlukija.getKysymyslause();
         this.kysymyssarja = tiedonkasittelija.muodostaKysymyssarja();
         visaile();
         pelinLopetus();
@@ -24,7 +27,7 @@ public class Visailukoordinaattori {
     private void visaile() {
         Peli peli = new Peli(this.kysymyssarja);
         while (true) {
-            peli.pelaaKierros();
+            peli.pelaaKierros(this.kysymyslause);
             if (peli.onkoVikaKierros()) {
                 this.pisteitaPelinLopussa = peli.getPisteitaPelaajalla();
                 return;

@@ -21,8 +21,8 @@ public class Peli {
         this.lukija = new Scanner(System.in);
     }
 
-    public void pelaaKierros() {
-        System.out.println(this.kierroksenNumero + ": " + "Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:"); //GUI
+    public void pelaaKierros(String kysymyslause) {
+        System.out.println(this.kierroksenNumero + ": " + kysymyslause); //GUI
         this.kysymys = this.kysymyssarja.arvoKysymys();
         System.out.println(this.kysymys.getKysymyssana().toUpperCase()); //GUI
         System.out.println("");
@@ -65,7 +65,7 @@ public class Peli {
     }
 
     private void vastauksenArviointi(String vastaus) {
-        if (vastaus.toUpperCase().equals(this.kysymys.getOikeaVastaus().toUpperCase())) {
+        if (vastaus.toUpperCase().equals(this.kysymys.getOikeaVastaus().toUpperCase())) { //GUI
             System.out.println("Hienoa, oikea vastaus!"); //GUI
             this.pisteitaPelaajalla++;
         } else {

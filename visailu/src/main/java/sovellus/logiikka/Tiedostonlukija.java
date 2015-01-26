@@ -11,6 +11,7 @@ public class Tiedostonlukija {
 
     private Scanner lukija;
     private HashMap<String, String> kysymysJaVastaus;
+    private String kysymyslause;
 
     public Tiedostonlukija() {
         this.kysymysJaVastaus = new HashMap<String, String>();
@@ -30,6 +31,8 @@ public class Tiedostonlukija {
     }
 
     private void ositaTiedostostaLuettuTekstiJaTalleta() {
+        this.kysymyslause = lukija.nextLine();
+
         while (lukija.hasNextLine()) {
             String rivi = lukija.nextLine();
             String[] osat = rivi.split(",");
@@ -37,5 +40,9 @@ public class Tiedostonlukija {
             String osa2 = osat[1];
             this.kysymysJaVastaus.put(osa1, osa2);
         }
+    }
+
+    String getKysymyslause() {
+        return this.kysymyslause;
     }
 }
