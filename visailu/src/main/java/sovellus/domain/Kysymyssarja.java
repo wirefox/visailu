@@ -20,7 +20,7 @@ public class Kysymyssarja {
     }
 
     public Kysymys arvoKysymys() {
-        int kysymyksenNumero = this.arpoja.nextInt(this.kysymykset.size() + 1) - 1;
+        int kysymyksenNumero = this.arpoja.nextInt(this.kysymykset.size() - 1);
         while (true) {
             if (!this.arvotutKysymyksenNumerot.contains(kysymyksenNumero)) {
                 this.arvotutKysymyksenNumerot.add(kysymyksenNumero);
