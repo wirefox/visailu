@@ -22,7 +22,7 @@ public class Peli {
     }
 
     public void pelaaKierros() {
-        System.out.println("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:"); //GUI
+        System.out.println(this.kierroksenNumero + ": " + "Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:"); //GUI
         this.kysymys = this.kysymyssarja.arvoKysymys();
         System.out.println(this.kysymys.getKysymyssana().toUpperCase()); //GUI
         System.out.println("");
