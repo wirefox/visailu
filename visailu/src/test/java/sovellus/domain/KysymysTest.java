@@ -1,6 +1,5 @@
 package sovellus.domain;
 
-
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -30,7 +29,7 @@ public class KysymysTest {
         this.kysymys = new Kysymys();
         this.kysymys.lisaaOikeaVastaus("Madrid");
 
-        this.kysymys.lisaaKysymyssana("Mikä on Espanjan pääkaupunki?");
+        this.kysymys.lisaaKysymyssana("Espanja");
 
         ArrayList<String> vaaratVastaukset = new ArrayList();
         vaaratVastaukset.add("Helsinki");
@@ -48,6 +47,11 @@ public class KysymysTest {
     @Test
     public void oikeaVastausOnOikein() {
         assertEquals("Madrid", this.kysymys.getOikeaVastaus());
+    }
+
+    @Test
+    public void kysymyssanaOnOikein() {
+        assertEquals("Espanja", this.kysymys.getKysymyssana());
     }
 
     @Test
