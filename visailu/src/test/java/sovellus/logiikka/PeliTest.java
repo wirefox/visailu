@@ -1,19 +1,21 @@
 package sovellus.logiikka;
 
-
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 import sovellus.logiikka.Peli;
 import sovellus.logiikka.Tiedostonlukija;
 
 public class PeliTest {
 
-    private Peli peli;
+    private Peli peli1;
+    private Peli peli2;
 
     public PeliTest() {
     }
@@ -28,8 +30,22 @@ public class PeliTest {
 
     @Before
     public void setUp() {
+        Kysymys kysymys1 = new Kysymys();
+
+        kysymys1.lisaaOikeaVastaus("Madrid");
+        kysymys1.lisaaKysymyssana("Espanja");
+
+        ArrayList<String> vaaratVastaukset = new ArrayList();
+        vaaratVastaukset.add("Helsinki");
+        vaaratVastaukset.add("Tukholma");
+        vaaratVastaukset.add("Berliini");
+        vaaratVastaukset.add("Moskova");
+        kysymys1.lisaaVaaratVastaukset(vaaratVastaukset);
+
         Kysymyssarja kysymyssarja = new Kysymyssarja();
-        this.peli = new Peli(kysymyssarja);
+        kysymyssarja.lisaaKysymys(kysymys1);
+        this.peli1 = new Peli(kysymyssarja);
+        this.peli2 = new Peli(kysymyssarja);
     }
 
     @After
@@ -37,34 +53,26 @@ public class PeliTest {
     }
 
     @Test
-    public void hello() {}
-    
-    @Test
     public void pelinAlussaPelaajallaEiOlePisteita() {
-        assertEquals(0, this.peli.getPisteitaPelaajalla());
+        assertEquals(0, this.peli1.getPisteitaPelaajalla());
     }
 
     @Test
     public void pelinAlussaEiOleViimeinenKierros() {
-        assertEquals(false, this.peli.onkoVikaKierros());
+        assertFalse(this.peli1.onkoVikaKierros());
     }
 
     @Test
-    public void kahdeskymmenesKierrosOnViimeinenKierros() {
-// mitenköhän tätä voisi testata...ei ainakaan näin...
-//        for (int i = 0; i < 20; i++) {
-//            this.peli.pelaaKierros();
-//        }
-//        assertEquals(true, this.peli.onkoVikaKierros());
+    public void pelinAlussaOnEnsimmäinenKierros() {
+        assertEquals(1, this.peli1.getKierroksenNumero());
     }
 
     public void pisteTilanteenTulostusKunEnsimmainenKierrosTakanaJaPelaajaArvannutVaarin() {
-        // ..ja entä miten tätä pystyisi testaamaan...
-        //     assertEquals("0 / 1", this.peli.getPisteitaPelaajalla() + " / " + this.peli.getKierroksenNumero());       
+        //???
     }
 
     public void pelaajanVastauksenArviointiKunVastasiOikein() {
-// miten tätä pystyisi testaamaan...tarvitsisi oikean syötteen..
-//        assertEquals("Hienoa, oikea vastaus!", this.peli.vastauksenArviointi(String vastausTahan));
+        this.peli2.pelaaKierros("Mikä on seuraavan valtion pääkaupunki? ");
+        //???
     }
 }
