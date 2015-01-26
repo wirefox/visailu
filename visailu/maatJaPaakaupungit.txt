@@ -1,3 +1,4 @@
+Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: 
 Suomi,Helsinki
 Ruotsi,Tukholma                   
 Norja,Oslo
