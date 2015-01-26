@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Kysymys {
 
-    private Kysymyssarja kysymyssarja;
     private String kysymyssana;
     private String oikeaVastaus;
     private ArrayList<String> vaaratVastausvaihtoehdot;

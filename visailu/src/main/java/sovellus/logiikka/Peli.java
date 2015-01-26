@@ -22,8 +22,11 @@ public class Peli {
     }
 
     public void pelaaKierros() {
-        annaKysymyssana();
-        System.out.println("Mikä on ylläolevan valtion pääkaupunki, valitse vaihtoehdoista:"); //GUI
+        System.out.println("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:"); //GUI
+        this.kysymys = this.kysymyssarja.arvoKysymys();
+        System.out.println(this.kysymys.getKysymyssana().toUpperCase()); //GUI
+        System.out.println("");
+
         annaVastausvaihtoehdot();
 
         System.out.print("Kirjoita arvauksesi: "); //GUI
@@ -51,13 +54,7 @@ public class Peli {
         return this.pisteitaPelaajalla;
     }
 
-    private void annaKysymyssana() {
-        this.kysymys = this.kysymyssarja.getKysymys(getKierroksenNumero() - 1);
-        System.out.println(this.kysymys.getKysymyssana().toUpperCase());
-    }
-
     private void annaVastausvaihtoehdot() {
-        System.out.println("");
         ArrayList<String> vastausvaihtoehdot = this.kysymys.getVaaratVastaukset();
         vastausvaihtoehdot.add(this.kysymys.getOikeaVastaus());
         Collections.shuffle(vastausvaihtoehdot);
@@ -68,7 +65,6 @@ public class Peli {
     }
 
     private void vastauksenArviointi(String vastaus) {
-        //tässä metodissa tarkastetaan pelaajan vastaus
         if (vastaus.toUpperCase().equals(this.kysymys.getOikeaVastaus().toUpperCase())) {
             System.out.println("Hienoa, oikea vastaus!"); //GUI
             this.pisteitaPelaajalla++;
@@ -79,6 +75,7 @@ public class Peli {
     }
 
     private void pistetilanteenTulostus() {
+        System.out.println("");
         System.out.println("Pisteesi: " + this.pisteitaPelaajalla + " / " + (getKierroksenNumero()));
         System.out.println("");
     }
