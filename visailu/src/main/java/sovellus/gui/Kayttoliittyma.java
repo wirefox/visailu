@@ -21,43 +21,53 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Visailu");
-        frame.setPreferredSize(new Dimension(200, 100));
+        frame.setPreferredSize(new Dimension(300, 300));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        luoKomponentitAloitusnakymaan(frame.getContentPane());
+        luoKomponentit(frame.getContentPane());
 
         frame.pack();
         frame.setVisible(true);
     }
 
-    private void luoKomponentitAloitusnakymaan(Container container) {
-        JLabel teksti = new JLabel("Moikka! Tervetuloa visailuun!");
-        container.add(teksti);
-
-        JButton nappi = new JButton("Aloita peli");
-        nappi.addActionListener(new Tapahtumankuuntelija());
-        container.add(nappi);
-
-        //kun nappia painetaan, päivittyy ikkuna pelinäkymän mukaiseksi (luoKomponentitPeliin),
-        // miten tämä tapahtuu?? run-metodissa, tapahtumankuuntelijan kautta??
-        //?  SwingUtilities.updateComponentTreeUI(frame);
-        //? frame.invalidate();
-        //? frame.validate();
-        //? frame.repaint();
-    }
-
-    private void luoKomponentitPeliin(Container container) {
+//    private void luoKomponentitAloitusnakymaan(Container container) {
+//        JLabel teksti = new JLabel("Moikka! Tervetuloa visailuun!");
+//        container.add(teksti);
+//
+//        JButton nappi = new JButton("Aloita peli");
+//        nappi.addActionListener(new Tapahtumankuuntelija());
+//        container.add(nappi);
+//
+//        //kun nappia painetaan, päivittyy ikkuna pelinäkymän mukaiseksi (luoKomponentitPeliin),
+//        // miten tämä tapahtuu?? run-metodissa, tapahtumankuuntelijan kautta??
+//        SwingUtilities.updateComponentTreeUI(frame);
+//        frame.invalidate();
+//        frame.validate();
+//        frame.repaint();
+//    }
+    
+    private void luoKomponentit(Container container) {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
 
         container.add(new JLabel("Tähän tulisi kysymyslause"));
+        container.add(new JLabel(" "));
+        container.add(new JLabel("valitse allaolevista vaihtoehdoista"));
+        container.add(new JLabel(" "));
 
         JRadioButton vaihtoehto1 = new JRadioButton("Vaihtoehto 1");
         JRadioButton vaihtoehto2 = new JRadioButton("Vaihtoehto 2");
         JRadioButton vaihtoehto3 = new JRadioButton("Vaihtoehto 3");
         JRadioButton vaihtoehto4 = new JRadioButton("Vaihtoehto 4");
         JRadioButton vaihtoehto5 = new JRadioButton("Vaihtoehto 5");
+
+        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija();
+        vaihtoehto1.addActionListener(tapahtumanKuuntelija);
+        vaihtoehto2.addActionListener(tapahtumanKuuntelija);
+        vaihtoehto3.addActionListener(tapahtumanKuuntelija);
+        vaihtoehto4.addActionListener(tapahtumanKuuntelija);
+        vaihtoehto5.addActionListener(tapahtumanKuuntelija);
 
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(vaihtoehto1);
