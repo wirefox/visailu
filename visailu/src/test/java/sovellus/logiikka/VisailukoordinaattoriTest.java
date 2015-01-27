@@ -1,6 +1,5 @@
 package sovellus.logiikka;
 
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -27,9 +26,5 @@ public class VisailukoordinaattoriTest {
 
     @After
     public void tearDown() {
-    }
-
-    @Test
-    public void hello() {
     }
 }
