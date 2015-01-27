@@ -18,8 +18,8 @@ Visailun pelaajat
 
 - sovellus.domain:
   - Main (käynnistää visailukoordinaattorin)
-  - Kysymys
-  - Kysymyssarja
+  - Kysymys (yksittäiset kysymykset, joihin tallennettuna kysymyssana, oikea vastaus sekä väärät vastaukset)
+  - Kysymyssarja (kaikki kysymykset tallennettuna; arpoo kierroksen kysymyksen kysymyslistasta)
 
 - sovellus.gui:
   - Kayttoliittyma (ei vielä aloitettu toteuttamaan)
@@ -27,7 +27,7 @@ Visailun pelaajat
 
 - sovellus.logiikka:
   - Visailukoordinaattori (koordinoi visailua, kokonaisuuden hallinta, GUI:in myöhemmin siirrettäviä osia)
-  - Tiedostonlukija (lukee tiedoston sisään HashMapiin)
-  - Tiedonkasittelija (käsittelee luetun tiedon ja muodostaa siitä kysymyksiä ja kysymyssarjoja)
-  - Vastausarpoja (arpoo väärät vastausvaihtoehdot)
+  - Tiedostonlukija (lukee tiedoston sisään HashMapiin, tiedoston ekalta riviltä myös visan kysymyslauseen)
+  - Tiedonkasittelija (käsittelee luetun tiedon ja muodostaa siitä kysymyksiä, jotka talletetaan kysymyssarjaan)
+  - Vastausarpoja (arpoo väärät vastausvaihtoehdot jokaiselle pelin kierrokselle)
   - Peli (pyörittää pelin kierroksen ja pitää huolta kierros- ja pistetilanteesta, GUI:in myöhemmin siirrettäviä osia)
