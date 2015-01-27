@@ -1,31 +1,32 @@
 package sovellus.logiikka;
 
 import sovellus.domain.Kysymyssarja;
+import sovellus.gui.Tekstikayttoliittyma;
 
 public class Visailukoordinaattori {
-
+    
     private Kysymyssarja kysymyssarja;
     private int pisteitaPelinLopussa;
     private String kysymyslause;
-
+    private Tekstikayttoliittyma tekstikayttoliittyma;
+    
     public Visailukoordinaattori() {
         this.kysymyssarja = new Kysymyssarja();
     }
-
-    public void kaynnista() {
-        System.out.println("Hei, tervetuloa visailuun!"); //GUI
-        System.out.println("");
-
+    
+    public void kaynnista(Tekstikayttoliittyma tekstikayttoliittyma) {
+        this.tekstikayttoliittyma = tekstikayttoliittyma;
         Tiedostonlukija tiedostonlukija = new Tiedostonlukija();
         Tiedonkasittelija tiedonkasittelija = new Tiedonkasittelija(tiedostonlukija.lueTiedosto());
         this.kysymyslause = tiedostonlukija.getKysymyslause();
         this.kysymyssarja = tiedonkasittelija.muodostaKysymyssarja();
         visaile();
-        pelinLopetus();
+        this.tekstikayttoliittyma.tulosta(pelinLopetus());
     }
-
+    
     private void visaile() {
-        Peli peli = new Peli(this.kysymyssarja);
+        Peli peli = new Peli(this.kysymyssarja, this.tekstikayttoliittyma);
+        this.tekstikayttoliittyma.tulosta("Hei, tervetuloa visailuun!\n");
         while (true) {
             peli.pelaaKierros(this.kysymyslause);
             if (peli.onkoVikaKierros()) {
@@ -34,18 +35,19 @@ public class Visailukoordinaattori {
             }
         }
     }
-
-    private void pelinLopetus() {
+    
+    private String pelinLopetus() {
         if (this.pisteitaPelinLopussa == 20) {
-            System.out.println("Olet loistava, kaikki oikein!"); //GUI
+            return "\nOlet loistava, kaikki oikein!"; 
         } else if (this.pisteitaPelinLopussa > 15) {
-            System.out.println("Hieno suoritus!"); //GUI
+            return "\nHieno suoritus!"; //GUI
         } else if (this.pisteitaPelinLopussa > 10) {
-            System.out.println("Enemmän kuin puolet oikein!"); //GUI
+            return "\nEnemmän kuin puolet oikein!"; 
         } else if (this.pisteitaPelinLopussa == 10) {
-            System.out.println("Puolet oikein!"); //GUI
+            return "\nPuolet oikein!"; 
         } else if (this.pisteitaPelinLopussa < 10) {
-            System.out.println("Vielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)"); //GUI
+            return "\nVielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)"; 
         }
+        return null;
     }
 }

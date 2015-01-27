@@ -11,11 +11,10 @@ import javax.swing.JRadioButton;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
-public class Kayttoliittyma implements Runnable {
-
+public class GraafinenKayttoliittyma implements Runnable {
     private JFrame frame;
 
-    public Kayttoliittyma() {
+    public GraafinenKayttoliittyma() {
     }
 
     @Override
