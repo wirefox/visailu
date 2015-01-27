@@ -19,6 +19,7 @@ public class Kysymyssarja {
         this.kysymykset.add(kysymys);
     }
 
+// pitäisikö kysymysten arpominen olla erillisessä Kysymysarpoja-luokassa??!?    
     public Kysymys arvoKysymys() {
         int kysymyksenNumero = this.arpoja.nextInt(this.kysymykset.size() - 1);
         while (true) {
