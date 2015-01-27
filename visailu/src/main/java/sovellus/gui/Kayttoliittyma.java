@@ -62,7 +62,7 @@ public class Kayttoliittyma implements Runnable {
         JRadioButton vaihtoehto4 = new JRadioButton("Vaihtoehto 4");
         JRadioButton vaihtoehto5 = new JRadioButton("Vaihtoehto 5");
 
-        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija();
+        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(vaihtoehto1, vaihtoehto2, vaihtoehto3, vaihtoehto4, vaihtoehto5);
         vaihtoehto1.addActionListener(tapahtumanKuuntelija);
         vaihtoehto2.addActionListener(tapahtumanKuuntelija);
         vaihtoehto3.addActionListener(tapahtumanKuuntelija);
