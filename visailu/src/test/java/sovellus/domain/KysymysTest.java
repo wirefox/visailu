@@ -11,7 +11,8 @@ import sovellus.domain.Kysymys;
 
 public class KysymysTest {
 
-    private Kysymys kysymys;
+    private Kysymys kysymys1;
+    private Kysymys kysymys2;
 
     public KysymysTest() {
     }
@@ -26,10 +27,11 @@ public class KysymysTest {
 
     @Before
     public void setUp() {
-        this.kysymys = new Kysymys();
-        this.kysymys.lisaaOikeaVastaus("Madrid");
+        this.kysymys2 = new Kysymys();
+        this.kysymys1 = new Kysymys();
+        this.kysymys1.lisaaOikeaVastaus("Madrid");
 
-        this.kysymys.lisaaKysymyssana("Espanja");
+        this.kysymys1.lisaaKysymyssana("Espanja");
 
         ArrayList<String> vaaratVastaukset = new ArrayList();
         vaaratVastaukset.add("Helsinki");
@@ -37,21 +39,51 @@ public class KysymysTest {
         vaaratVastaukset.add("Berliini");
         vaaratVastaukset.add("Moskova");
 
-        this.kysymys.lisaaVaaratVastaukset(vaaratVastaukset);
+        this.kysymys1.lisaaVaaratVastaukset(vaaratVastaukset);
     }
 
     @After
     public void tearDown() {
     }
+    
+    @Test
+    public void lisattyKysymyssanaOnOikein() {
+        String maa = "Espanja";
+        this.kysymys2.lisaaKysymyssana(maa);
+        assertEquals("Espanja", this.kysymys2.getKysymyssana());
+    }
+
+    @Test
+    public void lisattyOikeaVastausOnOikein() {
+        String paakaupunki = "Madrid";
+        this.kysymys2.lisaaOikeaVastaus(paakaupunki);
+        assertEquals("Madrid", this.kysymys2.getOikeaVastaus());
+    }
+
+    @Test
+    public void lisatytVaaratVastauksetOvatJuuriLisätyt() {
+        String vaara1 = "Helsinki";
+        String vaara2 = "Tukholma";
+        String vaara3 = "Berliini";
+        String vaara4 = "Tokio";
+        ArrayList<String> vaarat = new ArrayList<String>();
+        vaarat.add(vaara1);
+        vaarat.add(vaara2);
+        vaarat.add(vaara3);
+        vaarat.add(vaara4);
+        this.kysymys2.lisaaVaaratVastaukset(vaarat);
+
+        assertEquals(vaarat, this.kysymys2.getVaaratVastaukset());
+    }
 
     @Test
     public void oikeaVastausOnOikein() {
-        assertEquals("Madrid", this.kysymys.getOikeaVastaus());
+        assertEquals("Madrid", this.kysymys1.getOikeaVastaus());
     }
 
     @Test
     public void kysymyssanaOnOikein() {
-        assertEquals("Espanja", this.kysymys.getKysymyssana());
+        assertEquals("Espanja", this.kysymys1.getKysymyssana());
     }
 
     @Test

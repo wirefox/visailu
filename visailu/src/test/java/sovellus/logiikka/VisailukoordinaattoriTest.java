@@ -27,4 +27,6 @@ public class VisailukoordinaattoriTest {
     @After
     public void tearDown() {
     }
+    
+    //kaynnista-metodia pitäisi testata, se on luokan ainoa public-metodi.
 }

@@ -1,6 +1,7 @@
 package sovellus.domain;
 
 import java.util.ArrayList;
+import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -10,10 +11,16 @@ import static org.junit.Assert.*;
 
 public class KysymyssarjaTest {
 
-    private ArrayList<Kysymys> kysymykset;
+    private Kysymys kysymys;
+    private Kysymyssarja kysymyssarja;
+    private Random arpoja;
+    private ArrayList<Integer> arvotutKysymyksenNumerot;
 
     public KysymyssarjaTest() {
-        this.kysymykset = new ArrayList<Kysymys>();
+        this.kysymyssarja = new Kysymyssarja();
+        this.arpoja = new Random();
+        this.arvotutKysymyksenNumerot = new ArrayList<Integer>();
+        this.kysymys = new Kysymys();
     }
 
     @BeforeClass
@@ -26,9 +33,8 @@ public class KysymyssarjaTest {
 
     @Before
     public void setUp() {
-        Kysymys kysymys = new Kysymys();
-        kysymys.lisaaKysymyssana("Espanja");
-        kysymys.lisaaOikeaVastaus("Madrid");
+        this.kysymys.lisaaKysymyssana("Espanja");
+        this.kysymys.lisaaOikeaVastaus("Madrid");
 
         ArrayList<String> vaaratVastaukset = new ArrayList();
         vaaratVastaukset.add("Helsinki");
@@ -38,7 +44,7 @@ public class KysymyssarjaTest {
 
         kysymys.lisaaVaaratVastaukset(vaaratVastaukset);
 
-        this.kysymykset.add(kysymys);
+        this.kysymyssarja.lisaaKysymys(kysymys);
     }
 
     @After
@@ -47,11 +53,11 @@ public class KysymyssarjaTest {
 
     @Test
     public void kysymyksenLisaamisenJalkeenListanKokoOnYksi() {
-        assertEquals(1, this.kysymykset.size());
+        assertEquals(1, this.kysymyssarja.getKysymystenLkm());
     }
-    
+
     @Test
-    public void kysymyssarjastaEiArvotaListanEnsimmäistä() {
-        
+    public void kysymyssarjastaArpominenToimiiKunListassaYksiKysymys() {
+        assertEquals(this.kysymys, this.kysymyssarja.arvoKysymys());
     }
 }
