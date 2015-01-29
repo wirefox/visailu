@@ -1,52 +1,56 @@
 package sovellus.logiikka;
 
+import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 import sovellus.gui.Tekstikayttoliittyma;
 
 public class Visailukoordinaattori {
-    
+
     private Kysymyssarja kysymyssarja;
-    private int pisteitaPelinLopussa;
-    private String kysymyslause;
-    private Tekstikayttoliittyma tekstikayttoliittyma;
+    private Peli peli;
+    private Tiedonkasittelija tiedonkasittelija;
+    private Tiedostonlukija tiedostonlukija;
     
-    public Visailukoordinaattori() {
-        this.kysymyssarja = new Kysymyssarja();
+    public void kaynnista() {
+        lueTiedosto();
+        muodostaKysymyssarja();
+        Tekstikayttoliittyma tekstikayttoliittyma = new Tekstikayttoliittyma();
+        visaile(tekstikayttoliittyma);
+        tekstikayttoliittyma.tulostaNaytolle(pelinLopetusteksti());
     }
-    
-    public void kaynnista(Tekstikayttoliittyma tekstikayttoliittyma) {
-        this.tekstikayttoliittyma = tekstikayttoliittyma;
-        Tiedostonlukija tiedostonlukija = new Tiedostonlukija();
-        Tiedonkasittelija tiedonkasittelija = new Tiedonkasittelija(tiedostonlukija.lueTiedosto());
-        this.kysymyslause = tiedostonlukija.getKysymyslause();
-        this.kysymyssarja = tiedonkasittelija.muodostaKysymyssarja();
-        visaile();
-        this.tekstikayttoliittyma.tulosta(pelinLopetus());
+
+    private void lueTiedosto() {
+        this.tiedostonlukija = new Tiedostonlukija();
+        this.tiedonkasittelija = new Tiedonkasittelija(this.tiedostonlukija.lueTiedosto("maatJaPaakaupungit.txt"));
     }
-    
-    private void visaile() {
-        Peli peli = new Peli(this.kysymyssarja, this.tekstikayttoliittyma);
-        this.tekstikayttoliittyma.tulosta("Hei, tervetuloa visailuun!\n");
+
+    private void muodostaKysymyssarja() {
+        this.kysymyssarja = this.tiedonkasittelija.muodostaKysymyssarja();
+    }
+
+    private void visaile(Tekstikayttoliittyma tekstikayttoliittyma) {
+        this.peli = new Peli(tekstikayttoliittyma, this.tiedostonlukija.getKysymyslause());
+        tekstikayttoliittyma.tulostaNaytolle("Hei, tervetuloa visailuun!\n");
         while (true) {
-            peli.pelaaKierros(this.kysymyslause);
+            Kysymys kysymys = this.kysymyssarja.arvoKysymys();
+            peli.pelaaKierros(kysymys);
             if (peli.onkoVikaKierros()) {
-                this.pisteitaPelinLopussa = peli.getPisteitaPelaajalla();
                 return;
             }
         }
     }
-    
-    private String pelinLopetus() {
-        if (this.pisteitaPelinLopussa == 20) {
-            return "\nOlet loistava, kaikki oikein!"; 
-        } else if (this.pisteitaPelinLopussa > 15) {
+
+    private String pelinLopetusteksti() {
+        if (this.peli.getPisteitaPelaajalla() == 20) {
+            return "\nOlet loistava, kaikki oikein!";
+        } else if (this.peli.getPisteitaPelaajalla() > 15) {
             return "\nHieno suoritus!"; //GUI
-        } else if (this.pisteitaPelinLopussa > 10) {
-            return "\nEnemmän kuin puolet oikein!"; 
-        } else if (this.pisteitaPelinLopussa == 10) {
-            return "\nPuolet oikein!"; 
-        } else if (this.pisteitaPelinLopussa < 10) {
-            return "\nVielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)"; 
+        } else if (this.peli.getPisteitaPelaajalla() > 10) {
+            return "\nEnemmän kuin puolet oikein!";
+        } else if (this.peli.getPisteitaPelaajalla() == 10) {
+            return "\nPuolet oikein!";
+        } else if (this.peli.getPisteitaPelaajalla() < 10) {
+            return "\nVielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)";
         }
         return null;
     }

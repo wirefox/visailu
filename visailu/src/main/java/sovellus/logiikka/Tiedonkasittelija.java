@@ -35,7 +35,6 @@ public class Tiedonkasittelija {
 
         Vastausarpoja vastausarpoja = new Vastausarpoja(this.kysymys);
         ArrayList<String> vaaratVastaukset = new ArrayList<String>();
-
         vaaratVastaukset = vastausarpoja.arvoVastauksetKysymykselle(kaikkiVastaukset);
         return vaaratVastaukset;
     }

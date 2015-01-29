@@ -3,38 +3,31 @@ package sovellus.logiikka;
 import java.util.ArrayList;
 import java.util.Collections;
 import sovellus.domain.Kysymys;
-import sovellus.domain.Kysymyssarja;
 import sovellus.gui.Tekstikayttoliittyma;
 
 public class Peli {
 
-    private Kysymyssarja kysymyssarja;
-    private Kysymys kysymys;
+    private Tekstikayttoliittyma tekstikayttoliittyma;
     private String kysymyslause;
+    private Kysymys kysymys;
     private int pisteitaPelaajalla;
     private int kierroksenNumero;
-    private Tekstikayttoliittyma tekstikayttoliittyma;
 
-    public Peli(Kysymyssarja kysymyssarja, Tekstikayttoliittyma tekstikayttoliittyma) {
-        this.kysymyssarja = kysymyssarja;
+    public Peli(Tekstikayttoliittyma tekstikayttoliittyma, String kysymyslause) {
         this.tekstikayttoliittyma = tekstikayttoliittyma;
+        this.kysymyslause = kysymyslause;
         this.pisteitaPelaajalla = 0;
-        this.kierroksenNumero = 1;
+        this.kierroksenNumero = 0;
     }
 
-    public void pelaaKierros(String kysymyslause) {
-        this.kysymyslause = kysymyslause;
-        this.tekstikayttoliittyma.tulosta(annaKierroksenKysymyslause());
-        this.kysymys = this.kysymyssarja.arvoKysymys();
-        this.tekstikayttoliittyma.tulosta(annaKysymyssana());
-
-        this.tekstikayttoliittyma.tulostaVastausvaihtoehdot(annaVastausvaihtoehdot());
-
+    public void pelaaKierros(Kysymys kysymys) {
+        this.kysymys = kysymys;
+        this.tekstikayttoliittyma.tulostaNaytolle(annaKierroksenKysymyslause());
+        this.tekstikayttoliittyma.tulostaNaytolle(annaKysymyssana());
+        this.tekstikayttoliittyma.tulostaNaytolle(annaVastausvaihtoehdot());
         String vastaus = this.tekstikayttoliittyma.otaVastaus("\nKirjoita arvauksesi: ");
-        this.tekstikayttoliittyma.tulosta(vastauksenArviointi(vastaus));
-
-        this.tekstikayttoliittyma.tulosta(pistetilanteenTulostus());
-        this.kierroksenNumero++;
+        this.tekstikayttoliittyma.tulostaNaytolle(vastauksenArviointi(vastaus));
+        this.tekstikayttoliittyma.tulostaNaytolle(pistetilanteenTulostus());
     }
 
     public boolean onkoVikaKierros() {
@@ -53,14 +46,14 @@ public class Peli {
         return this.pisteitaPelaajalla;
     }
 
-    private ArrayList<String> annaVastausvaihtoehdot() {
+    public ArrayList<String> annaVastausvaihtoehdot() {
         ArrayList<String> vastausvaihtoehdot = this.kysymys.getVaaratVastaukset();
         vastausvaihtoehdot.add(this.kysymys.getOikeaVastaus());
         Collections.shuffle(vastausvaihtoehdot);
         return vastausvaihtoehdot;
     }
 
-    private String vastauksenArviointi(String vastaus) {
+    public String vastauksenArviointi(String vastaus) {
         if (vastaus.toUpperCase().equals(this.kysymys.getOikeaVastaus().toUpperCase())) {
             this.pisteitaPelaajalla++;
             return "Hienoa, oikea vastaus!";
@@ -69,15 +62,16 @@ public class Peli {
         }
     }
 
-    private String pistetilanteenTulostus() {
+    public String pistetilanteenTulostus() {
         return "\nPisteesi: " + this.pisteitaPelaajalla + " / " + getKierroksenNumero() + "\n";
     }
 
-    private String annaKierroksenKysymyslause() {
+    public String annaKierroksenKysymyslause() {
+        this.kierroksenNumero++;
         return this.kierroksenNumero + ": " + this.kysymyslause;
     }
 
-    private String annaKysymyssana() {
+    public String annaKysymyssana() {
         return this.kysymys.getKysymyssana().toUpperCase();
     }
 }

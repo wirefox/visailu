@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
@@ -51,7 +52,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         container.setLayout(layout);
 
         container.add(new JLabel("Tähän tulisi kysymyslause"));
-        container.add(new JLabel(" "));
+        container.add(new JLabel("Ja tähän kysymyssana"));
         container.add(new JLabel("valitse allaolevista vaihtoehdoista"));
         container.add(new JLabel(" "));
 
@@ -80,6 +81,11 @@ public class GraafinenKayttoliittyma implements Runnable {
         container.add(vaihtoehto3);
         container.add(vaihtoehto4);
         container.add(vaihtoehto5);
+        
+        JTextArea tuloksenIlmoitus = new JTextArea("Tähän tulee teksti, onko vastaus oikein vai väärin");
+        JTextArea pistetilanneTeksti = new JTextArea("Tähän tulee pistetilanne, Pisteesi xx/xx");
+        container.add(tuloksenIlmoitus);
+        container.add(pistetilanneTeksti);
     }
 
     public JFrame getFrame() {

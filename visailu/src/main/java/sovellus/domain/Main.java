@@ -10,7 +10,6 @@ public class Main {
     public static void main(String[] args) {
 //        SwingUtilities.invokeLater(new GraafinenKayttoliittyma());
         Visailukoordinaattori visailukoordinaattori = new Visailukoordinaattori();
-        Tekstikayttoliittyma tekstikayttoliittyma = new Tekstikayttoliittyma();
-        visailukoordinaattori.kaynnista(tekstikayttoliittyma);
+        visailukoordinaattori.kaynnista();
     }
 }

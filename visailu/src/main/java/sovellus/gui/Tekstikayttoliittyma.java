@@ -12,15 +12,11 @@ public class Tekstikayttoliittyma {
         this.lukija = new Scanner(System.in);
     }
 
-    public void aloitaVisailu() {
-        System.out.println("Hei, tervetuloa visailuun!\n");
-    }
-
-    public void tulosta(String teksti) {
+    public void tulostaNaytolle(String teksti) {
         System.out.println(teksti);
     }
 
-    public void tulostaVastausvaihtoehdot(ArrayList<String> vastausvaihtoehdot) {
+    public void tulostaNaytolle(ArrayList<String> vastausvaihtoehdot) {
         System.out.println("");
         for (String paakaupunki : vastausvaihtoehdot) {
             System.out.println(paakaupunki);

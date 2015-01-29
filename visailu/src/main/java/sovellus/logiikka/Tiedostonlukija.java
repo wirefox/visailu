@@ -17,8 +17,8 @@ public class Tiedostonlukija {
         this.kysymysJaVastaus = new HashMap<String, String>();
     }
 
-    public HashMap<String, String> lueTiedosto() {
-        File tiedosto = new File("maatJaPaakaupungit.txt");
+    public HashMap<String, String> lueTiedosto(String tiedostonnimi) {
+        File tiedosto = new File(tiedostonnimi);
 
         try {
             this.lukija = new Scanner(tiedosto);
@@ -42,7 +42,7 @@ public class Tiedostonlukija {
         }
     }
 
-    String getKysymyslause() {
+    public String getKysymyslause() {
         return this.kysymyslause;
     }
 }
