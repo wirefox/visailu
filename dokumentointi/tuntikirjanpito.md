@@ -14,3 +14,6 @@ Päivämäärä | Tuntia | Selite
 23.1.2015 | 1 | hätäisiä korjauksia aamulla ennen työpäivää ja lounastunnilla: luokkiin korjauksia, testiluokkien muokkaamista. Todettu, että ohjelmoijan pitää perehtyä erilaisten yksikkötestien tekemiseen lisää; ei ole osaamista tarpeeksi pelin testiluokkien luomiseen.
 25.1.2015 | 4 | korjattu toiminnallisuuksia, lisätty toiminallisuutta kysymyssarja-luokalle, tehty testejä, aloitettu hahmottelemaan käyttöliittymäluokkia
 27.1.2015 | 6 | opeteltu tekemään testejä, lisätty testejä, korjattu virheitä/selkeytetty koodia, eriytettu tulostaminen tekstikäyttöliittymään, päivitetty luokkakaaviota
+31.1.2015 | 1 | koodikatselmointi 1, projektin avaaminen koneelle ja alustava ihmettely
+1.2.2015  | 1 | koodikatselmointi 1, koodikatselmoinnin ohjeisiin perehtyminen, toisen tekemän projektin dokumentaatioon ja projektin tilaan perehtyminen ja katselmoinnin tekeminen sekä issue gittiin
+
