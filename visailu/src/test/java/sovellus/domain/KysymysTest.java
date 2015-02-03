@@ -27,7 +27,6 @@ public class KysymysTest {
 
     @Before
     public void setUp() {
-        this.kysymys2 = new Kysymys();
         this.kysymys1 = new Kysymys();
         this.kysymys1.lisaaOikeaVastaus("Madrid");
 
@@ -40,12 +39,39 @@ public class KysymysTest {
         vaaratVastaukset.add("Moskova");
 
         this.kysymys1.lisaaVaaratVastaukset(vaaratVastaukset);
+
+        this.kysymys2 = new Kysymys();
     }
 
     @After
     public void tearDown() {
     }
-    
+
+    @Test
+    public void oikeaVastausOnOikein() {
+        assertEquals("Madrid", this.kysymys1.getOikeaVastaus());
+    }
+
+    @Test
+    public void kysymyssanaOnOikein() {
+        assertEquals("Espanja", this.kysymys1.getKysymyssana());
+    }
+
+    @Test
+    public void vaarienVastaustenMaaraOnNelja() {
+        Kysymys k = new Kysymys();
+
+        ArrayList<String> vaaratVastaukset = new ArrayList();
+        vaaratVastaukset.add("Helsinki");
+        vaaratVastaukset.add("Tukholma");
+        vaaratVastaukset.add("Berliini");
+        vaaratVastaukset.add("Moskova");
+
+        k.lisaaVaaratVastaukset(vaaratVastaukset);
+
+        assertEquals(4, k.getVaaratVastaukset().size());
+    }
+
     @Test
     public void lisattyKysymyssanaOnOikein() {
         String maa = "Espanja";
@@ -74,30 +100,5 @@ public class KysymysTest {
         this.kysymys2.lisaaVaaratVastaukset(vaarat);
 
         assertEquals(vaarat, this.kysymys2.getVaaratVastaukset());
-    }
-
-    @Test
-    public void oikeaVastausOnOikein() {
-        assertEquals("Madrid", this.kysymys1.getOikeaVastaus());
-    }
-
-    @Test
-    public void kysymyssanaOnOikein() {
-        assertEquals("Espanja", this.kysymys1.getKysymyssana());
-    }
-
-    @Test
-    public void vaarienVastaustenMaaraOnNelja() {
-        Kysymys k = new Kysymys();
-
-        ArrayList<String> vaaratVastaukset = new ArrayList();
-        vaaratVastaukset.add("Helsinki");
-        vaaratVastaukset.add("Tukholma");
-        vaaratVastaukset.add("Berliini");
-        vaaratVastaukset.add("Moskova");
-
-        k.lisaaVaaratVastaukset(vaaratVastaukset);
-
-        assertEquals(4, k.getVaaratVastaukset().size());
     }
 }
