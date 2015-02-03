@@ -15,12 +15,14 @@ public class KysymyssarjaTest {
     private Kysymys kysymys2;
     private Kysymyssarja kysymyssarja1;
     private Kysymyssarja kysymyssarja2;
+    private Kysymyssarja kysymyssarja3;
     private Random arpoja;
     private ArrayList<Integer> arvotutKysymyksenNumerot;
 
     public KysymyssarjaTest() {
         this.kysymyssarja1 = new Kysymyssarja();
         this.kysymyssarja2 = new Kysymyssarja();
+        this.kysymyssarja3 = new Kysymyssarja();
         this.arpoja = new Random();
         this.arvotutKysymyksenNumerot = new ArrayList<Integer>();
         this.kysymys1 = new Kysymys();
@@ -52,10 +54,9 @@ public class KysymyssarjaTest {
         this.kysymys1.lisaaVaaratVastaukset(vaaratVastaukset);
         this.kysymys2.lisaaVaaratVastaukset(vaaratVastaukset);
 
-        this.kysymyssarja1.lisaaKysymys(kysymys1);
-
-        this.kysymyssarja2.lisaaKysymys(kysymys1);
-        this.kysymyssarja2.lisaaKysymys(kysymys2);
+        this.kysymyssarja1.lisaaKysymys(this.kysymys1);
+        this.kysymyssarja2.lisaaKysymys(this.kysymys1);
+        this.kysymyssarja2.lisaaKysymys(this.kysymys2);
     }
 
     @After
@@ -70,6 +71,12 @@ public class KysymyssarjaTest {
     @Test
     public void kahdenKysymyksenLisaamisenJalkeenListanKokoOnKaksi() {
         assertEquals(2, this.kysymyssarja2.getKysymystenLkm());
+    }
+
+    @Test
+    public void kysymysEiOleNull() {
+        this.kysymyssarja3.lisaaKysymys(this.kysymys1);
+        assertNotNull(this.kysymys1);
     }
 
     @Test

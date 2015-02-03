@@ -13,6 +13,7 @@ public class KysymysTest {
 
     private Kysymys kysymys1;
     private Kysymys kysymys2;
+    private Kysymys kysymys3;
 
     public KysymysTest() {
     }
@@ -41,6 +42,7 @@ public class KysymysTest {
         this.kysymys1.lisaaVaaratVastaukset(vaaratVastaukset);
 
         this.kysymys2 = new Kysymys();
+        this.kysymys3 = new Kysymys();
     }
 
     @After
@@ -70,6 +72,18 @@ public class KysymysTest {
         k.lisaaVaaratVastaukset(vaaratVastaukset);
 
         assertEquals(4, k.getVaaratVastaukset().size());
+    }
+
+    @Test
+    public void vaaratVastauksetEivatOleNull() {
+        ArrayList<String> vaaratVastaukset = new ArrayList();
+        vaaratVastaukset.add("Helsinki");
+        vaaratVastaukset.add("Tukholma");
+        vaaratVastaukset.add("Berliini");
+        vaaratVastaukset.add("Moskova");
+        this.kysymys3.lisaaVaaratVastaukset(vaaratVastaukset);
+
+        assertNotNull(vaaratVastaukset);
     }
 
     @Test
