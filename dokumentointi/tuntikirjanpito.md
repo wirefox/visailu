@@ -16,4 +16,5 @@ Päivämäärä | Tuntia | Selite
 27.1.2015 | 6 | opeteltu tekemään testejä, lisätty testejä, korjattu virheitä/selkeytetty koodia, eriytettu tulostaminen tekstikäyttöliittymään, päivitetty luokkakaaviota
 31.1.2015 | 1 | koodikatselmointi 1, projektin avaaminen koneelle ja sen ajaminen, koodikatselmoinnin ohjeisiin perehtyminen
 1.2.2015  | 2 | koodikatselmointi 1, toisen tekemän projektin dokumentaatioon ja projektin tilaan perehtyminen ja katselmoinnin tekeminen sekä issue gittiin
-
+2.2.2015  | 1 | tehty suunnitelma seuraavan päivän töiksi
+3.2.2015  | 6 | taisteltu coberturan ja testien tekemisen kanssa
