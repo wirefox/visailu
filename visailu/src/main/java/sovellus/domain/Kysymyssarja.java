@@ -29,14 +29,23 @@ public class Kysymyssarja {
 
 // pitäisikö kysymysten arpominen olla erillisessä Kysymysarpoja-luokassa??!?    
     public Kysymys arvoKysymys() {
-        int kysymyksenNumero = this.arpoja.nextInt(this.kysymykset.size());
         while (true) {
-            if (!this.arvotutKysymyksenNumerot.contains(kysymyksenNumero)) {
+            int kysymyksenNumero = this.arpoja.nextInt(this.kysymykset.size());
+
+            if (onkoAiemminArvottuKysymys(kysymyksenNumero) == false) {
                 this.arvotutKysymyksenNumerot.add(kysymyksenNumero);
                 return this.kysymykset.get(kysymyksenNumero);
             } else {
                 continue;
             }
+        }
+    }
+
+    private boolean onkoAiemminArvottuKysymys(int kysymyksenNumero) {
+        if (this.arvotutKysymyksenNumerot.contains(kysymyksenNumero)) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

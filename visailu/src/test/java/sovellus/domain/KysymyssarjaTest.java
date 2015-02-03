@@ -93,6 +93,7 @@ public class KysymyssarjaTest {
         assertEquals(this.kysymys1, this.kysymyssarja1.arvoKysymys());
     }
 
+//TÄMÄ TESTI TUOTTAA VIRHEEN
     @Test
     public void kysymyssarjastaArpominenToimiiKunListassaKaksiKysymysta() {
         Kysymys k1 = this.kysymyssarja2.arvoKysymys();
