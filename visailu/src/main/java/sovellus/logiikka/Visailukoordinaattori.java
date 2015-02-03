@@ -32,15 +32,15 @@ public class Visailukoordinaattori {
         this.peli = new Peli(tekstikayttoliittyma, this.tiedostonlukija.getKysymyslause());
         tekstikayttoliittyma.tulostaNaytolle("Hei, tervetuloa visailuun!\n");
         while (true) {
-            Kysymys kysymys = this.kysymyssarja.arvoKysymys();
-            peli.pelaaKierros(kysymys);
+            this.peli.seuraavaKysymys(this.kysymyssarja);
+            this.peli.pelaaKierros();
             if (peli.onkoVikaKierros()) {
                 return;
             }
         }
     }
 
-    private String pelinLopetusteksti() {
+    public String pelinLopetusteksti() {
         if (this.peli.getPisteitaPelaajalla() == 20) {
             return "\nOlet loistava, kaikki oikein!";
         } else if (this.peli.getPisteitaPelaajalla() > 15) {

@@ -23,7 +23,8 @@ public class PeliTest {
     private Kysymys kysymys;
     private int pisteitaPelaajalla;
     private int kierroksenNumero;
-    private Peli peli;
+    private Peli peli1;
+    private Peli peli2;
     private Scanner lukija;
 
     public PeliTest() {
@@ -46,10 +47,11 @@ public class PeliTest {
 
     @Before
     public void setUp() {
-        // laita seuraavaksi syötteeksi "Madrid"
-        String data = "Madrid";
-        System.setIn(new ByteArrayInputStream(data.getBytes()));
 
+        // TÄMÄNLAISELLA VOI ANTAA TESTISSÄ SYÖTTEEN:       
+//      laita seuraavaksi syötteeksi "Madrid"
+//        String data = "Madrid";
+//        System.setIn(new ByteArrayInputStream(data.getBytes()));
         this.kysymys.lisaaOikeaVastaus("Madrid");
         this.kysymys.lisaaKysymyssana("Espanja");
 
@@ -61,8 +63,8 @@ public class PeliTest {
         this.kysymys.lisaaVaaratVastaukset(vaaratVastaukset);
 
         this.kysymyssarja.lisaaKysymys(this.kysymys);
-        this.peli = new Peli(this.tekstikayttoliittyma, this.kysymyslause);
-
+        this.peli1 = new Peli(this.tekstikayttoliittyma, this.kysymyslause);
+        this.peli2 = new Peli(this.tekstikayttoliittyma, this.kysymyslause);
     }
 
     @After
@@ -71,40 +73,48 @@ public class PeliTest {
 
     @Test
     public void pelinAlussaPelaajallaEiOlePisteita() {
-        assertEquals(0, this.peli.getPisteitaPelaajalla());
+        assertEquals(0, this.peli1.getPisteitaPelaajalla());
     }
 
     @Test
     public void pelinAlussaEiOleViimeinenKierros() {
-        assertFalse(this.peli.onkoVikaKierros());
+        assertFalse(this.peli1.onkoVikaKierros());
     }
 
     @Test
     public void pelinAlussaOnEnsimmäinenKierros() {
-        assertEquals(0, this.peli.getKierroksenNumero());
+        assertEquals(0, this.peli1.getKierroksenNumero());
     }
 
 //    @Test
 //    public void peliAntaaViisiVastausvaihtoehtoa() {
-//        assertNotNull(this.peli);
+////       assertNotNull(this.peli);
 //
-//        this.peli.pelaaKierros(this.kysymys);
-//
-//        assertNotNull(this.peli.annaVastausvaihtoehdot());
-//        assertEquals(5, this.peli.annaVastausvaihtoehdot().size());
+////        this.peli.pelaaKierros(this.kysymys);
+////      assertNotNull(this.peli.annaVastausvaihtoehdot());
+//        
+//        //VASTAUSVAIHTOEHDOT ON NULL
+//        assertEquals(5, this.peli1.annaVastausvaihtoehdot().size());
 //    }
-//
-//    @Test
-//    public void kierroksenNumeroOnKaksiKunOllaanKierroksessaKaksi() {
-//        assertEquals(2, this.kierroksenNumero);
-//    }
-//
+    @Test
+    public void kierroksenNumeroOnKaksiKunOllaanKierroksessaKaksi() {
+        this.peli1.setKierroksenNumero(2);
+        assertEquals(2, this.peli1.getKierroksenNumero());
+    }
+
 //    @Test
 //    public void vastauksenArviointiKunPelaajaArvasiOikein() {
-//        this.peli.vastauksenArviointi("Madrid");
-//        assertEquals("Hienoa, oikea vastaus!", this.peli.vastauksenArviointi("Madrid"));
-//    }
 //
+////        // TÄMÄNLAISELLA VOI ANTAA TESTISSÄ SYÖTTEEN:       
+//////      laita seuraavaksi syötteeksi "Madrid"
+////        String data = "Madrid";
+////        System.setIn(new ByteArrayInputStream(data.getBytes()));
+////        this.peli1.vastauksenArviointi(data);
+////        assertEquals("Hienoa, oikea vastaus!", this.peli1.vastauksenArviointi("Madrid"));
+//        this.peli1.vastauksenArviointi(this.kysymys.getOikeaVastaus());
+//        assertEquals("1", this.peli1.getPisteitaPelaajalla());
+//    }
+////
 //    @Test
 //    public void vastauksenArviointiKunPelaajaArvasiVaarin() {
 //        this.peli.vastauksenArviointi("Helsinki");
@@ -113,14 +123,14 @@ public class PeliTest {
 
     @Test
     public void pistetilanneTulostuuOikein() {
-        assertEquals("\nPisteesi: 0 / 0\n", this.peli.pistetilanteenTulostus());
+        assertEquals("\nPisteesi: 0 / 0\n", this.peli1.pistetilanteenTulostus());
     }
 
     public void kierroksenKysymyslauseTulostuuOikein() {
-        assertEquals("1: Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:", this.peli.annaKierroksenKysymyslause());
+        assertEquals("1: Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:", this.peli1.annaKierroksenKysymyslause());
     }
 
     public void kierroksenKysymyssanaTulostuuOikein() {
-        assertEquals("ESPANJA", this.peli.annaKysymyssana());
+        assertEquals("ESPANJA", this.peli1.annaKysymyssana());
     }
 }

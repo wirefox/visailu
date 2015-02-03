@@ -6,10 +6,20 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import sovellus.gui.Tekstikayttoliittyma;
 
 public class VisailukoordinaattoriTest {
 
+    private Tekstikayttoliittyma kayttis;
+    private String kysymyslause;
+    private Peli peli;
+    private Visailukoordinaattori koordinaattori;
+
     public VisailukoordinaattoriTest() {
+        this.kayttis = new Tekstikayttoliittyma();
+        this.kysymyslause = "Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ";
+        this.peli = new Peli(kayttis, kysymyslause);
+        this.koordinaattori = new Visailukoordinaattori();
     }
 
     @BeforeClass
@@ -27,6 +37,12 @@ public class VisailukoordinaattoriTest {
     @After
     public void tearDown() {
     }
-    
-    //kaynnista-metodia pitäisi testata, se on luokan ainoa public-metodi.
+
+//    @Test
+//    public void pelinLopetustekstiKunPelaajallaEiPisteita() {
+//        assertNotNull(this.peli);
+//        assertNotNull(this.koordinaattori);
+//        assertNotNull(this.koordinaattori.pelinLopetusteksti());
+//        assertEquals("Vielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)", this.koordinaattori.pelinLopetusteksti());
+//    }
 }

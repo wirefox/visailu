@@ -3,6 +3,7 @@ package sovellus.logiikka;
 import java.util.ArrayList;
 import java.util.Collections;
 import sovellus.domain.Kysymys;
+import sovellus.domain.Kysymyssarja;
 import sovellus.gui.Tekstikayttoliittyma;
 
 public class Peli {
@@ -18,10 +19,14 @@ public class Peli {
         this.kysymyslause = kysymyslause;
         this.pisteitaPelaajalla = 0;
         this.kierroksenNumero = 0;
+        this.kysymys = new Kysymys();
     }
 
-    public void pelaaKierros(Kysymys kysymys) {
-        this.kysymys = kysymys;
+    public void seuraavaKysymys(Kysymyssarja kysymyssarja) {
+        this.kysymys = kysymyssarja.arvoKysymys();
+    }
+
+    public void pelaaKierros() {
         this.tekstikayttoliittyma.tulostaNaytolle(annaKierroksenKysymyslause());
         this.tekstikayttoliittyma.tulostaNaytolle(annaKysymyssana());
         this.tekstikayttoliittyma.tulostaNaytolle(annaVastausvaihtoehdot());
@@ -42,8 +47,16 @@ public class Peli {
         return this.kierroksenNumero;
     }
 
+    public void setKierroksenNumero(int kierroksenNumero) {
+        this.kierroksenNumero = kierroksenNumero;
+    }
+
     public int getPisteitaPelaajalla() {
         return this.pisteitaPelaajalla;
+    }
+
+    public void setPisteitaPelaajalla(int pisteitaPelaajalla) {
+        this.pisteitaPelaajalla = pisteitaPelaajalla;
     }
 
     public ArrayList<String> annaVastausvaihtoehdot() {
