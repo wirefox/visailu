@@ -11,15 +11,19 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
+import sovellus.logiikka.Visailukoordinaattori;
 
 /**
  * Luokka on visailun graafinen käyttöliittymä, josta kehitetään sovelluksen
  * ainoa käyttöliittymä
  */
 public class GraafinenKayttoliittyma implements Runnable {
+
+    private Visailukoordinaattori visailukoordinaattori;
     private JFrame frame;
 
-    public GraafinenKayttoliittyma() {
+    public GraafinenKayttoliittyma(Visailukoordinaattori visailukoordinaattori) {
+        this.visailukoordinaattori = visailukoordinaattori;
     }
 
     @Override
@@ -50,7 +54,6 @@ public class GraafinenKayttoliittyma implements Runnable {
 //        frame.validate();
 //        frame.repaint();
 //    }
-    
     private void luoKomponentit(Container container) {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
@@ -66,7 +69,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         JRadioButton vaihtoehto4 = new JRadioButton("Vaihtoehto 4");
         JRadioButton vaihtoehto5 = new JRadioButton("Vaihtoehto 5");
 
-        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(vaihtoehto1, vaihtoehto2, vaihtoehto3, vaihtoehto4, vaihtoehto5);
+        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(this.visailukoordinaattori, vaihtoehto1, vaihtoehto2, vaihtoehto3, vaihtoehto4, vaihtoehto5);
         vaihtoehto1.addActionListener(tapahtumanKuuntelija);
         vaihtoehto2.addActionListener(tapahtumanKuuntelija);
         vaihtoehto3.addActionListener(tapahtumanKuuntelija);
@@ -85,7 +88,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         container.add(vaihtoehto3);
         container.add(vaihtoehto4);
         container.add(vaihtoehto5);
-        
+
         JTextArea tuloksenIlmoitus = new JTextArea("Tähän tulee teksti, onko vastaus oikein vai väärin");
         JTextArea pistetilanneTeksti = new JTextArea("Tähän tulee pistetilanne, Pisteesi xx/xx");
         container.add(tuloksenIlmoitus);
