@@ -7,88 +7,102 @@ import sovellus.domain.Kysymyssarja;
 import sovellus.gui.Tekstikayttoliittyma;
 
 /**
- * Luokassa pelataan yksi pelikierros ja siinä on talletettuna pelin kierroksen numero
- * ja pelaajan pistetilanne Tätä kuvausta pitää tarkentaa
+ * Luokassa pelataan peliä; siinä on talletettuna pelin kierroksen numero ja
+ * pelaajan pistetilanne Tätä kuvausta tarkennettava
  */
 public class Peli {
 
     private Tekstikayttoliittyma tekstikayttoliittyma;
     private String kysymyslause;
+    private Kysymyssarja kysymyssarja;
     private Kysymys kysymys;
     private int pisteitaPelaajalla;
     private int kierroksenNumero;
 
-    public Peli(Tekstikayttoliittyma tekstikayttoliittyma, String kysymyslause) {
-        this.tekstikayttoliittyma = tekstikayttoliittyma;
+    public Peli(String kysymyslause) {
         this.kysymyslause = kysymyslause;
         this.pisteitaPelaajalla = 0;
         this.kierroksenNumero = 0;
-        this.kysymys = new Kysymys();
     }
 
-    public void seuraavaKysymys(Kysymyssarja kysymyssarja) {
-        this.kysymys = kysymyssarja.arvoKysymys();
+    public void pelaaPeli(Kysymyssarja kysymyssarja) {
+        this.kysymyssarja = kysymyssarja;
+        this.kysymys = kysymyssarja.getKysymys(kierroksenNumero);
+        Tekstikayttoliittyma tekstikayttoliittyma = new Tekstikayttoliittyma(this, kysymyssarja);
+        tekstikayttoliittyma.johdaPelia();
+        pelinLopetusteksti();
     }
 
-    public void pelaaKierros() {
-        this.tekstikayttoliittyma.tulostaNaytolle(annaKierroksenKysymyslause());
-        this.tekstikayttoliittyma.tulostaNaytolle(annaKysymyssana());
-        this.tekstikayttoliittyma.tulostaNaytolle(annaVastausvaihtoehdot());
-        String vastaus = this.tekstikayttoliittyma.otaVastaus("\nKirjoita arvauksesi: ");
-        this.tekstikayttoliittyma.tulostaNaytolle(vastauksenArviointi(vastaus));
-        this.tekstikayttoliittyma.tulostaNaytolle(pistetilanteenTulostus());
+    public void vaihdaSeuraavaKysymys() {
+        this.kysymys = this.kysymyssarja.annaSeuraavaKysymys(kierroksenNumero);
     }
 
     public boolean onkoVikaKierros() {
-        if (getKierroksenNumero() > 20) {
+        if (getKierroksenNumero() >= 20) {
             return true;
         } else {
             return false;
         }
     }
 
-    public int getKierroksenNumero() {
-        return this.kierroksenNumero;
-    }
-
     public void setKierroksenNumero(int kierroksenNumero) {
         this.kierroksenNumero = kierroksenNumero;
-    }
-
-    public int getPisteitaPelaajalla() {
-        return this.pisteitaPelaajalla;
     }
 
     public void setPisteitaPelaajalla(int pisteitaPelaajalla) {
         this.pisteitaPelaajalla = pisteitaPelaajalla;
     }
 
-    public ArrayList<String> annaVastausvaihtoehdot() {
+    public Kysymys getKysymys() {
+        return this.kysymys;
+    }
+
+    public String getKierroksenKysymyslause() {
+        setKierroksenNumero(getKierroksenNumero() + 1);
+        return this.kierroksenNumero + ": " + this.kysymyslause;
+    }
+
+    public ArrayList<String> getVastausvaihtoehdot() {
         ArrayList<String> vastausvaihtoehdot = this.kysymys.getVaaratVastaukset();
         vastausvaihtoehdot.add(this.kysymys.getOikeaVastaus());
         Collections.shuffle(vastausvaihtoehdot);
         return vastausvaihtoehdot;
     }
 
+    public int getKierroksenNumero() {
+        return this.kierroksenNumero;
+    }
+
+    public int getPisteitaPelaajalla() {
+        return this.pisteitaPelaajalla;
+    }
+
     public String vastauksenArviointi(String vastaus) {
-        if (vastaus.toUpperCase().equals(this.kysymys.getOikeaVastaus().toUpperCase())) {
-            this.pisteitaPelaajalla++;
+        if (this.kysymys.onkoOikeaVastaus(vastaus)) {
+            setPisteitaPelaajalla(getPisteitaPelaajalla() + 1);
             return "Hienoa, oikea vastaus!";
         } else {
             return "Nyt meni väärin. Oikea vastaus olisi ollut " + this.kysymys.getOikeaVastaus();
         }
     }
 
-    public String pistetilanteenTulostus() {
+    public String pelinLopetusteksti() {
+        if (getPisteitaPelaajalla() == 20) {
+            return "\nOlet loistava, kaikki oikein!";
+        } else if (getPisteitaPelaajalla() > 15) {
+            return "\nHieno suoritus!";
+        } else if (getPisteitaPelaajalla() > 10) {
+            return "\nEnemmän kuin puolet oikein!";
+        } else if (getPisteitaPelaajalla() == 10) {
+            return "\nPuolet oikein!";
+        } else if (getPisteitaPelaajalla() < 10) {
+            return "\nVielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)";
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
         return "\nPisteesi: " + this.pisteitaPelaajalla + " / " + getKierroksenNumero() + "\n";
-    }
-
-    public String annaKierroksenKysymyslause() {
-        this.kierroksenNumero++;
-        return this.kierroksenNumero + ": " + this.kysymyslause;
-    }
-
-    public String annaKysymyssana() {
-        return this.kysymys.getKysymyssana().toUpperCase();
     }
 }

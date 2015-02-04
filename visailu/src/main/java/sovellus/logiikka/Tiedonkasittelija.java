@@ -1,6 +1,8 @@
 package sovellus.logiikka;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
@@ -21,7 +23,7 @@ public class Tiedonkasittelija {
         Kysymyssarja kysymyssarja = new Kysymyssarja();
         for (String kysymyssana : this.kysymyksetJaVastaukset.keySet()) {
             this.kysymys = new Kysymys();
-            this.kysymys.setKysymyssana(kysymyssana);
+            this.kysymys.setKysymyssana(kysymyssana.toUpperCase());
             this.kysymys.setOikeaVastaus(this.kysymyksetJaVastaukset.get(kysymyssana));
             this.kysymys.setVaaratVastaukset(arvoVaaratVastaukset());
 

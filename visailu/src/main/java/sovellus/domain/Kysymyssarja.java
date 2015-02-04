@@ -1,21 +1,19 @@
 package sovellus.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
- * Luokka tallettaa kysymykset listaan, ja arpoo visan seuraavan kysymyksen
+ * Luokka tallettaa kysymykset listaan, sekoittaa listan, ja antaa visan
+ * seuraavan kysymyksen
  */
 public class Kysymyssarja {
 
     private ArrayList<Kysymys> kysymykset;
-    private Random arpoja;
-    private ArrayList<Integer> arvotutKysymyksenNumerot;
 
     public Kysymyssarja() {
         this.kysymykset = new ArrayList<Kysymys>();
-        this.arpoja = new Random();
-        this.arvotutKysymyksenNumerot = new ArrayList<Integer>();
     }
 
     public void lisaaKysymys(Kysymys kysymys) {
@@ -30,25 +28,11 @@ public class Kysymyssarja {
         return this.kysymykset.get(i);
     }
 
-// pitäisikö kysymysten arpominen olla erillisessä Kysymysarpoja-luokassa??!?    
-    public Kysymys arvoKysymys() {
-        while (true) {
-            int kysymyksenNumero = this.arpoja.nextInt(this.kysymykset.size());
-
-            if (onkoAiemminArvottuKysymys(kysymyksenNumero) == false) {
-                this.arvotutKysymyksenNumerot.add(kysymyksenNumero);
-                return this.kysymykset.get(kysymyksenNumero);
-            } else {
-                continue;
-            }
-        }
+    public Kysymys annaSeuraavaKysymys(int kierroksenNumero) {
+        return this.kysymykset.get(kierroksenNumero);
     }
 
-    private boolean onkoAiemminArvottuKysymys(int kysymyksenNumero) {
-        if (this.arvotutKysymyksenNumerot.contains(kysymyksenNumero)) {
-            return true;
-        } else {
-            return false;
-        }
+    public void sekoitaSarjanKysymykset() {
+        Collections.shuffle(this.kysymykset);
     }
 }

@@ -31,8 +31,8 @@ public class VastausarpojaTest {
     @Before
     public void setUp() {
         this.kysymys = new Kysymys();
-        this.kysymys.lisaaKysymyssana("Espanja");
-        this.kysymys.lisaaOikeaVastaus("Madrid");
+        this.kysymys.setKysymyssana("Espanja");
+        this.kysymys.setOikeaVastaus("Madrid");
         this.vastauksia = new ArrayList<String>();
         vastauksia.add("Helsinki");
         vastauksia.add("Tukholma");

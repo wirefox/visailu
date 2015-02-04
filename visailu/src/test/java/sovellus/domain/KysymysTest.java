@@ -29,9 +29,9 @@ public class KysymysTest {
     @Before
     public void setUp() {
         this.kysymys1 = new Kysymys();
-        this.kysymys1.lisaaOikeaVastaus("Madrid");
+        this.kysymys1.setOikeaVastaus("Madrid");
 
-        this.kysymys1.lisaaKysymyssana("Espanja");
+        this.kysymys1.setKysymyssana("Espanja");
 
         ArrayList<String> vaaratVastaukset = new ArrayList();
         vaaratVastaukset.add("Helsinki");
@@ -39,7 +39,7 @@ public class KysymysTest {
         vaaratVastaukset.add("Berliini");
         vaaratVastaukset.add("Moskova");
 
-        this.kysymys1.lisaaVaaratVastaukset(vaaratVastaukset);
+        this.kysymys1.setVaaratVastaukset(vaaratVastaukset);
 
         this.kysymys2 = new Kysymys();
         this.kysymys3 = new Kysymys();
@@ -56,7 +56,7 @@ public class KysymysTest {
 
     @Test
     public void kysymyssanaOnOikein() {
-        assertEquals("Espanja", this.kysymys1.getKysymyssana());
+        assertEquals("ESPANJA", this.kysymys1.getKysymyssana());
     }
 
     @Test
@@ -69,7 +69,7 @@ public class KysymysTest {
         vaaratVastaukset.add("Berliini");
         vaaratVastaukset.add("Moskova");
 
-        k.lisaaVaaratVastaukset(vaaratVastaukset);
+        k.setVaaratVastaukset(vaaratVastaukset);
 
         assertEquals(4, k.getVaaratVastaukset().size());
     }
@@ -81,7 +81,7 @@ public class KysymysTest {
         vaaratVastaukset.add("Tukholma");
         vaaratVastaukset.add("Berliini");
         vaaratVastaukset.add("Moskova");
-        this.kysymys3.lisaaVaaratVastaukset(vaaratVastaukset);
+        this.kysymys3.setVaaratVastaukset(vaaratVastaukset);
 
         assertNotNull(vaaratVastaukset);
     }
@@ -89,14 +89,14 @@ public class KysymysTest {
     @Test
     public void lisattyKysymyssanaOnOikein() {
         String maa = "Espanja";
-        this.kysymys2.lisaaKysymyssana(maa);
-        assertEquals("Espanja", this.kysymys2.getKysymyssana());
+        this.kysymys2.setKysymyssana(maa.toUpperCase());
+        assertEquals("ESPANJA", this.kysymys2.getKysymyssana());
     }
 
     @Test
     public void lisattyOikeaVastausOnOikein() {
         String paakaupunki = "Madrid";
-        this.kysymys2.lisaaOikeaVastaus(paakaupunki);
+        this.kysymys2.setOikeaVastaus(paakaupunki);
         assertEquals("Madrid", this.kysymys2.getOikeaVastaus());
     }
 
@@ -111,7 +111,7 @@ public class KysymysTest {
         vaarat.add(vaara2);
         vaarat.add(vaara3);
         vaarat.add(vaara4);
-        this.kysymys2.lisaaVaaratVastaukset(vaarat);
+        this.kysymys2.setVaaratVastaukset(vaarat);
 
         assertEquals(vaarat, this.kysymys2.getVaaratVastaukset());
     }

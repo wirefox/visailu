@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Luokassa luodaan pelin kysymykset: kysymyksen kysymyssanan, oikean vastauksen
- * ja väärien vastausten asetus ja näitä vastaavat getterit 
+ * ja väärien vastausten asetus ja näitä vastaavat getterit
  */
 public class Kysymys {
 
@@ -17,7 +17,7 @@ public class Kysymys {
     }
 
     public void setKysymyssana(String kysymyssana) {
-        this.kysymyssana = kysymyssana;
+        this.kysymyssana = kysymyssana.toUpperCase();
     }
 
     public void setOikeaVastaus(String oikeaVastaus) {
@@ -36,6 +36,14 @@ public class Kysymys {
 
     public String getOikeaVastaus() {
         return this.oikeaVastaus;
+    }
+
+    public boolean onkoOikeaVastaus(String vastaus) {
+        if (vastaus.toUpperCase().equals(getOikeaVastaus().toUpperCase())) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public ArrayList<String> getVaaratVastaukset() {

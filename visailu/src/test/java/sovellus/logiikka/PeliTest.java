@@ -13,7 +13,6 @@ import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 import sovellus.gui.Tekstikayttoliittyma;
 import sovellus.logiikka.Peli;
-import sovellus.logiikka.Tiedostonlukija;
 
 public class PeliTest {
 
@@ -52,15 +51,15 @@ public class PeliTest {
 //      laita seuraavaksi syötteeksi "Madrid"
 //        String data = "Madrid";
 //        System.setIn(new ByteArrayInputStream(data.getBytes()));
-        this.kysymys.lisaaOikeaVastaus("Madrid");
-        this.kysymys.lisaaKysymyssana("Espanja");
+        this.kysymys.setOikeaVastaus("Madrid");
+        this.kysymys.setKysymyssana("Espanja");
 
         ArrayList<String> vaaratVastaukset = new ArrayList<String>();
         vaaratVastaukset.add("Helsinki");
         vaaratVastaukset.add("Tukholma");
         vaaratVastaukset.add("Berliini");
         vaaratVastaukset.add("Moskova");
-        this.kysymys.lisaaVaaratVastaukset(vaaratVastaukset);
+        this.kysymys.setVaaratVastaukset(vaaratVastaukset);
 
         this.kysymyssarja.lisaaKysymys(this.kysymys);
         this.peli1 = new Peli(this.tekstikayttoliittyma, this.kysymyslause);
@@ -102,35 +101,30 @@ public class PeliTest {
         assertEquals(2, this.peli1.getKierroksenNumero());
     }
 
-//    @Test
-//    public void vastauksenArviointiKunPelaajaArvasiOikein() {
+    @Test
+    public void vastauksenArviointiKunPelaajaArvasiOikein() {
+        assertNotNull(this.peli1);
+        assertNotNull(this.kysymys);
+        String teksti = this.peli1.vastauksenArviointi("Madrid");
+        assertEquals("Hienoa, oikea vastaus!", teksti);
+    }
 //
-////        // TÄMÄNLAISELLA VOI ANTAA TESTISSÄ SYÖTTEEN:       
-//////      laita seuraavaksi syötteeksi "Madrid"
-////        String data = "Madrid";
-////        System.setIn(new ByteArrayInputStream(data.getBytes()));
-////        this.peli1.vastauksenArviointi(data);
-////        assertEquals("Hienoa, oikea vastaus!", this.peli1.vastauksenArviointi("Madrid"));
-//        this.peli1.vastauksenArviointi(this.kysymys.getOikeaVastaus());
-//        assertEquals("1", this.peli1.getPisteitaPelaajalla());
-//    }
-////
 //    @Test
 //    public void vastauksenArviointiKunPelaajaArvasiVaarin() {
-//        this.peli.vastauksenArviointi("Helsinki");
-//        assertEquals("Nyt meni väärin. Oikea vastaus olisi ollut Madrid", this.peli.vastauksenArviointi("Helsinki"));
+//        String teksti = this.peli.vastauksenArviointi("Helsinki");
+//        assertEquals("Nyt meni väärin. Oikea vastaus olisi ollut Madrid", teksti);
 //    }
 
     @Test
     public void pistetilanneTulostuuOikein() {
-        assertEquals("\nPisteesi: 0 / 0\n", this.peli1.pistetilanteenTulostus());
+        assertEquals("\nPisteesi: 0 / 0\n", this.peli1.toString());
     }
 
     public void kierroksenKysymyslauseTulostuuOikein() {
-        assertEquals("1: Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:", this.peli1.annaKierroksenKysymyslause());
+        assertEquals("1: Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:", this.peli1.getKierroksenKysymyslause());
     }
 
     public void kierroksenKysymyssanaTulostuuOikein() {
-        assertEquals("ESPANJA", this.peli1.annaKysymyssana());
+        assertEquals("ESPANJA", this.kysymys.getKysymyssana());
     }
 }
