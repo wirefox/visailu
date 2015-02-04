@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import sovellus.logiikka.Visailukoordinaattori;
 
+/**
+ * Luokka pn visailun alustava käyttöliittymä, joka toimii komentorivin kautta
+ */
 public class Tekstikayttoliittyma {
 
     private Scanner lukija;

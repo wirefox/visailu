@@ -2,6 +2,10 @@ package sovellus.domain;
 
 import java.util.ArrayList;
 
+/**
+ * Luokassa luodaan pelin kysymykset: kysymyksen kysymyssanan, oikean vastauksen
+ * ja väärien vastausten asetus ja näitä vastaavat getterit 
+ */
 public class Kysymys {
 
     private String kysymyssana;
@@ -12,15 +16,15 @@ public class Kysymys {
         this.vaaratVastausvaihtoehdot = new ArrayList<String>();
     }
 
-    public void lisaaKysymyssana(String kysymyssana) {
+    public void setKysymyssana(String kysymyssana) {
         this.kysymyssana = kysymyssana;
     }
 
-    public void lisaaOikeaVastaus(String oikeaVastaus) {
+    public void setOikeaVastaus(String oikeaVastaus) {
         this.oikeaVastaus = oikeaVastaus;
     }
 
-    public void lisaaVaaratVastaukset(ArrayList<String> vaaratVastaukset) {
+    public void setVaaratVastaukset(ArrayList<String> vaaratVastaukset) {
         for (String vaaraVastaus : vaaratVastaukset) {
             this.vaaratVastausvaihtoehdot.add(vaaraVastaus);
         }

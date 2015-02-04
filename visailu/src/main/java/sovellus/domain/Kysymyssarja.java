@@ -3,6 +3,9 @@ package sovellus.domain;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Luokka tallettaa kysymykset listaan, ja arpoo visan seuraavan kysymyksen
+ */
 public class Kysymyssarja {
 
     private ArrayList<Kysymys> kysymykset;

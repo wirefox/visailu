@@ -12,6 +12,10 @@ import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
+/**
+ * Luokka on visailun graafinen käyttöliittymä, josta kehitetään sovelluksen
+ * ainoa käyttöliittymä
+ */
 public class GraafinenKayttoliittyma implements Runnable {
     private JFrame frame;
 

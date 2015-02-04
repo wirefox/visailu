@@ -6,6 +6,10 @@ import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 import sovellus.gui.Tekstikayttoliittyma;
 
+/**
+ * Luokassa pelataan yksi pelikierros ja siinä on talletettuna pelin kierroksen numero
+ * ja pelaajan pistetilanne Tätä kuvausta pitää tarkentaa
+ */
 public class Peli {
 
     private Tekstikayttoliittyma tekstikayttoliittyma;

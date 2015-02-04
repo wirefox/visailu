@@ -4,6 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JRadioButton;
 
+/**
+ * Luokka kertoo minkä vastausvaihtoehdon pelaaja valitsi ja käskyttää sitten
+ * muita tahoja tekemään asioita (mm vastauksen analysointi, piste- ja kierrostilanne,
+ * uusi kierros, ikkunan päivitys)
+ */
 public class Tapahtumankuuntelija implements ActionListener {
 
     private JRadioButton vaihtoehto1;

@@ -5,6 +5,9 @@ import java.util.HashMap;
 import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 
+/**
+ * Luokka käsittelee saamansa HashMapin muodostaen siitä kysymyksiä ja kysymyssarjan
+ */
 public class Tiedonkasittelija {
 
     private Kysymys kysymys;
@@ -18,9 +21,9 @@ public class Tiedonkasittelija {
         Kysymyssarja kysymyssarja = new Kysymyssarja();
         for (String kysymyssana : this.kysymyksetJaVastaukset.keySet()) {
             this.kysymys = new Kysymys();
-            this.kysymys.lisaaKysymyssana(kysymyssana);
-            this.kysymys.lisaaOikeaVastaus(this.kysymyksetJaVastaukset.get(kysymyssana));
-            this.kysymys.lisaaVaaratVastaukset(arvoVaaratVastaukset());
+            this.kysymys.setKysymyssana(kysymyssana);
+            this.kysymys.setOikeaVastaus(this.kysymyksetJaVastaukset.get(kysymyssana));
+            this.kysymys.setVaaratVastaukset(arvoVaaratVastaukset());
 
             kysymyssarja.lisaaKysymys(this.kysymys);
         }

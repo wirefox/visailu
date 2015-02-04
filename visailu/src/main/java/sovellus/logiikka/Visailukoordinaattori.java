@@ -4,6 +4,10 @@ import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 import sovellus.gui.Tekstikayttoliittyma;
 
+/**
+ * Luokka ohjaa visailua ylätasolta: visailun käynnistämisestä ja tiedoston lukemiskäskystä
+ * pelikierroksen pelaamisen käskyyn ja lopulta pelin lopettamiseen
+ */
 public class Visailukoordinaattori {
 
     private Kysymyssarja kysymyssarja;
