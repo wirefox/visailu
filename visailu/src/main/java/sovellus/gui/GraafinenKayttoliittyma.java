@@ -11,7 +11,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
-import sovellus.logiikka.Visailukoordinaattori;
+import sovellus.logiikka.Peli;
 
 /**
  * Luokka on visailun graafinen käyttöliittymä, josta kehitetään sovelluksen
@@ -19,11 +19,11 @@ import sovellus.logiikka.Visailukoordinaattori;
  */
 public class GraafinenKayttoliittyma implements Runnable {
 
-    private Visailukoordinaattori visailukoordinaattori;
+    private Peli peli;
     private JFrame frame;
 
-    public GraafinenKayttoliittyma(Visailukoordinaattori visailukoordinaattori) {
-        this.visailukoordinaattori = visailukoordinaattori;
+    public GraafinenKayttoliittyma(Peli peli) {
+        this.peli = peli;
     }
 
     @Override
@@ -69,7 +69,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         JRadioButton vaihtoehto4 = new JRadioButton("Vaihtoehto 4");
         JRadioButton vaihtoehto5 = new JRadioButton("Vaihtoehto 5");
 
-        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(this.visailukoordinaattori, vaihtoehto1, vaihtoehto2, vaihtoehto3, vaihtoehto4, vaihtoehto5);
+        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(this.peli, vaihtoehto1, vaihtoehto2, vaihtoehto3, vaihtoehto4, vaihtoehto5);
         vaihtoehto1.addActionListener(tapahtumanKuuntelija);
         vaihtoehto2.addActionListener(tapahtumanKuuntelija);
         vaihtoehto3.addActionListener(tapahtumanKuuntelija);

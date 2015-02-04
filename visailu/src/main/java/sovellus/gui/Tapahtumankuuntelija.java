@@ -3,7 +3,7 @@ package sovellus.gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JRadioButton;
-import sovellus.logiikka.Visailukoordinaattori;
+import sovellus.logiikka.Peli;
 
 /**
  * Luokka kertoo minkä vastausvaihtoehdon pelaaja valitsi ja käskyttää sitten
@@ -12,15 +12,15 @@ import sovellus.logiikka.Visailukoordinaattori;
  */
 public class Tapahtumankuuntelija implements ActionListener {
 
-    private Visailukoordinaattori visailukoordinaattori;
+    private Peli peli;
     private JRadioButton vaihtoehto1;
     private JRadioButton vaihtoehto2;
     private JRadioButton vaihtoehto3;
     private JRadioButton vaihtoehto4;
     private JRadioButton vaihtoehto5;
 
-    Tapahtumankuuntelija(Visailukoordinaattori visailukoordinaattori, JRadioButton vaihtoehto1, JRadioButton vaihtoehto2, JRadioButton vaihtoehto3, JRadioButton vaihtoehto4, JRadioButton vaihtoehto5) {
-        this.visailukoordinaattori = visailukoordinaattori;
+    Tapahtumankuuntelija(Peli peli, JRadioButton vaihtoehto1, JRadioButton vaihtoehto2, JRadioButton vaihtoehto3, JRadioButton vaihtoehto4, JRadioButton vaihtoehto5) {
+        this.peli = peli;
         this.vaihtoehto1 = vaihtoehto1;
         this.vaihtoehto2 = vaihtoehto2;
         this.vaihtoehto3 = vaihtoehto3;
