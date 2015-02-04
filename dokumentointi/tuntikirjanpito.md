@@ -18,3 +18,5 @@ Päivämäärä | Tuntia | Selite
 1.2.2015  | 2 | koodikatselmointi 1, toisen tekemän projektin dokumentaatioon ja projektin tilaan perehtyminen ja katselmoinnin tekeminen sekä issue gittiin
 2.2.2015  | 1 | tehty suunnitelma seuraavan päivän töiksi
 3.2.2015  | 6 | taisteltu coberturan ja testien tekemisen kanssa
+4.2.2015  | 6 | tehty testejä eteenpäin, jonka jälkeen muokattu sovelluksen rakennetta pajassa saatujen ohjeiden mukaisesti. Testien tekeminen menee osittain uusiksi; toivottavasti niiden tekeminen on tästä eteenpäin helpompaa.
+
