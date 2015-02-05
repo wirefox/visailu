@@ -36,11 +36,11 @@ public class Peli {
         this.kysymys = this.kysymyssarja.annaSeuraavaKysymys(this.kierroksenNumero);
     }
 
-    public boolean onkoVikaKierros() {
-        if (getKierroksenNumero() >= 20) {
-            return true;
-        } else {
+    public boolean jatketaankoPelia() {
+        if (getKierroksenNumero() >= 10) {
             return false;
+        } else {
+            return true;
         }
     }
 
@@ -77,7 +77,6 @@ public class Peli {
 
     public String vastauksenArviointi(String vastaus) {
         setKierroksenNumero(getKierroksenNumero() + 1);
-        System.out.println(this.kysymys.getOikeaVastaus());  // oikea vastaus on null testeissä, mutta näin ei ole luokassa!??!!
         if (this.kysymys.onkoOikeaVastaus(vastaus)) {
             setPisteitaPelaajalla(getPisteitaPelaajalla() + 1);
             return "Hienoa, oikea vastaus!";
@@ -87,15 +86,13 @@ public class Peli {
     }
 
     public String pelinLopetusteksti() {
-        if (getPisteitaPelaajalla() == 20) {
+        if (getPisteitaPelaajalla() == 10) {
             return "\nOlet loistava, kaikki oikein!";
-        } else if (getPisteitaPelaajalla() > 15) {
+        } else if (getPisteitaPelaajalla() > 8) {
             return "\nHieno suoritus!";
-        } else if (getPisteitaPelaajalla() > 10) {
+        } else if (getPisteitaPelaajalla() > 5) {
             return "\nEnemmän kuin puolet oikein!";
-        } else if (getPisteitaPelaajalla() == 10) {
-            return "\nPuolet oikein!";
-        } else if (getPisteitaPelaajalla() < 10) {
+        } else if (getPisteitaPelaajalla() < 5) {
             return "\nVielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)";
         }
         return null;

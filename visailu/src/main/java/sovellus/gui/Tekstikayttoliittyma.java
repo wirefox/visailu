@@ -24,14 +24,12 @@ public class Tekstikayttoliittyma {
     }
 
     public void johdaPelia() {
-  //      this.kysymys = this.peli.getKysymys();
-  //      pelaaKierros();
 
         while (true) {
             this.peli.vaihdaSeuraavaKysymys();
             this.kysymys = this.peli.getKysymys();
             pelaaKierros();
-            if (this.peli.onkoVikaKierros()) {
+            if (!this.peli.jatketaankoPelia()) {
                 tulostaNaytolle(this.peli.pelinLopetusteksti());
                 return;
             }
