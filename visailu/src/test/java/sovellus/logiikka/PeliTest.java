@@ -19,7 +19,8 @@ public class PeliTest {
 //      "laita seuraavaksi syötteeksi "Madrid""
 //       String data = "Madrid";
 //       System.setIn(new ByteArrayInputStream(data.getBytes()));
-    private Kysymyssarja kysymyssarja;
+    private Kysymyssarja kysymyssarjaYksiKysymys;
+    private Kysymyssarja kysymyssarja10Kysymysta;
     private Kysymys kysymys;
     private Peli peliJossaEiVielaPelattuKierroksia;
     private Peli peliJossaPelattuYksiKierrosJaOikeaVastaus;
@@ -38,27 +39,74 @@ public class PeliTest {
 
     @Before
     public void setUp() {
-        this.kysymyssarja = new Kysymyssarja();
+        this.kysymyssarjaYksiKysymys = new Kysymyssarja();
+        this.kysymyssarja10Kysymysta = new Kysymyssarja();
 
-        Kysymys k = new Kysymys();
-        k.setOikeaVastaus("Madrid");
-        k.setKysymyssana("Espanja");
+        Kysymys k1 = new Kysymys();
+        k1.setOikeaVastaus("Madrid");
+        k1.setKysymyssana("Espanja");
+        
+        Kysymys k2 = new Kysymys();
+        k2.setOikeaVastaus("Madrid");
+        k2.setKysymyssana("Espanja");
+        
+        Kysymys k3 = new Kysymys();
+        k3.setOikeaVastaus("Madrid");
+        k3.setKysymyssana("Espanja");
+        
+        Kysymys k4 = new Kysymys();
+        k4.setOikeaVastaus("Madrid");
+        k4.setKysymyssana("Espanja");
+        
+        Kysymys k5 = new Kysymys();
+        k5.setOikeaVastaus("Madrid");
+        k5.setKysymyssana("Espanja");
+        
+        Kysymys k6 = new Kysymys();
+        k6.setOikeaVastaus("Madrid");
+        k6.setKysymyssana("Espanja");
+        
+        Kysymys k7 = new Kysymys();
+        k7.setOikeaVastaus("Madrid");
+        k7.setKysymyssana("Espanja");
+        
+        Kysymys k8 = new Kysymys();
+        k8.setOikeaVastaus("Madrid");
+        k8.setKysymyssana("Espanja");
+        
+        Kysymys k9 = new Kysymys();
+        k9.setOikeaVastaus("Madrid");
+        k9.setKysymyssana("Espanja");
+        
+        Kysymys k10 = new Kysymys();
+        k10.setOikeaVastaus("Madrid");
+        k10.setKysymyssana("Espanja");
 
         ArrayList<String> vaaratVastaukset = new ArrayList<String>();
         vaaratVastaukset.add("Helsinki");
         vaaratVastaukset.add("Tukholma");
         vaaratVastaukset.add("Berliini");
         vaaratVastaukset.add("Moskova");
-        k.setVaaratVastaukset(vaaratVastaukset);
+        k1.setVaaratVastaukset(vaaratVastaukset);
 
-        this.kysymyssarja.lisaaKysymys(k);
-        this.peliJossaEiVielaPelattuKierroksia = new Peli("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.kysymyssarja);
+        this.kysymyssarjaYksiKysymys.lisaaKysymys(k1);
+        
+        this.kysymyssarja10Kysymysta.lisaaKysymys(k1);
+        this.kysymyssarja10Kysymysta.lisaaKysymys(k2);
+        this.kysymyssarja10Kysymysta.lisaaKysymys(k3);
+        this.kysymyssarja10Kysymysta.lisaaKysymys(k4);
+        this.kysymyssarja10Kysymysta.lisaaKysymys(k5);
+        this.kysymyssarja10Kysymysta.lisaaKysymys(k6);
+        this.kysymyssarja10Kysymysta.lisaaKysymys(k7);
+        this.kysymyssarja10Kysymysta.lisaaKysymys(k8);
+        this.kysymyssarja10Kysymysta.lisaaKysymys(k9);
+        this.kysymyssarja10Kysymysta.lisaaKysymys(k10);
+        
+        this.peliJossaEiVielaPelattuKierroksia = new Peli("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.kysymyssarjaYksiKysymys);
 
-        this.peliJossaPelattuYksiKierrosJaOikeaVastaus = new Peli("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.kysymyssarja);
+        this.peliJossaPelattuYksiKierrosJaOikeaVastaus = new Peli("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.kysymyssarja10Kysymysta);
 
-        this.peliJossaPelattuYksiKierrosJaVaaraVastaus = new Peli("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.kysymyssarja);
-
-        //      assertNotNull(this.kysymys);
+        this.peliJossaPelattuYksiKierrosJaVaaraVastaus = new Peli("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.kysymyssarja10Kysymysta);
     }
 
     @After
@@ -74,7 +122,7 @@ public class PeliTest {
 
     @Test
     public void pelinAlussaEiOleViimeinenKierros() {
-        assertFalse(this.peliJossaEiVielaPelattuKierroksia.onkoVikaKierros());
+        assertTrue(this.peliJossaEiVielaPelattuKierroksia.jatketaankoPelia());
     }
 
     @Test
@@ -84,8 +132,7 @@ public class PeliTest {
 
     @Test
     public void peliAntaaViisiVastausvaihtoehtoa() {
-        assertNotNull(this.peliJossaEiVielaPelattuKierroksia.getVastausvaihtoehdot());
-        //VASTAUSVAIHTOEHDOT ON NULL
+        this.peliJossaEiVielaPelattuKierroksia.vaihdaSeuraavaKysymys();
         assertEquals(5, this.peliJossaEiVielaPelattuKierroksia.getVastausvaihtoehdot().size());
     }
 
@@ -99,16 +146,22 @@ public class PeliTest {
     public void vastauksenArviointiKunPelaajaArvasiOikein() {
         String oikeaVastaus = "Madrid";
         System.setIn(new ByteArrayInputStream(oikeaVastaus.getBytes()));
+       
+        this.peliJossaPelattuYksiKierrosJaOikeaVastaus.setKierroksenNumero(9);
         this.peliJossaPelattuYksiKierrosJaOikeaVastaus.pelaaPeli();
-        //      assertEquals("Hienoa, oikea vastaus!", this.peliJossaPelattuYksiKierrosJaOikeaVastaus.vastauksenArviointi("Madrid"));
+        
+        assertEquals("Hienoa, oikea vastaus!", this.peliJossaPelattuYksiKierrosJaOikeaVastaus.vastauksenArviointi("Madrid"));
     }
 
     @Test
     public void vastauksenArviointiKunPelaajaArvasiVaarin() {
         String vaaraVastaus = "Helsinki";
         System.setIn(new ByteArrayInputStream(vaaraVastaus.getBytes()));
+        
+        this.peliJossaPelattuYksiKierrosJaVaaraVastaus.setKierroksenNumero(9);
         this.peliJossaPelattuYksiKierrosJaVaaraVastaus.pelaaPeli();
-        assertEquals("Nyt meni väärin. Oikea vastaus olisi ollut Madrid", this.peliJossaEiVielaPelattuKierroksia.vastauksenArviointi("Helsinki"));
+        
+        assertEquals("Nyt meni väärin. Oikea vastaus olisi ollut Madrid", this.peliJossaPelattuYksiKierrosJaVaaraVastaus.vastauksenArviointi("Helsinki"));
     }
 
     @Test
