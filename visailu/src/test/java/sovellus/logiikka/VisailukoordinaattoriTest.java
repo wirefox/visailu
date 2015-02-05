@@ -16,10 +16,7 @@ public class VisailukoordinaattoriTest {
     private Visailukoordinaattori koordinaattori;
 
     public VisailukoordinaattoriTest() {
-        this.kayttis = new Tekstikayttoliittyma();
-        this.kysymyslause = "Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ";
-        this.peli = new Peli(kayttis, kysymyslause);
-        this.koordinaattori = new Visailukoordinaattori();
+        
     }
 
     @BeforeClass
@@ -32,6 +29,8 @@ public class VisailukoordinaattoriTest {
 
     @Before
     public void setUp() {
+        this.kysymyslause = "Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ";
+        this.koordinaattori = new Visailukoordinaattori();
     }
 
     @After
