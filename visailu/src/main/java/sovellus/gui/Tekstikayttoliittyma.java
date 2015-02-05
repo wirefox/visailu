@@ -15,20 +15,21 @@ public class Tekstikayttoliittyma {
 
     private Peli peli;
     private Scanner lukija;
-    private Kysymyssarja kysymyssarja;
     private Kysymys kysymys;
 
-    public Tekstikayttoliittyma(Peli peli, Kysymyssarja kysymyssarja) {
+    public Tekstikayttoliittyma(Peli peli) {
         this.peli = peli;
-        this.kysymyssarja = kysymyssarja;
         this.lukija = new Scanner(System.in);
+        johdaPelia();
     }
 
     public void johdaPelia() {
+  //      this.kysymys = this.peli.getKysymys();
+  //      pelaaKierros();
+
         while (true) {
             this.peli.vaihdaSeuraavaKysymys();
             this.kysymys = this.peli.getKysymys();
-            //           this.kysymys = this.kysymyssarja.annaSeuraavaKysymys(this.peli.getKierroksenNumero());
             pelaaKierros();
             if (this.peli.onkoVikaKierros()) {
                 tulostaNaytolle(this.peli.pelinLopetusteksti());
@@ -43,7 +44,7 @@ public class Tekstikayttoliittyma {
         tulostaNaytolle(getVastausvaihtoehdot());
         String vastaus = otaVastaus("\nKirjoita arvauksesi: ");
         tulostaNaytolle(this.peli.vastauksenArviointi(vastaus));
-        tulostaNaytolle(this.peli.toString());
+        tulostaNaytolle(this.peli.pistetilanteenTulostus());
     }
 
     public ArrayList<String> getVastausvaihtoehdot() {

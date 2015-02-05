@@ -1,6 +1,5 @@
 package sovellus.logiikka;
 
-import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 import sovellus.gui.Tekstikayttoliittyma;
 
@@ -12,7 +11,6 @@ import sovellus.gui.Tekstikayttoliittyma;
 public class Visailukoordinaattori {
 
     private Kysymyssarja kysymyssarja;
-    private Kysymys kysymys;
     private Peli peli;
     private Tiedonkasittelija tiedonkasittelija;
     private Tiedostonlukija tiedostonlukija;
@@ -34,23 +32,7 @@ public class Visailukoordinaattori {
     }
 
     private void visaile() {
-        this.peli = new Peli(this.tiedostonlukija.getKysymyslause());
-        this.peli.pelaaPeli(this.kysymyssarja);
-        //      pelinLopetusteksti();
+        this.peli = new Peli(this.tiedostonlukija.getKysymyslause(), this.kysymyssarja);
+        this.peli.pelaaPeli();
     }
-
-//    public String pelinLopetusteksti() {
-//        if (this.peli.getPisteitaPelaajalla() == 20) {
-//            return "\nOlet loistava, kaikki oikein!";
-//        } else if (this.peli.getPisteitaPelaajalla() > 15) {
-//            return "\nHieno suoritus!";
-//        } else if (this.peli.getPisteitaPelaajalla() > 10) {
-//            return "\nEnemmän kuin puolet oikein!";
-//        } else if (this.peli.getPisteitaPelaajalla() == 10) {
-//            return "\nPuolet oikein!";
-//        } else if (this.peli.getPisteitaPelaajalla() < 10) {
-//            return "\nVielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)";
-//        }
-//        return null;
-//    }
 }
