@@ -93,12 +93,12 @@ public class KysymyssarjaTest {
         assertEquals(this.kysymys1, this.kysymyssarja1.annaSeuraavaKysymys(0));
     }
 
-////TÄMÄ TESTI TUOTTAA VIRHEEN
-//    @Test
-//    public void kysymyssarjastaArpominenToimiiKunListassaKaksiKysymysta() {
-//        Kysymys k1 = this.kysymyssarja2.arvoKysymys();
-//        Kysymys k2 = this.kysymyssarja2.arvoKysymys();
-//
-//        assertNotSame(k2, k1);
-//    }
+    @Test
+    public void kysymyslistanKokoPysyySamanaListanSekoittamisenJalkeen() {
+        int kysymystenLkmEnnenSekoittamista = this.kysymyssarja2.getKysymystenLkm();
+        this.kysymyssarja2.sekoitaSarjanKysymykset();
+        int kysymystenLkmSekoittamisenJalkeen = this.kysymyssarja2.getKysymystenLkm();
+
+        assertEquals(kysymystenLkmEnnenSekoittamista, kysymystenLkmSekoittamisenJalkeen);
+    }
 }

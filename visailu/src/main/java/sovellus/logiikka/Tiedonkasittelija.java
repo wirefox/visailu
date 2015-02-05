@@ -8,7 +8,8 @@ import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 
 /**
- * Luokka käsittelee saamansa HashMapin muodostaen siitä kysymyksiä ja kysymyssarjan
+ * Luokka käsittelee saamansa HashMapin muodostaen siitä kysymyksiä ja
+ * kysymyssarjan
  */
 public class Tiedonkasittelija {
 
@@ -30,6 +31,10 @@ public class Tiedonkasittelija {
             kysymyssarja.lisaaKysymys(this.kysymys);
         }
         return kysymyssarja;
+    }
+
+    public HashMap<String, String> getKysymyksetJaVastaukset() {
+        return this.kysymyksetJaVastaukset;
     }
 
     private ArrayList<String> arvoVaaratVastaukset() {

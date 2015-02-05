@@ -10,11 +10,11 @@ import static org.junit.Assert.*;
 import sovellus.domain.Kysymys;
 
 public class TiedonkasittelijaTest {
-    private Kysymys kysymys;
-    private HashMap<String, String> kysymyksetJaVastaukset;
 
+ //   private Kysymys kysymys;
+    //   private HashMap<String, String> kysymyksetJaVastaukset;
     public TiedonkasittelijaTest() {
-        this.kysymyksetJaVastaukset = new HashMap<String, String>();
+
     }
 
     @BeforeClass
@@ -27,6 +27,7 @@ public class TiedonkasittelijaTest {
 
     @Before
     public void setUp() {
+        //     this.kysymyksetJaVastaukset = new HashMap<String, String>();
     }
 
     @After
@@ -34,7 +35,17 @@ public class TiedonkasittelijaTest {
     }
 
     @Test
-    public void konstruktoriTekeeTyhjanHashmapin() {
-        assertEquals(0, this.kysymyksetJaVastaukset.size());
+    public void konstruktoriTallettaaSaamansaHashmapinOikeanKokoisena() {
+        String kysymys1 = "kysymys1";
+        String vastaus1 = "vastaus1";
+        String kysymys2 = "kysymys2";
+        String vastaus2 = "vastaus2";
+
+        HashMap<String, String> kysymysVastaus = new HashMap<String, String>();
+        kysymysVastaus.put(kysymys1, vastaus1);
+        kysymysVastaus.put(kysymys2, vastaus2);
+
+        Tiedonkasittelija tiedonkasittelija = new Tiedonkasittelija(kysymysVastaus);
+        assertEquals(2, tiedonkasittelija.getKysymyksetJaVastaukset().size());
     }
 }

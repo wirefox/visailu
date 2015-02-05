@@ -88,14 +88,13 @@ public class Peli {
     public String pelinLopetusteksti() {
         if (getPisteitaPelaajalla() == 10) {
             return "\nOlet loistava, kaikki oikein!";
-        } else if (getPisteitaPelaajalla() > 8) {
+        } else if (getPisteitaPelaajalla() >= 8) {
             return "\nHieno suoritus!";
         } else if (getPisteitaPelaajalla() > 5) {
             return "\nEnemmän kuin puolet oikein!";
-        } else if (getPisteitaPelaajalla() < 5) {
+        } else {
             return "\nVielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)";
         }
-        return null;
     }
 
     public String pistetilanteenTulostus() {
