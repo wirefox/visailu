@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Luokassa luodaan pelin kysymykset: kysymyksen kysymyssanan, oikean vastauksen
  * ja väärien vastausten asetus ja näitä vastaavat getterit
  */
+
 public class Kysymys {
     
     private String kysymyssana;
@@ -26,6 +27,10 @@ public class Kysymys {
         this.oikeaVastaus = oikeaVastaus;
     }
     
+    /**
+     * Metodi lisää kysymykselle neljä(?) väärää vastausta, 
+     * jotka annetaan sille parametrina
+     */
     public void setVaaratVastaukset(ArrayList<String> vaaratVastaukset) {
         for (String vaaraVastaus : vaaratVastaukset) {
             this.vaaratVastausvaihtoehdot.add(vaaraVastaus);
@@ -40,6 +45,10 @@ public class Kysymys {
         return this.oikeaVastaus;
     }
     
+    /**
+     * Metodi tarkistaa onko sille parametrina annettu vastaus
+     * oikea vastaus
+     */
     public boolean onkoOikeaVastaus(String vastaus) {
         String vastausIsoilla = vastaus.toUpperCase();
         String oikeaVastausIsoilla = getOikeaVastaus().toUpperCase();

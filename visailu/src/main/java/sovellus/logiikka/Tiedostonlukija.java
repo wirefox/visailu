@@ -11,6 +11,7 @@ import java.util.logging.Logger;
  * Luokka lukee sisään tiedoston ja tallettaa siitä visan kysymyslauseen sekä
  * kysymys-vastaus -parin
  */
+
 public class Tiedostonlukija {
 
     private Scanner lukija;

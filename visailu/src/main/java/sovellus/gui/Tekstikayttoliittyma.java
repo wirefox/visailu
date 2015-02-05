@@ -10,7 +10,9 @@ import sovellus.logiikka.Visailukoordinaattori;
 
 /**
  * Luokka pn visailun alustava käyttöliittymä, joka toimii komentorivin kautta
+ * - poistetaan käytöstä, kun graafinen käyttöliittymä käytössä
  */
+
 public class Tekstikayttoliittyma {
 
     private Peli peli;

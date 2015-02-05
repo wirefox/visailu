@@ -4,10 +4,11 @@ import sovellus.domain.Kysymyssarja;
 import sovellus.gui.Tekstikayttoliittyma;
 
 /**
- * Luokka ohjaa visailua ylätasolta: visailun käynnistämisestä ja tiedoston
- * lukemiskäskystä pelikierroksen pelaamisen käskyyn ja lopulta pelin
- * lopettamiseen
+ * Luokka ohjaa visailua ylätasolta - 
+ * se tulee olemaan merkityksellisempi luokka, jos/kun visailua laajennetaan siten,
+ * että siihen lisätään muitakin pelejä kuin maavisailu
  */
+
 public class Visailukoordinaattori {
 
     private Kysymyssarja kysymyssarja;

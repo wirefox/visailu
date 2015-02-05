@@ -15,8 +15,9 @@ import sovellus.logiikka.Peli;
 
 /**
  * Luokka on visailun graafinen käyttöliittymä, josta kehitetään sovelluksen
- * ainoa käyttöliittymä
+ * ainoa käyttöliittymä - vielä hyvin keskeneräinen
  */
+
 public class GraafinenKayttoliittyma implements Runnable {
 
     private Peli peli;

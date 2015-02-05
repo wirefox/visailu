@@ -7,6 +7,7 @@ import sovellus.domain.Kysymys;
 /**
  * Luokka arpoo pelikierroksen kysymykselle listan vääriä vastausvaihtoehtoja
  */
+
 public class Vastausarpoja {
 
     private Kysymys kysymys;

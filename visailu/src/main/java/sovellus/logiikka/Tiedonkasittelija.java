@@ -8,9 +8,10 @@ import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 
 /**
- * Luokka käsittelee saamansa HashMapin muodostaen siitä kysymyksiä ja
+ * Luokka käsittelee saamansa HashMapin muodostaen siitä peliä varten kysymyksiä ja
  * kysymyssarjan
  */
+
 public class Tiedonkasittelija {
 
     private Kysymys kysymys;
@@ -20,6 +21,9 @@ public class Tiedonkasittelija {
         this.kysymyksetJaVastaukset = kysymyksetJaVastaukset;
     }
 
+    /**
+     * Metodi muodostaa
+     */
     public Kysymyssarja muodostaKysymyssarja() {
         Kysymyssarja kysymyssarja = new Kysymyssarja();
         for (String kysymyssana : this.kysymyksetJaVastaukset.keySet()) {

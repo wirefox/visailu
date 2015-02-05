@@ -7,9 +7,11 @@ import sovellus.domain.Kysymyssarja;
 import sovellus.gui.Tekstikayttoliittyma;
 
 /**
- * Luokassa pelataan peliä; siinä on talletettuna pelin kierroksen numero ja
- * pelaajan pistetilanne Tätä kuvausta tarkennettava
+ * Luokassa on pelin pelaamisen toiminnallisuus 
+ * ja siinä on talletettuna pelin kierroksen numero 
+ * ja pelaajan pistetilanne
  */
+
 public class Peli {
 
     private Tekstikayttoliittyma tekstikayttoliittyma;
@@ -32,6 +34,9 @@ public class Peli {
         pelinLopetusteksti();
     }
 
+    /**
+     * Metodi vaihtaa uudelle pelikierrokselle uuden kysymyksen
+     */
     public void vaihdaSeuraavaKysymys() {
         this.kysymys = this.kysymyssarja.annaSeuraavaKysymys(this.kierroksenNumero);
     }
