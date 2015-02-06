@@ -10,6 +10,6 @@ To do:
   - esim. visailukoordinaattorin käynnista-metodille ja tiedonkäsittelijän muodostaKysymyssarja-metodille
 - javadocin jatkaminen
 - graafisen käyttöliittymän tekeminen
-- metodien hienosäätäminen ja clean code -tarkistuksia
+- metodien hienosäätäminen ja clean code -tarkistuksia, myös mahdollisesti luokkien välisiä suhteita (koodin ja luokkakaavion peilaus)
 - laajennettavuus - ehdinkö laajentaa, vai jääkö peli tähän, mutta suunnitellaan kuitenkin laajennettavaksi
 
