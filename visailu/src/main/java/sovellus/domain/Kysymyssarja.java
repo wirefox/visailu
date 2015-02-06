@@ -7,14 +7,17 @@ import java.util.Random;
 /**
  * Luokka tallettaa kysymykset listaan, sekoittaa listan, ja antaa visan
  * seuraavan kysymyksen
+ * @author elina
  */
 
 public class Kysymyssarja {
 
     private ArrayList<Kysymys> kysymykset;
+    String kysymyslause;
 
-    public Kysymyssarja() {
+    public Kysymyssarja(String kysymyslause) {
         this.kysymykset = new ArrayList<Kysymys>();
+        this.kysymyslause = kysymyslause;
     }
 
     /**
@@ -46,5 +49,9 @@ public class Kysymyssarja {
      */
     public void sekoitaSarjanKysymykset() {
         Collections.shuffle(this.kysymykset);
+    }
+
+    public String getKysymyslause() {
+        return this.kysymyslause;
     }
 }

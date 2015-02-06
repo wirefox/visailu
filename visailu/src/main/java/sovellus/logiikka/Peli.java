@@ -10,25 +10,29 @@ import sovellus.gui.Tekstikayttoliittyma;
  * Luokassa on pelin pelaamisen toiminnallisuus 
  * ja siinä on talletettuna pelin kierroksen numero 
  * ja pelaajan pistetilanne
+ * @author elina
  */
 
 public class Peli {
 
     private Tekstikayttoliittyma tekstikayttoliittyma;
-    private String kysymyslause;
+//    private String kysymyslause;
     private Kysymyssarja kysymyssarja;
     private Kysymys kysymys;
     private int pisteitaPelaajalla;
     private int kierroksenNumero;
 
     public Peli(String kysymyslause, Kysymyssarja kysymyssarja) {
-        this.kysymyslause = kysymyslause;
+//        this.kysymyslause = kysymyslause;
         this.kysymyssarja = kysymyssarja;
         this.kysymys = new Kysymys();
         this.pisteitaPelaajalla = 0;
         this.kierroksenNumero = 0;
     }
 
+    /**
+     * Metodi
+     */
     public void pelaaPeli() {
         Tekstikayttoliittyma tekstikayttoliittyma = new Tekstikayttoliittyma(this);
         pelinLopetusteksti();
@@ -41,6 +45,9 @@ public class Peli {
         this.kysymys = this.kysymyssarja.annaSeuraavaKysymys(this.kierroksenNumero);
     }
 
+    /**
+     * Metodi
+     */
     public boolean jatketaankoPelia() {
         if (getKierroksenNumero() >= 10) {
             return false;
@@ -62,9 +69,12 @@ public class Peli {
     }
 
     public String getKierroksenKysymyslause() {
-        return this.kierroksenNumero + 1 + ": " + this.kysymyslause;
+        return this.kierroksenNumero + 1 + ": " + this.kysymyssarja.getKysymyslause();
     }
 
+    /**
+     * Metodi
+     */
     public ArrayList<String> getVastausvaihtoehdot() {
         ArrayList<String> vastausvaihtoehdot = this.kysymys.getVaaratVastaukset();
         vastausvaihtoehdot.add(this.kysymys.getOikeaVastaus());
@@ -80,6 +90,9 @@ public class Peli {
         return this.pisteitaPelaajalla;
     }
 
+    /**
+     * Metodi
+     */
     public String vastauksenArviointi(String vastaus) {
         setKierroksenNumero(getKierroksenNumero() + 1);
         if (this.kysymys.onkoOikeaVastaus(vastaus)) {
@@ -90,6 +103,9 @@ public class Peli {
         }
     }
 
+    /**
+     * Metodi
+     */
     public String pelinLopetusteksti() {
         if (getPisteitaPelaajalla() == 10) {
             return "\nOlet loistava, kaikki oikein!";
@@ -102,6 +118,9 @@ public class Peli {
         }
     }
 
+    /**
+     * Metodi
+     */
     public String pistetilanteenTulostus() {
         return "\nPisteesi: " + this.pisteitaPelaajalla + " / " + getKierroksenNumero() + "\n";
     }

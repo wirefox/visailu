@@ -39,8 +39,8 @@ public class PeliTest {
 
     @Before
     public void setUp() {
-        this.kysymyssarjaYksiKysymys = new Kysymyssarja();
-        this.kysymyssarja10Kysymysta = new Kysymyssarja();
+        this.kysymyssarjaYksiKysymys = new Kysymyssarja("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:");
+        this.kysymyssarja10Kysymysta = new Kysymyssarja("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:");
 
         Kysymys k1 = new Kysymys();
         k1.setOikeaVastaus("Madrid");
@@ -171,14 +171,14 @@ public class PeliTest {
 
     @Test
     public void kierroksenKysymyslauseTulostuuOikein() {
-        assertEquals("1: Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.peliJossaEiVielaPelattuKierroksia.getKierroksenKysymyslause());
+        assertEquals("1: Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:", this.peliJossaEiVielaPelattuKierroksia.getKierroksenKysymyslause());
     }
 
     @Test
     public void kierroksenKysymyslauseTulostuuOikeinKunYhdeksasKierros() {
         this.peliJossaPelattuYksiKierrosJaVaaraVastaus.setKierroksenNumero(8);
 
-        assertEquals("9: Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.peliJossaPelattuYksiKierrosJaVaaraVastaus.getKierroksenKysymyslause());
+        assertEquals("9: Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:", this.peliJossaPelattuYksiKierrosJaVaaraVastaus.getKierroksenKysymyslause());
     }
 
     @Test

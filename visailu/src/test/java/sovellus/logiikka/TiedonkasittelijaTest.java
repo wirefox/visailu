@@ -45,7 +45,7 @@ public class TiedonkasittelijaTest {
         kysymysVastaus.put(kysymys1, vastaus1);
         kysymysVastaus.put(kysymys2, vastaus2);
 
-        Tiedonkasittelija tiedonkasittelija = new Tiedonkasittelija(kysymysVastaus);
+        Tiedonkasittelija tiedonkasittelija = new Tiedonkasittelija(kysymysVastaus, "Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:");
         assertEquals(2, tiedonkasittelija.getKysymyksetJaVastaukset().size());
     }
 }

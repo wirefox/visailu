@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 /**
  * Luokka lukee sisään tiedoston ja tallettaa siitä visan kysymyslauseen sekä
  * kysymys-vastaus -parin
+ * @author elina
  */
 
 public class Tiedostonlukija {
@@ -22,6 +23,9 @@ public class Tiedostonlukija {
         this.kysymysJaVastaus = new HashMap<String, String>();
     }
 
+    /**
+     * Metodi
+     */
     public HashMap<String, String> lueTiedosto(String tiedostonnimi) {
         File tiedosto = new File(tiedostonnimi);
 
@@ -35,6 +39,9 @@ public class Tiedostonlukija {
         return this.kysymysJaVastaus;
     }
 
+    /**
+     * Metodi
+     */
     private void ositaTiedostostaLuettuTekstiJaTalleta() {
         this.kysymyslause = lukija.nextLine();
 

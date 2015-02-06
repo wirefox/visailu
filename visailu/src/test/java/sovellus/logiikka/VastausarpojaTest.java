@@ -43,10 +43,10 @@ public class VastausarpojaTest {
         vastauksia.add("Berliini");
         vastauksia.add("Praha");
         vastauksia.add("Peking");
-        this.vastausarpoja = new Vastausarpoja(this.kysymys);
+        this.vastausarpoja = new Vastausarpoja();
 
         this.vaaratVastaukset = new ArrayList<String>();
-        vaaratVastaukset = this.vastausarpoja.arvoVastauksetKysymykselle(this.vastauksia);
+        vaaratVastaukset = this.vastausarpoja.arvoVastauksetKysymykselle(this.vastauksia, this.kysymys);
     }
 
     @After

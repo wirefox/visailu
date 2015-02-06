@@ -20,9 +20,9 @@ public class KysymyssarjaTest {
     private ArrayList<Integer> arvotutKysymyksenNumerot;
 
     public KysymyssarjaTest() {
-        this.kysymyssarja1 = new Kysymyssarja();
-        this.kysymyssarja2 = new Kysymyssarja();
-        this.kysymyssarja3 = new Kysymyssarja();
+        this.kysymyssarja1 = new Kysymyssarja("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:");
+        this.kysymyssarja2 = new Kysymyssarja("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:");
+        this.kysymyssarja3 = new Kysymyssarja("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:");
         this.arpoja = new Random();
         this.arvotutKysymyksenNumerot = new ArrayList<Integer>();
         this.kysymys1 = new Kysymys();
@@ -72,6 +72,7 @@ public class KysymyssarjaTest {
     public void kahdenKysymyksenLisaamisenJalkeenListanKokoOnKaksi() {
         assertEquals(2, this.kysymyssarja2.getKysymystenLkm());
     }
+    
 
     @Test
     public void kysymysEiOleNull() {

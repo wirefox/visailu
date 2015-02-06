@@ -11,6 +11,7 @@ import sovellus.logiikka.Visailukoordinaattori;
 /**
  * Luokka pn visailun alustava käyttöliittymä, joka toimii komentorivin kautta
  * - poistetaan käytöstä, kun graafinen käyttöliittymä käytössä
+ * @author elina
  */
 
 public class Tekstikayttoliittyma {

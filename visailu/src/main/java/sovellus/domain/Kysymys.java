@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * Luokassa luodaan pelin kysymykset: kysymyksen kysymyssanan, oikean vastauksen
  * ja väärien vastausten asetus ja näitä vastaavat getterit
+ * @author elina
  */
 
 public class Kysymys {

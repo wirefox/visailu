@@ -9,6 +9,7 @@ import sovellus.logiikka.Peli;
  * Luokka kertoo minkä vastausvaihtoehdon pelaaja valitsi ja käskyttää sitten
  * muita tahoja tekemään asioita (mm vastauksen analysointi, piste- ja
  * kierrostilanne, uusi kierros, ikkunan päivitys) - Luokka on hyvin keskeneräinen vielä
+ * @author elina
  */
 
 public class Tapahtumankuuntelija implements ActionListener {
