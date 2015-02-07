@@ -2,28 +2,27 @@ package sovellus.logiikka;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.SwingUtilities;
 import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
+import sovellus.gui.GraafinenKayttoliittyma;
 import sovellus.gui.Tekstikayttoliittyma;
 
 /**
- * Luokassa on pelin pelaamisen toiminnallisuus 
- * ja siinä on talletettuna pelin kierroksen numero 
- * ja pelaajan pistetilanne
+ * Luokassa on pelin pelaamisen toiminnallisuus ja siinä on talletettuna pelin
+ * kierroksen numero ja pelaajan pistetilanne
+ *
  * @author elina
  */
-
 public class Peli {
 
     private Tekstikayttoliittyma tekstikayttoliittyma;
-//    private String kysymyslause;
     private Kysymyssarja kysymyssarja;
     private Kysymys kysymys;
     private int pisteitaPelaajalla;
     private int kierroksenNumero;
 
     public Peli(String kysymyslause, Kysymyssarja kysymyssarja) {
-//        this.kysymyslause = kysymyslause;
         this.kysymyssarja = kysymyssarja;
         this.kysymys = new Kysymys();
         this.pisteitaPelaajalla = 0;
@@ -34,7 +33,9 @@ public class Peli {
      * Metodi
      */
     public void pelaaPeli() {
-        Tekstikayttoliittyma tekstikayttoliittyma = new Tekstikayttoliittyma(this);
+        GraafinenKayttoliittyma graafinenKayttoliittyma = new GraafinenKayttoliittyma(this);
+        SwingUtilities.invokeLater(graafinenKayttoliittyma);
+ //       Tekstikayttoliittyma tekstikayttoliittyma = new Tekstikayttoliittyma(this);
         pelinLopetusteksti();
     }
 
