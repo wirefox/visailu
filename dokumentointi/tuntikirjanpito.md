@@ -21,3 +21,4 @@ Päivämäärä | Tuntia | Selite
 4.2.2015  | 6 | tehty testejä eteenpäin, jonka jälkeen muokattu sovelluksen rakennetta pajassa saatujen ohjeiden mukaisesti. Testien tekeminen menee osittain uusiksi; toivottavasti niiden tekeminen on tästä eteenpäin helpompaa.
 5.2.2015  | 5 | testien tekemistä paremmalla menestyksellä, javadocin aloittaminen, luokkien korjauksia ja siistimistä, luokkakaavion päivittämistä 
 6.2.2015  | 1 | luokkien yhteyksien siistimistä, luokkakaavion päivittäminen sen mukaiseksi, luokkakaavioiden parempi nimeäminen
+7.2.2015  | 3 | graafisen käyttöliittymän työstäminen; gui vielä aika keskeneräinen
