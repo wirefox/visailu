@@ -166,7 +166,7 @@ public class PeliTest {
 
     @Test
     public void pistetilanneTulostuuOikein() {
-        assertEquals("\nPisteesi: 0 / 0\n", this.peliJossaEiVielaPelattuKierroksia.pistetilanteenTulostus());
+        assertEquals("Pisteesi: 0 / 0", this.peliJossaEiVielaPelattuKierroksia.pistetilanteenTulostus());
     }
 
     @Test
@@ -190,24 +190,24 @@ public class PeliTest {
     @Test
     public void pelinLopetusTekstiKunPelaajalla10Pistetta() {
         this.peliJossaEiVielaPelattuKierroksia.setPisteitaPelaajalla(10);
-        assertEquals("\nOlet loistava, kaikki oikein!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
+        assertEquals("Olet loistava, kaikki oikein!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
     }
 
     @Test
     public void pelinLopetusTekstiKunPelaajalla9Pistetta() {
         this.peliJossaEiVielaPelattuKierroksia.setPisteitaPelaajalla(9);
-        assertEquals("\nHieno suoritus!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
+        assertEquals("Hieno suoritus!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
     }
 
     @Test
     public void pelinLopetusTekstiKunPelaajalla6Pistetta() {
         this.peliJossaEiVielaPelattuKierroksia.setPisteitaPelaajalla(6);
-        assertEquals("\nEnemmän kuin puolet oikein!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
+        assertEquals("Enemmän kuin puolet oikein!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
     }
 
     @Test
     public void pelinLopetusTekstiKunPelaajalla5Pistetta() {
         this.peliJossaEiVielaPelattuKierroksia.setPisteitaPelaajalla(5);
-        assertEquals("\nVielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
+        assertEquals("Vielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
     }
 }

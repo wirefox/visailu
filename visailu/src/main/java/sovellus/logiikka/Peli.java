@@ -36,6 +36,7 @@ public class Peli {
         GraafinenKayttoliittyma graafinenKayttoliittyma = new GraafinenKayttoliittyma(this);
         SwingUtilities.invokeLater(graafinenKayttoliittyma);
  //       Tekstikayttoliittyma tekstikayttoliittyma = new Tekstikayttoliittyma(this);
+ // HUOM! testikäyttiksen vaihtaminen graafiseen tuottaa nullpointerin vastauksen arvioinnissa
         pelinLopetusteksti();
     }
 
@@ -109,13 +110,13 @@ public class Peli {
      */
     public String pelinLopetusteksti() {
         if (getPisteitaPelaajalla() == 10) {
-            return "\nOlet loistava, kaikki oikein!";
+            return "Olet loistava, kaikki oikein!";
         } else if (getPisteitaPelaajalla() >= 8) {
-            return "\nHieno suoritus!";
+            return "Hieno suoritus!";
         } else if (getPisteitaPelaajalla() > 5) {
-            return "\nEnemmän kuin puolet oikein!";
+            return "Enemmän kuin puolet oikein!";
         } else {
-            return "\nVielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)";
+            return "Vielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)";
         }
     }
 
@@ -123,6 +124,6 @@ public class Peli {
      * Metodi
      */
     public String pistetilanteenTulostus() {
-        return "\nPisteesi: " + this.pisteitaPelaajalla + " / " + getKierroksenNumero() + "\n";
+        return "Pisteesi: " + getPisteitaPelaajalla() + " / " + getKierroksenNumero();
     }
 }

@@ -48,6 +48,7 @@ public class Tekstikayttoliittyma {
         tulostaNaytolle(this.peli.pistetilanteenTulostus());
     }
 
+   //miksi tämä metodi on täällä? on myös peli-luokassa..
     public ArrayList<String> getVastausvaihtoehdot() {
         ArrayList<String> vastausvaihtoehdot = this.kysymys.getVaaratVastaukset();
         vastausvaihtoehdot.add(this.kysymys.getOikeaVastaus());

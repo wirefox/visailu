@@ -35,6 +35,7 @@ public class GraafinenKayttoliittyma implements Runnable {
     private JRadioButton vaihtoehto5;
     private JTextArea tuloksenIlmoitus;
     private JTextArea pistetilanneTeksti;
+    private JButton seuraavaKysymys;
     private JTextArea lopetuslause;
 
     public GraafinenKayttoliittyma(Peli peli) {
@@ -45,7 +46,7 @@ public class GraafinenKayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Visailu");
-        frame.setPreferredSize(new Dimension(400, 400));
+        frame.setPreferredSize(new Dimension(500, 300));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,20 +64,6 @@ public class GraafinenKayttoliittyma implements Runnable {
         JButton nappi = new JButton("Aloita peli");
         nappi.addActionListener(new Tapahtumankuuntelija(this, nappi));
         container.add(nappi);
-    }
-
-    public JFrame getFrame() {
-        return frame;
-    }
-
-    void tyhjennaIkkuna() {
-        frame.getContentPane().removeAll();
-        frame.getContentPane().repaint();
-    }
-
-    void teeIkkunaanUusiSisalto() {
-        luoKomponentitPeliIkkunaan(frame.getContentPane());
-        frame.setVisible(true);
     }
 
     private void luoKomponentitPeliIkkunaan(Container container) {
@@ -109,24 +96,25 @@ public class GraafinenKayttoliittyma implements Runnable {
 
         this.tuloksenIlmoitus = new JTextArea();
         this.pistetilanneTeksti = new JTextArea();
+        this.seuraavaKysymys = new JButton("Seuraava kysymys");
         this.lopetuslause = new JTextArea();
 
-        container.add(tuloksenIlmoitus);
-        container.add(pistetilanneTeksti);
-        container.add(lopetuslause);
-        
-        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(this.peli, vaihtoehto1, vaihtoehto2, vaihtoehto3, vaihtoehto4, vaihtoehto5, tuloksenIlmoitus, pistetilanneTeksti, lopetuslause);
+        container.add(this.tuloksenIlmoitus);
+        container.add(this.pistetilanneTeksti);
+        container.add(this.seuraavaKysymys);
+        container.add(this.lopetuslause);
+
+        this.peli.vaihdaSeuraavaKysymys();
+        this.kysymys = this.peli.getKysymys();
+
+        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(this.peli, this.kysymys, this.vaihtoehto1, this.vaihtoehto2, this.vaihtoehto3, this.vaihtoehto4, this.vaihtoehto5, this.seuraavaKysymys, this.kysymyslause, this.kysymyssana, this.tuloksenIlmoitus, this.pistetilanneTeksti, this.lopetuslause);
         this.vaihtoehto1.addActionListener(tapahtumanKuuntelija);
         this.vaihtoehto2.addActionListener(tapahtumanKuuntelija);
         this.vaihtoehto3.addActionListener(tapahtumanKuuntelija);
         this.vaihtoehto4.addActionListener(tapahtumanKuuntelija);
         this.vaihtoehto5.addActionListener(tapahtumanKuuntelija);
+        this.seuraavaKysymys.addActionListener(tapahtumanKuuntelija);
 
-        this.peli.vaihdaSeuraavaKysymys();
-        paivitaKomponentitPeliIkkunaan(container);
-    }
-
-    private void paivitaKomponentitPeliIkkunaan(Container container) {
         this.kysymyslause.setText(this.peli.getKierroksenKysymyslause());
         this.kysymyssana.setText(this.peli.getKysymys().getKysymyssana());
 
@@ -140,5 +128,19 @@ public class GraafinenKayttoliittyma implements Runnable {
         this.vaihtoehto4.setText(vastausvaihtoehdot.get(3));
         this.vaihtoehto5.setText(vastausvaihtoehdot.get(4));
 
+    }
+
+    void tyhjennaIkkuna() {
+        frame.getContentPane().removeAll();
+        frame.getContentPane().repaint();
+    }
+
+    void teeIkkunaanUusiSisalto() {
+        luoKomponentitPeliIkkunaan(frame.getContentPane());
+        frame.setVisible(true);
+    }
+
+    public JFrame getFrame() {
+        return frame;
     }
 }
