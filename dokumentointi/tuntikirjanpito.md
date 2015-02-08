@@ -22,3 +22,5 @@ Päivämäärä | Tuntia | Selite
 5.2.2015  | 5 | testien tekemistä paremmalla menestyksellä, javadocin aloittaminen, luokkien korjauksia ja siistimistä, luokkakaavion päivittämistä 
 6.2.2015  | 1 | luokkien yhteyksien siistimistä, luokkakaavion päivittäminen sen mukaiseksi, luokkakaavioiden parempi nimeäminen
 7.2.2015  | 3 | graafisen käyttöliittymän työstäminen; gui vielä aika keskeneräinen
+8.2.2015  | 5 | jatkettu guin tekemistä, se on nyt aika hyvällä mallilla, seuraavaksi minun pitää keskittyä javadocin kirjoittamiseen ja yksikkötestien tekemiseen"
+
