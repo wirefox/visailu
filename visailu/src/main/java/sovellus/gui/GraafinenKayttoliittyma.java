@@ -33,20 +33,20 @@ public class GraafinenKayttoliittyma implements Runnable {
     private JRadioButton vaihtoehto3;
     private JRadioButton vaihtoehto4;
     private JRadioButton vaihtoehto5;
-    private JTextArea tuloksenIlmoitus;
-    private JTextArea pistetilanneTeksti;
+    private ButtonGroup vaihtoehdot;
+    private JLabel tuloksenIlmoitus;
+    private JLabel pistetilanneTeksti;
     private JButton seuraavaKysymys;
-    private JTextArea lopetuslause;
+    private JLabel lopetuslause;
 
     public GraafinenKayttoliittyma(Peli peli) {
         this.peli = peli;
-        run();
     }
 
     @Override
     public void run() {
         frame = new JFrame("Visailu");
-        frame.setPreferredSize(new Dimension(500, 300));
+        frame.setPreferredSize(new Dimension(600, 300));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,12 +81,12 @@ public class GraafinenKayttoliittyma implements Runnable {
         this.vaihtoehto4 = new JRadioButton();
         this.vaihtoehto5 = new JRadioButton();
 
-        ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(vaihtoehto1);
-        buttonGroup.add(vaihtoehto2);
-        buttonGroup.add(vaihtoehto3);
-        buttonGroup.add(vaihtoehto4);
-        buttonGroup.add(vaihtoehto5);
+        this.vaihtoehdot = new ButtonGroup();
+        this.vaihtoehdot.add(vaihtoehto1);
+        this.vaihtoehdot.add(vaihtoehto2);
+        this.vaihtoehdot.add(vaihtoehto3);
+        this.vaihtoehdot.add(vaihtoehto4);
+        this.vaihtoehdot.add(vaihtoehto5);
 
         container.add(vaihtoehto1);
         container.add(vaihtoehto2);
@@ -94,10 +94,12 @@ public class GraafinenKayttoliittyma implements Runnable {
         container.add(vaihtoehto4);
         container.add(vaihtoehto5);
 
-        this.tuloksenIlmoitus = new JTextArea();
-        this.pistetilanneTeksti = new JTextArea();
+        this.tuloksenIlmoitus = new JLabel();
+        this.pistetilanneTeksti = new JLabel();
         this.seuraavaKysymys = new JButton("Seuraava kysymys");
-        this.lopetuslause = new JTextArea();
+        this.seuraavaKysymys.setEnabled(false);
+        this.lopetuslause = new JLabel();
+        this.lopetuslause.setText("");
 
         container.add(this.tuloksenIlmoitus);
         container.add(this.pistetilanneTeksti);
@@ -107,7 +109,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         this.peli.vaihdaSeuraavaKysymys();
         this.kysymys = this.peli.getKysymys();
 
-        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(this.peli, this.kysymys, this.vaihtoehto1, this.vaihtoehto2, this.vaihtoehto3, this.vaihtoehto4, this.vaihtoehto5, this.seuraavaKysymys, this.kysymyslause, this.kysymyssana, this.tuloksenIlmoitus, this.pistetilanneTeksti, this.lopetuslause);
+        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(this.peli, this.kysymys, this.vaihtoehdot, this.vaihtoehto1, this.vaihtoehto2, this.vaihtoehto3, this.vaihtoehto4, this.vaihtoehto5, this.seuraavaKysymys, this.kysymyslause, this.kysymyssana, this.tuloksenIlmoitus, this.pistetilanneTeksti, this.lopetuslause);
         this.vaihtoehto1.addActionListener(tapahtumanKuuntelija);
         this.vaihtoehto2.addActionListener(tapahtumanKuuntelija);
         this.vaihtoehto3.addActionListener(tapahtumanKuuntelija);
