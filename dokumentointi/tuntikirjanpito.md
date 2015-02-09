@@ -23,4 +23,4 @@ Päivämäärä | Tuntia | Selite
 6.2.2015  | 1 | luokkien yhteyksien siistimistä, luokkakaavion päivittäminen sen mukaiseksi, luokkakaavioiden parempi nimeäminen
 7.2.2015  | 3 | graafisen käyttöliittymän työstäminen; gui vielä aika keskeneräinen
 8.2.2015  | 5 | jatkettu guin tekemistä, se on nyt aika hyvällä mallilla, seuraavaksi minun pitää keskittyä javadocin kirjoittamiseen ja yksikkötestien tekemiseen"
-
+9.2.2015  | 1 | tehty muutamia uusia testitapauksia. Kysyttävä huomenna apuja pelitesti-luokan vastauksen arviointitesteihin ja visailukoordinaattorin testaamiseen
