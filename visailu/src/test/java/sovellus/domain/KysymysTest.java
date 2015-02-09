@@ -115,4 +115,18 @@ public class KysymysTest {
 
         assertEquals(vaarat, this.kysymys2.getVaaratVastaukset());
     }
+
+    @Test
+    public void kertooTrueJosOikeaVastaus() {
+        boolean vastaus = this.kysymys1.onkoOikeaVastaus("Madrid");
+        Boolean oikeaVastaus = true;
+        assertEquals(oikeaVastaus, vastaus);
+    }
+
+    @Test
+    public void kertooFalseJosVaaraVastaus() {
+        boolean vastaus = this.kysymys1.onkoOikeaVastaus("Helsinki");
+        Boolean vaaraVastaus = false;
+        assertEquals(vaaraVastaus, vastaus);
+    }
 }
