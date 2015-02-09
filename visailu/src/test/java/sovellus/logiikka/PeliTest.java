@@ -1,5 +1,7 @@
 package sovellus.logiikka;
 
+import static com.sun.xml.internal.fastinfoset.stax.events.EmptyIterator.instance;
+import java.awt.event.KeyEvent;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -142,21 +144,42 @@ public class PeliTest {
         assertEquals(2, this.peliJossaEiVielaPelattuKierroksia.getKierroksenNumero());
     }
 
+// Nämä ovat tekstikäyttöliittymän kanssa ajettavia testejä
+//    @Test
+//    public void vastauksenArviointiKunPelaajaArvasiOikein() {
+//        String oikeaVastaus = "Madrid";
+//        System.setIn(new ByteArrayInputStream(oikeaVastaus.getBytes()));
+//
+//        this.peliJossaPelattuYksiKierrosJaOikeaVastaus.setKierroksenNumero(9);
+//        this.peliJossaPelattuYksiKierrosJaOikeaVastaus.pelaaPeli();
+//
+//        assertEquals("Hienoa, oikea vastaus!", this.peliJossaPelattuYksiKierrosJaOikeaVastaus.vastauksenArviointi("Madrid"));
+//    }
+//
+//    @Test
+//    public void vastauksenArviointiKunPelaajaArvasiVaarin() {
+//        String vaaraVastaus = "Helsinki";
+//        System.setIn(new ByteArrayInputStream(vaaraVastaus.getBytes()));
+//
+//        this.peliJossaPelattuYksiKierrosJaVaaraVastaus.setKierroksenNumero(9);
+//        this.peliJossaPelattuYksiKierrosJaVaaraVastaus.pelaaPeli();
+//
+//        assertEquals("Nyt meni väärin. Oikea vastaus olisi ollut Madrid", this.peliJossaPelattuYksiKierrosJaVaaraVastaus.vastauksenArviointi("Helsinki"));
+//    }
     @Test
     public void vastauksenArviointiKunPelaajaArvasiOikein() {
-        String oikeaVastaus = "Madrid";
-        System.setIn(new ByteArrayInputStream(oikeaVastaus.getBytes()));
+//        String oikeaVastaus = "Madrid";
+//        System.setIn(new ByteArrayInputStream(oikeaVastaus.getBytes()));
 
         this.peliJossaPelattuYksiKierrosJaOikeaVastaus.setKierroksenNumero(9);
         this.peliJossaPelattuYksiKierrosJaOikeaVastaus.pelaaPeli();
-
         assertEquals("Hienoa, oikea vastaus!", this.peliJossaPelattuYksiKierrosJaOikeaVastaus.vastauksenArviointi("Madrid"));
     }
 
     @Test
     public void vastauksenArviointiKunPelaajaArvasiVaarin() {
-        String vaaraVastaus = "Helsinki";
-        System.setIn(new ByteArrayInputStream(vaaraVastaus.getBytes()));
+//        String vaaraVastaus = "Helsinki";
+//        System.setIn(new ByteArrayInputStream(vaaraVastaus.getBytes()));
 
         this.peliJossaPelattuYksiKierrosJaVaaraVastaus.setKierroksenNumero(9);
         this.peliJossaPelattuYksiKierrosJaVaaraVastaus.pelaaPeli();
@@ -190,24 +213,24 @@ public class PeliTest {
     @Test
     public void pelinLopetusTekstiKunPelaajalla10Pistetta() {
         this.peliJossaEiVielaPelattuKierroksia.setPisteitaPelaajalla(10);
-        assertEquals("Olet loistava, kaikki oikein!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
+        assertEquals("Game over! Olet loistava, kaikki oikein!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
     }
 
     @Test
     public void pelinLopetusTekstiKunPelaajalla9Pistetta() {
         this.peliJossaEiVielaPelattuKierroksia.setPisteitaPelaajalla(9);
-        assertEquals("Hieno suoritus!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
+        assertEquals("Game over! Hieno suoritus!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
     }
 
     @Test
     public void pelinLopetusTekstiKunPelaajalla6Pistetta() {
         this.peliJossaEiVielaPelattuKierroksia.setPisteitaPelaajalla(6);
-        assertEquals("Enemmän kuin puolet oikein!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
+        assertEquals("Game over! Enemmän kuin puolet oikein!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
     }
 
     @Test
     public void pelinLopetusTekstiKunPelaajalla5Pistetta() {
         this.peliJossaEiVielaPelattuKierroksia.setPisteitaPelaajalla(5);
-        assertEquals("Vielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
+        assertEquals("Game over! Vielä olisi vähän treenattavaa, jatka pelaamista niin opit! :)", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
     }
 }
