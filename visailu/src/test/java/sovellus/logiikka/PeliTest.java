@@ -1,7 +1,5 @@
 package sovellus.logiikka;
 
-import static com.sun.xml.internal.fastinfoset.stax.events.EmptyIterator.instance;
-import java.awt.event.KeyEvent;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -123,8 +121,14 @@ public class PeliTest {
     }
 
     @Test
-    public void pelinAlussaEiOleViimeinenKierros() {
+    public void pelinAlussaJatketaanPelia() {
         assertTrue(this.peliJossaEiVielaPelattuKierroksia.jatketaankoPelia());
+    }
+
+    @Test
+    public void pelinVikallaKierroksellaEiJatketaPelia() {
+        this.peliJossaEiVielaPelattuKierroksia.setKierroksenNumero(10);
+        assertFalse(this.peliJossaEiVielaPelattuKierroksia.jatketaankoPelia());
     }
 
     @Test
@@ -166,27 +170,26 @@ public class PeliTest {
 //
 //        assertEquals("Nyt meni väärin. Oikea vastaus olisi ollut Madrid", this.peliJossaPelattuYksiKierrosJaVaaraVastaus.vastauksenArviointi("Helsinki"));
 //    }
-    @Test
-    public void vastauksenArviointiKunPelaajaArvasiOikein() {
-//        String oikeaVastaus = "Madrid";
-//        System.setIn(new ByteArrayInputStream(oikeaVastaus.getBytes()));
-
-        this.peliJossaPelattuYksiKierrosJaOikeaVastaus.setKierroksenNumero(9);
-        this.peliJossaPelattuYksiKierrosJaOikeaVastaus.pelaaPeli();
-        assertEquals("Hienoa, oikea vastaus!", this.peliJossaPelattuYksiKierrosJaOikeaVastaus.vastauksenArviointi("Madrid"));
-    }
-
-    @Test
-    public void vastauksenArviointiKunPelaajaArvasiVaarin() {
-//        String vaaraVastaus = "Helsinki";
-//        System.setIn(new ByteArrayInputStream(vaaraVastaus.getBytes()));
-
-        this.peliJossaPelattuYksiKierrosJaVaaraVastaus.setKierroksenNumero(9);
-        this.peliJossaPelattuYksiKierrosJaVaaraVastaus.pelaaPeli();
-
-        assertEquals("Nyt meni väärin. Oikea vastaus olisi ollut Madrid", this.peliJossaPelattuYksiKierrosJaVaaraVastaus.vastauksenArviointi("Helsinki"));
-    }
-
+//    @Test
+//    public void vastauksenArviointiKunPelaajaArvasiOikein() {
+////        String oikeaVastaus = "Madrid";
+////        System.setIn(new ByteArrayInputStream(oikeaVastaus.getBytes()));
+//
+//        this.peliJossaPelattuYksiKierrosJaOikeaVastaus.setKierroksenNumero(9);
+//        this.peliJossaPelattuYksiKierrosJaOikeaVastaus.pelaaPeli();
+//        assertEquals("Hienoa, oikea vastaus!", this.peliJossaPelattuYksiKierrosJaOikeaVastaus.vastauksenArviointi("Madrid"));
+//    }
+//
+//    @Test
+//    public void vastauksenArviointiKunPelaajaArvasiVaarin() {
+////        String vaaraVastaus = "Helsinki";
+////        System.setIn(new ByteArrayInputStream(vaaraVastaus.getBytes()));
+//
+//        this.peliJossaPelattuYksiKierrosJaVaaraVastaus.setKierroksenNumero(9);
+//        this.peliJossaPelattuYksiKierrosJaVaaraVastaus.pelaaPeli();
+//
+//        assertEquals("Nyt meni väärin. Oikea vastaus olisi ollut Madrid", this.peliJossaPelattuYksiKierrosJaVaaraVastaus.vastauksenArviointi("Helsinki"));
+//    }
     @Test
     public void pistetilanneTulostuuOikein() {
         assertEquals("Pisteesi: 0 / 0", this.peliJossaEiVielaPelattuKierroksia.pistetilanteenTulostus());

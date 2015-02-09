@@ -21,7 +21,6 @@ public class Visailukoordinaattori {
      */
     public void kaynnista() {
         lueTiedosto();
-  //      muodostaKysymyssarja();
         visaile();
     }
 
