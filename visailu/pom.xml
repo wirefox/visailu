@@ -55,7 +55,8 @@
                 <configuration>
                     <targetClasses>
                         <param>sovellus.logiikka.*</param>
-                        <param>sovellus.domain.*</param>
+                        <param>sovellus.domain.Kysymys*</param>
+                        <param>sovellus.domain.Kysymyssarja*</param>
                     </targetClasses>
                     <targetTests>
                         <param>sovellus.logiikka.*</param>
