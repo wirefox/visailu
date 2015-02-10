@@ -29,7 +29,8 @@ public class Visailukoordinaattori {
      */
     private void lueTiedosto() {
         this.tiedostonlukija = new Tiedostonlukija();
-        this.tiedonkasittelija = new Tiedonkasittelija(this.tiedostonlukija.lueTiedosto("maatJaPaakaupungit.txt"), this.tiedostonlukija.getKysymyslause());
+        String kysymyslause = this.tiedostonlukija.getKysymyslause();
+        this.tiedonkasittelija = new Tiedonkasittelija(this.tiedostonlukija.lueTiedosto("maatJaPaakaupungit.txt"), kysymyslause);
     }
 
     /**

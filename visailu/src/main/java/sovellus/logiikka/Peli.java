@@ -37,7 +37,6 @@ public class Peli {
         SwingUtilities.invokeLater(graafinenKayttoliittyma);
 
         //       Tekstikayttoliittyma tekstikayttoliittyma = new Tekstikayttoliittyma(this);
-        // HUOM! testikäyttiksen vaihtaminen graafiseen tuottaa nullpointerin vastauksen arvioinnissa
         pelinLopetusteksti();
     }
 

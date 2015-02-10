@@ -148,48 +148,51 @@ public class PeliTest {
         assertEquals(2, this.peliJossaEiVielaPelattuKierroksia.getKierroksenNumero());
     }
 
-// Nämä ovat tekstikäyttöliittymän kanssa ajettavia testejä
-//    @Test
-//    public void vastauksenArviointiKunPelaajaArvasiOikein() {
-//        String oikeaVastaus = "Madrid";
-//        System.setIn(new ByteArrayInputStream(oikeaVastaus.getBytes()));
-//
-//        this.peliJossaPelattuYksiKierrosJaOikeaVastaus.setKierroksenNumero(9);
-//        this.peliJossaPelattuYksiKierrosJaOikeaVastaus.pelaaPeli();
-//
-//        assertEquals("Hienoa, oikea vastaus!", this.peliJossaPelattuYksiKierrosJaOikeaVastaus.vastauksenArviointi("Madrid"));
-//    }
-//
-//    @Test
-//    public void vastauksenArviointiKunPelaajaArvasiVaarin() {
-//        String vaaraVastaus = "Helsinki";
-//        System.setIn(new ByteArrayInputStream(vaaraVastaus.getBytes()));
-//
-//        this.peliJossaPelattuYksiKierrosJaVaaraVastaus.setKierroksenNumero(9);
-//        this.peliJossaPelattuYksiKierrosJaVaaraVastaus.pelaaPeli();
-//
-//        assertEquals("Nyt meni väärin. Oikea vastaus olisi ollut Madrid", this.peliJossaPelattuYksiKierrosJaVaaraVastaus.vastauksenArviointi("Helsinki"));
-//    }
-//    @Test
-//    public void vastauksenArviointiKunPelaajaArvasiOikein() {
-////        String oikeaVastaus = "Madrid";
-////        System.setIn(new ByteArrayInputStream(oikeaVastaus.getBytes()));
-//
-//        this.peliJossaPelattuYksiKierrosJaOikeaVastaus.setKierroksenNumero(9);
-//        this.peliJossaPelattuYksiKierrosJaOikeaVastaus.pelaaPeli();
-//        assertEquals("Hienoa, oikea vastaus!", this.peliJossaPelattuYksiKierrosJaOikeaVastaus.vastauksenArviointi("Madrid"));
-//    }
-//
-//    @Test
-//    public void vastauksenArviointiKunPelaajaArvasiVaarin() {
-////        String vaaraVastaus = "Helsinki";
-////        System.setIn(new ByteArrayInputStream(vaaraVastaus.getBytes()));
-//
-//        this.peliJossaPelattuYksiKierrosJaVaaraVastaus.setKierroksenNumero(9);
-//        this.peliJossaPelattuYksiKierrosJaVaaraVastaus.pelaaPeli();
-//
-//        assertEquals("Nyt meni väärin. Oikea vastaus olisi ollut Madrid", this.peliJossaPelattuYksiKierrosJaVaaraVastaus.vastauksenArviointi("Helsinki"));
-//    }
+    @Test
+    public void vastauksenArviointiKunPelaajaArvasiOikein() {
+        String oikeaVastaus = "Madrid";
+        this.peliJossaEiVielaPelattuKierroksia.vaihdaSeuraavaKysymys();
+        String tulos = this.peliJossaEiVielaPelattuKierroksia.vastauksenArviointi(oikeaVastaus);
+
+        assertEquals("Hienoa, oikea vastaus!", tulos);
+    }
+
+    @Test
+    public void oikeanVastauksenJalkeenPelaajaSaaPisteen() {
+        String oikeaVastaus = "Madrid";
+        this.peliJossaEiVielaPelattuKierroksia.vaihdaSeuraavaKysymys();
+        this.peliJossaEiVielaPelattuKierroksia.vastauksenArviointi(oikeaVastaus);
+
+        assertEquals(1, this.peliJossaEiVielaPelattuKierroksia.getPisteitaPelaajalla());
+    }
+
+    @Test
+    public void vastauksenArviointiKunPelaajaArvasiVaarin() {
+        String vaaraVastaus = "Helsinki";
+        this.peliJossaEiVielaPelattuKierroksia.vaihdaSeuraavaKysymys();
+        String tulos = this.peliJossaEiVielaPelattuKierroksia.vastauksenArviointi(vaaraVastaus);
+
+        assertEquals("Nyt meni väärin. Oikea vastaus olisi ollut Madrid", tulos);
+    }
+
+    @Test
+    public void vaaranVastauksenJalkeenPelaajaEiSaaPistetta() {
+        String vaaraVastaus = "Helsinki";
+        this.peliJossaEiVielaPelattuKierroksia.vaihdaSeuraavaKysymys();
+        this.peliJossaEiVielaPelattuKierroksia.vastauksenArviointi(vaaraVastaus);
+
+        assertEquals(0, this.peliJossaEiVielaPelattuKierroksia.getPisteitaPelaajalla());
+    }
+
+    @Test
+    public void vastauksenArvioinninJalkeenPelinKierrosnumeroKasvaa() {
+        String vaaraVastaus = "Helsinki";
+        this.peliJossaEiVielaPelattuKierroksia.vaihdaSeuraavaKysymys();
+        String tulos = this.peliJossaEiVielaPelattuKierroksia.vastauksenArviointi(vaaraVastaus);
+
+        assertEquals(1, this.peliJossaEiVielaPelattuKierroksia.getKierroksenNumero());
+    }
+
     @Test
     public void pistetilanneTulostuuOikein() {
         assertEquals("Pisteesi: 0 / 0", this.peliJossaEiVielaPelattuKierroksia.pistetilanteenTulostus());
@@ -222,6 +225,12 @@ public class PeliTest {
     @Test
     public void pelinLopetusTekstiKunPelaajalla9Pistetta() {
         this.peliJossaEiVielaPelattuKierroksia.setPisteitaPelaajalla(9);
+        assertEquals("Game over! Hieno suoritus!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
+    }
+
+    @Test
+    public void pelinLopetusTekstiKunPelaajalla8Pistetta() {
+        this.peliJossaEiVielaPelattuKierroksia.setPisteitaPelaajalla(8);
         assertEquals("Game over! Hieno suoritus!", this.peliJossaEiVielaPelattuKierroksia.pelinLopetusteksti());
     }
 
