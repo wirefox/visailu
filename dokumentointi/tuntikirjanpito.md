@@ -24,4 +24,4 @@ Päivämäärä | Tuntia | Selite
 7.2.2015  | 3 | graafisen käyttöliittymän työstäminen; gui vielä aika keskeneräinen
 8.2.2015  | 5 | jatkettu guin tekemistä, se on nyt aika hyvällä mallilla, seuraavaksi minun pitää keskittyä javadocin kirjoittamiseen ja yksikkötestien tekemiseen"
 9.2.2015  | 1 | tehty muutamia uusia testitapauksia. Kysyttävä huomenna apuja pelitesti-luokan vastauksen arviointitesteihin ja visailukoordinaattorin testaamiseen
-10.2.2015 | 4 | tehty testitapauksia, ja ihmetelty visailukoordinaattori-luokan kohtaloa
+10.2.2015 | 6 | tehty testitapauksia, muokattu visailukoordinaattori-luokkaa, tehty javadocia
