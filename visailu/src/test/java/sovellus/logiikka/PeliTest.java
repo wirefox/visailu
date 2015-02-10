@@ -139,7 +139,7 @@ public class PeliTest {
     @Test
     public void peliAntaaViisiVastausvaihtoehtoa() {
         this.peliJossaEiVielaPelattuKierroksia.vaihdaSeuraavaKysymys();
-        assertEquals(5, this.peliJossaEiVielaPelattuKierroksia.getVastausvaihtoehdot().size());
+        assertEquals(5, this.peliJossaEiVielaPelattuKierroksia.muodostaVastausvaihtoehdot().size());
     }
 
     @Test
