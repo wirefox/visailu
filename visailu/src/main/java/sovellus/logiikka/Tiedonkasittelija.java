@@ -8,8 +8,7 @@ import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 
 /**
- * Luokka käsittelee saamansa HashMapin muodostaen siitä peliä varten kysymyksiä
- * ja kysymyssarjan
+ * Luokassa jatkokäsitellään tiedostonlukijan sisään lukemaa tietoa
  *
  * @author elina
  */
@@ -24,8 +23,13 @@ public class Tiedonkasittelija {
     }
 
     /**
-     * Metodi muodostaa
-     * antaa kysymyslauseen eteenpäin kysymyssarjalle
+     * Metodissa luodaan kysymykset, niiden muuttujat sekä kysymyssarja, jonne
+     * kysymykset lisätään.
+     *
+     * Jokaiselle luodulle kysymykselle lisätään kysymyssana, oikea vastaus ja
+     * väärät vastaukset.
+     *
+     * @return kysymyssarja palautetaan valmis kysymyssarja
      */
     public Kysymyssarja muodostaKysymyssarja() {
         Kysymyssarja kysymyssarja = new Kysymyssarja(this.kysymyslause);
@@ -34,7 +38,7 @@ public class Tiedonkasittelija {
             Kysymys kysymys = new Kysymys();
             kysymys.setKysymyssana(kysymyssana.toUpperCase());
             kysymys.setOikeaVastaus(this.kysymyksetJaVastaukset.get(kysymyssana));
-            kysymys.setVaaratVastaukset(arvoVaaratVastaukset(kysymys));
+            kysymys.setVaaratVastaukset(arvoVaaratVastausvaihtoehdot(kysymys));
 
             kysymyssarja.lisaaKysymys(kysymys);
 
@@ -47,9 +51,17 @@ public class Tiedonkasittelija {
     }
 
     /**
-     * Metodi
+     * Metodissa arvotaan kysymykselle väärät vastausvaihtoehdot.
+     *
+     * Metodissa luodaan uusi vastausarpoja, jolta pyydetään neljä väärää
+     * vastausvaihtoehtoa.
+     *
+     * @param kysymys metodille annetaan pelikierroksen kysymys, jolle väärät
+     * vastausvaihtoehdot tulee arpoa.
+     * @return vaaratVastaukset metodi palauttaa listan, jossa on kysymyksen
+     * väärät vastausvaihtoehdot.
      */
-    private ArrayList<String> arvoVaaratVastaukset(Kysymys kysymys) {
+    private ArrayList<String> arvoVaaratVastausvaihtoehdot(Kysymys kysymys) {
         ArrayList<String> kaikkiVastaukset = new ArrayList<String>();
         for (String vastaus : this.kysymyksetJaVastaukset.values()) {
             kaikkiVastaukset.add(vastaus);

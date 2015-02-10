@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import sovellus.domain.Kysymys;
 
+//KOrjausehdotus: luokan ja metodin nimet!
 /**
  * Luokka arpoo pelikierroksen kysymykselle listan vääriä vastausvaihtoehtoja
  *
@@ -12,7 +13,14 @@ import sovellus.domain.Kysymys;
 public class Vastausarpoja {
 
     /**
-     * Metodi
+     * Metodissa arvotaan neljä väärää vastausvaihtoehtoa kysymykselle.
+     *
+     * @param listaVastauksia metodi saa parametrina listan, jossa on kaikki
+     * mahdolliset vastaukset
+     * @param kysymys metodi saa parametrina pelikierroksen kysymyksen, jotta se
+     * ei arpoisi oikeaa vastausta väärien vastausvaihtoehtojen joukkoon
+     * @return vastaukset metodi palauttaa listan, jossa on väärät
+     * vastausvaihtoehdot
      */
     public ArrayList<String> arvoVastauksetKysymykselle(ArrayList<String> listaVastauksia, Kysymys kysymys) {
         ArrayList<String> vastaukset = new ArrayList<String>();

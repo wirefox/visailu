@@ -9,8 +9,9 @@ import sovellus.gui.GraafinenKayttoliittyma;
 import sovellus.gui.Tekstikayttoliittyma;
 
 /**
- * Luokassa on pelin pelaamisen toiminnallisuus ja siinä on talletettuna pelin
- * kierroksen numero ja pelaajan pistetilanne
+ * Luokassa on pelin pelaamisen toiminnallisuus.
+ *
+ * Luokassa on talletettuna pelin kierroksen numero ja pelaajan pistetilanne.
  *
  * @author elina
  */
@@ -22,6 +23,7 @@ public class Peli {
     private int pisteitaPelaajalla;
     private int kierroksenNumero;
 
+    //Korjausidea: kierroksen numeron voisi ehkä vaihtaa alkamaan 1:stä..
     public Peli(String kysymyslause, Kysymyssarja kysymyssarja) {
         this.kysymyssarja = kysymyssarja;
         this.kysymys = new Kysymys();
@@ -30,7 +32,8 @@ public class Peli {
     }
 
     /**
-     * Metodi
+     * Metodissa käynnistetään käyttöliittymä eli aloitetaan pelaamaan peliä, ja
+     * siinä kutsutaan myös pelin lopetustekstiä
      */
     public void pelaaPeli() {
         GraafinenKayttoliittyma graafinenKayttoliittyma = new GraafinenKayttoliittyma(this);
@@ -41,14 +44,20 @@ public class Peli {
     }
 
     /**
-     * Metodi vaihtaa uudelle pelikierrokselle uuden kysymyksen
+     * Metodissa pyydetään kysymyssarjaa antamaan pelikierrokselle uuden
+     * kysymyksen.
      */
     public void vaihdaSeuraavaKysymys() {
         this.kysymys = this.kysymyssarja.annaSeuraavaKysymys(this.kierroksenNumero);
     }
 
     /**
-     * Metodi
+     * Metodi tarkistaa jatketaanko peliä vai onko aika lopettaa.
+     *
+     * Pelissä on 10 kierrosta.
+     *
+     * @return boolean palautetaan false, jos peliä ei jatketa ja true, jos
+     * jatketaan
      */
     public boolean jatketaankoPelia() {
         if (getKierroksenNumero() >= 10) {
@@ -70,14 +79,25 @@ public class Peli {
         return this.kysymys;
     }
 
+    /**
+     * Metodi antaa kierroksen kysymyslauseen.
+     *
+     * @return String
+     */
     public String getKierroksenKysymyslause() {
         return this.kierroksenNumero + 1 + ": " + this.kysymyssarja.getKysymyslause();
     }
 
     /**
-     * Metodi
+     * Metodissa muodostetaan kysymykselle vastausvaihtoehdot.
+     *
+     * Metodi kysyy oikean vastauksen ja väärät vaihtoehdot kysymykseltä, lisää
+     * ne listaan ja sekoittaa järjestyksen.
+     *
+     * @return vastausvaihtoehdot palautetaan lista, jossa on vastausvaihtoehdot
+     * kysymykselle
      */
-    public ArrayList<String> getVastausvaihtoehdot() {
+    public ArrayList<String> muodostaVastausvaihtoehdot() {
         ArrayList<String> vastausvaihtoehdot = this.kysymys.getVaaratVastaukset();
         vastausvaihtoehdot.add(this.kysymys.getOikeaVastaus());
         Collections.shuffle(vastausvaihtoehdot);
@@ -93,7 +113,15 @@ public class Peli {
     }
 
     /**
-     * Metodi
+     * Metodissa arvioidaan pelaajan vastaus ja kasvatetaan pelin kierrosnumeroa
+     * ja tarvittaessa pelaajan pistesaldoa.
+     *
+     * Metodi kysyy kysymykseltä oikean vastauksen ja vertaa sitä pelaajan
+     * vastaukseen. Kierrosnumeroa kasvatetaan joka kerta, pelaajan pistesaldoa
+     * kasvatetaan, jos pelaaja vastasi oikein.
+     *
+     * @param vastaus pelaajan vastaus kysymykseen
+     * @return String palaute pelaajalle hänen vastauksestaan
      */
     public String vastauksenArviointi(String vastaus) {
         setKierroksenNumero(getKierroksenNumero() + 1);
@@ -106,7 +134,11 @@ public class Peli {
     }
 
     /**
-     * Metodi
+     * Metodi antaa pelin lopetustekstin, jonka sisältö riippuu pelaajan
+     * pistesaldosta
+     *
+     * @return String lopetustekstinä pelaajalle palautetta hänen
+     * onnistumisestaan
      */
     public String pelinLopetusteksti() {
         if (getPisteitaPelaajalla() == 10) {
@@ -121,7 +153,9 @@ public class Peli {
     }
 
     /**
-     * Metodi
+     * Metodi tulostaa pelaajan pistetilanteen joka kierroksen lopussa.
+     *
+     * @return String pelaajan pistetilannetulostus
      */
     public String pistetilanteenTulostus() {
         return "Pisteesi: " + getPisteitaPelaajalla() + " / " + getKierroksenNumero();

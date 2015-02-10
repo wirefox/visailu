@@ -15,12 +15,6 @@ import javax.swing.WindowConstants;
 import sovellus.domain.Kysymys;
 import sovellus.logiikka.Peli;
 
-/**
- * Luokka on visailun graafinen käyttöliittymä, josta kehitetään sovelluksen
- * ainoa käyttöliittymä - vielä hyvin keskeneräinen
- *
- * @author elina
- */
 public class GraafinenKayttoliittyma implements Runnable {
 
     private Peli peli;
@@ -122,7 +116,7 @@ public class GraafinenKayttoliittyma implements Runnable {
 
         ArrayList<String> vastausvaihtoehdot = new ArrayList<String>();
 
-        vastausvaihtoehdot.addAll(this.peli.getVastausvaihtoehdot());
+        vastausvaihtoehdot.addAll(this.peli.muodostaVastausvaihtoehdot());
 
         this.vaihtoehto1.setText(vastausvaihtoehdot.get(0));
         this.vaihtoehto2.setText(vastausvaihtoehdot.get(1));

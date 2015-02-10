@@ -7,9 +7,9 @@ import java.util.Random;
 /**
  * Luokka tallettaa kysymykset listaan, sekoittaa listan, ja antaa visan
  * seuraavan kysymyksen
+ *
  * @author elina
  */
-
 public class Kysymyssarja {
 
     private ArrayList<Kysymys> kysymykset;
@@ -21,7 +21,9 @@ public class Kysymyssarja {
     }
 
     /**
-     * Metodi lisää sille parametrina annetun kysymyksen ArrayListiin
+     * Metodi lisää sille parametrina annetun kysymyksen listalle
+     *
+     * @param kysymys saa kysymyksen, jonka lisää listalle
      */
     public void lisaaKysymys(Kysymys kysymys) {
         this.kysymykset.add(kysymys);
@@ -36,16 +38,22 @@ public class Kysymyssarja {
     }
 
     /**
-     * Metodi antaa kysymyslistalta seuraavan kysymyksen;
-     * parametrina se saa pelin kierroksen numeron
+     * Metodi antaa kysymyslistalta seuraavan kysymyksen
+     *
+     * @param kierroksenNumero saa kierroksen numeron, joka määrää mistä
+     * kohdasta listaa kysymys otetaan
+     * @return kysymys palauttaa seuraavan kysymyksen
      */
     public Kysymys annaSeuraavaKysymys(int kierroksenNumero) {
-        return this.kysymykset.get(kierroksenNumero);
+        Kysymys kysymys = this.kysymykset.get(kierroksenNumero);
+        return kysymys;
     }
 
     /**
-     * Metodi sekoittaa kysymyslistan, jotta kysymykset eivät tule pelissä 
-     * aina samassa järjestyksessä
+     * Metodi sekoittaa kysymyslistan
+     *
+     * Sekoitus tehdään, jossa kysymyksen eivät tulisi joka pelissä samassa
+     * järjestyksessä
      */
     public void sekoitaSarjanKysymykset() {
         Collections.shuffle(this.kysymykset);

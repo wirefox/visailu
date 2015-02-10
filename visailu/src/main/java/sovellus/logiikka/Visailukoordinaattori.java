@@ -1,12 +1,16 @@
 package sovellus.logiikka;
 
+import java.util.HashMap;
 import sovellus.domain.Kysymyssarja;
 import sovellus.gui.Tekstikayttoliittyma;
 
+//KOrjausehdotus: korjaa luokan javadoc-kuvausta
 /**
- * Luokka ohjaa visailua ylätasolta - se tulee olemaan merkityksellisempi
- * luokka, jos/kun visailua laajennetaan siten, että siihen lisätään muitakin
- * pelejä kuin maavisailu
+ * Luokka ohjaa visailua ylätasolta ja valmistelee ohjelman pelaamista varten.
+ *
+ * Luokka tulee olemaan merkityksellisempi, jos/kun visailua laajennetaan siten,
+ * että siihen lisätään muitakin pelejä kuin maavisailu. Tässä tapauksessa
+ * visailukoordinaatio ehkä loisi käyttöliittymän ja peli alkaisi.
  *
  * @author elina
  */
@@ -17,26 +21,42 @@ public class Visailukoordinaattori {
     private Tiedostonlukija tiedostonlukija;
 
     /**
-     * Metodi
+     * Metodissa kutsutaan lueTiedosto-, muodostaKysymyssarja- ja
+     * visaile-metodeita.
+     *
+     * Tähän tarvitaan vielä lisää tietoa.
      */
     public void kaynnista() {
-        lueTiedosto();
-        visaile();
+        HashMap<String, String> kysymyksetJaVastaukset = lueTiedosto();
+        Kysymyssarja kysymyssarja = muodostaKysymyssarja(kysymyksetJaVastaukset, this.tiedostonlukija.getKysymyslause());
+        visaile(this.tiedostonlukija.getKysymyslause(), kysymyssarja);
     }
 
     /**
-     * Metodi
+     * Metodissa luodaan tiedostonlukija ja pyydetään lukemaan tiedosto ja peliä
+     * varten.
+     *
+     * @return kysymyksetJaVastaukset metodi palauttaa HashMapin, jossa on
+     * luetusta tiedostosta muodostetut kysymys-vastaus -parit.
      */
-    private void lueTiedosto() {
+    private HashMap<String, String> lueTiedosto() {
         this.tiedostonlukija = new Tiedostonlukija();
         String kysymyslause = this.tiedostonlukija.getKysymyslause();
-        this.tiedonkasittelija = new Tiedonkasittelija(this.tiedostonlukija.lueTiedosto("maatJaPaakaupungit.txt"), kysymyslause);
+        HashMap<String, String> kysymyksetJaVastaukset = this.tiedostonlukija.lueTiedosto("maatJaPaakaupungit.txt");
+        return kysymyksetJaVastaukset;
     }
 
     /**
-     * Metodi
+     * Metodissa luodaan tiedonkäsittelijä ja pyydetään sitä luomaan ja
+     * muodostamaan pelin kysymyssarja.
+     *
+     * @param kysymyksetJaVastaukset metodi saa parametrinaan HashMapin, jossa
+     * on pelin kysymys-vastaus -parit.
+     * @param kysymyslause metodi saa parametrinaan peli kysymyslauseen.
+     * @return kysymyssarja metodi palauttaa pelissä käytettävän kysymyssarjan.
      */
-    private Kysymyssarja muodostaKysymyssarja() {
+    private Kysymyssarja muodostaKysymyssarja(HashMap<String, String> kysymyksetJaVastaukset, String kysymyslause) {
+        this.tiedonkasittelija = new Tiedonkasittelija(kysymyksetJaVastaukset, kysymyslause);
         Kysymyssarja kysymyssarja = this.tiedonkasittelija.muodostaKysymyssarja();
         kysymyssarja.sekoitaSarjanKysymykset();
 
@@ -44,10 +64,15 @@ public class Visailukoordinaattori {
     }
 
     /**
-     * Metodi
+     * Metodissa luodaan peli-olio ja pyydetään aloittamaan peli.
+     *
+     * @param kysymyslause metodi saa parametrina pelissä käytettävän
+     * kysymyslauseen
+     * @param kysymyssarja metodi saa parametrina pelissä käytettävän
+     * kysymyssarjan
      */
-    private void visaile() {
-        this.peli = new Peli(this.tiedostonlukija.getKysymyslause(), muodostaKysymyssarja());
+    private void visaile(String kysymyslause, Kysymyssarja kysymyssarja) {
+        this.peli = new Peli(kysymyslause, kysymyssarja);
         this.peli.pelaaPeli();
     }
 }

@@ -8,12 +8,6 @@ import sovellus.domain.Kysymyssarja;
 import sovellus.logiikka.Peli;
 import sovellus.logiikka.Visailukoordinaattori;
 
-/**
- * Luokka pn visailun alustava käyttöliittymä, joka toimii komentorivin kautta
- * - poistetaan käytöstä, kun graafinen käyttöliittymä käytössä
- * @author elina
- */
-
 public class Tekstikayttoliittyma {
 
     private Peli peli;
@@ -48,7 +42,7 @@ public class Tekstikayttoliittyma {
         tulostaNaytolle(this.peli.pistetilanteenTulostus());
     }
 
-   //miksi tämä metodi on täällä? on myös peli-luokassa..
+    //miksi tämä metodi on täällä? on myös peli-luokassa..
     public ArrayList<String> getVastausvaihtoehdot() {
         ArrayList<String> vastausvaihtoehdot = this.kysymys.getVaaratVastaukset();
         vastausvaihtoehdot.add(this.kysymys.getOikeaVastaus());

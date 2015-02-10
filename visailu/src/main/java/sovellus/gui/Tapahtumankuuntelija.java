@@ -11,14 +11,6 @@ import javax.swing.JTextArea;
 import sovellus.domain.Kysymys;
 import sovellus.logiikka.Peli;
 
-/**
- * Luokka kertoo minkä vastausvaihtoehdon pelaaja valitsi ja käskyttää sitten
- * muita tahoja tekemään asioita (mm vastauksen analysointi, piste- ja
- * kierrostilanne, uusi kierros, ikkunan päivitys) - Luokka on hyvin
- * keskeneräinen vielä
- *
- * @author elina
- */
 public class Tapahtumankuuntelija implements ActionListener {
 
     private Peli peli;
@@ -116,7 +108,7 @@ public class Tapahtumankuuntelija implements ActionListener {
 
                 ArrayList<String> vastausvaihtoehdot = new ArrayList<String>();
 
-                vastausvaihtoehdot.addAll(this.peli.getVastausvaihtoehdot());
+                vastausvaihtoehdot.addAll(this.peli.muodostaVastausvaihtoehdot());
 
                 this.vaihtoehto1.setText(vastausvaihtoehdot.get(0));
                 this.vaihtoehto2.setText(vastausvaihtoehdot.get(1));
