@@ -195,7 +195,7 @@ public class PeliTest {
 
     @Test
     public void pistetilanneTulostuuOikein() {
-        assertEquals("Pisteesi: 0 / 0", this.peliJossaEiVielaPelattuKierroksia.pistetilanteenTulostus());
+        assertEquals("Pisteesi: 0 / 0", this.peliJossaEiVielaPelattuKierroksia.pistetilanneTeksti());
     }
 
     @Test

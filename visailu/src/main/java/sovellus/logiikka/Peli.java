@@ -37,9 +37,7 @@ public class Peli {
     public void pelaaPeli() {
         GraafinenKayttoliittyma graafinenKayttoliittyma = new GraafinenKayttoliittyma(this);
         SwingUtilities.invokeLater(graafinenKayttoliittyma);
-
         //       Tekstikayttoliittyma tekstikayttoliittyma = new Tekstikayttoliittyma(this);
-        pelinLopetusteksti();
     }
 
     /**
@@ -156,7 +154,7 @@ public class Peli {
      *
      * @return String pelaajan pistetilannetulostus
      */
-    public String pistetilanteenTulostus() {
+    public String pistetilanneTeksti() {
         return "Pisteesi: " + getPisteitaPelaajalla() + " / " + getKierroksenNumero();
     }
 }
