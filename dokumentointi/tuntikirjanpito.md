@@ -25,3 +25,6 @@ Päivämäärä | Tuntia | Selite
 8.2.2015  | 5 | jatkettu guin tekemistä, se on nyt aika hyvällä mallilla, seuraavaksi minun pitää keskittyä javadocin kirjoittamiseen ja yksikkötestien tekemiseen"
 9.2.2015  | 1 | tehty muutamia uusia testitapauksia. Kysyttävä huomenna apuja pelitesti-luokan vastauksen arviointitesteihin ja visailukoordinaattorin testaamiseen
 10.2.2015 | 6 | tehty testitapauksia, muokattu visailukoordinaattori-luokkaa, tehty javadocia
+11.2.2015 | 2 | päivitetty luokkakaaviota, aloitettu sekvenssikaaviota, tehty javadocia ja pieniä korjauksia koodiin
+12.2.2015 | 4 | sekvenssikaaviota, pieniä korjauksia koodiin, uusin pit-raportti ym. viikon deadlineen liittyvää
+
