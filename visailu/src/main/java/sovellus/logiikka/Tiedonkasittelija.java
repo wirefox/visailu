@@ -14,12 +14,14 @@ import sovellus.domain.Kysymyssarja;
  */
 public class Tiedonkasittelija {
 
+    private VastausvaihtoehtoArpoja vastausvaihtoehtoArpoja;
     private HashMap<String, String> kysymyksetJaVastaukset;
     private String kysymyslause;
 
     public Tiedonkasittelija(HashMap<String, String> kysymyksetJaVastaukset, String kysymyslause) {
         this.kysymyksetJaVastaukset = kysymyksetJaVastaukset;
         this.kysymyslause = kysymyslause;
+        this.vastausvaihtoehtoArpoja = new VastausvaihtoehtoArpoja();
     }
 
     /**
@@ -38,7 +40,8 @@ public class Tiedonkasittelija {
             Kysymys kysymys = new Kysymys();
             kysymys.setKysymyssana(kysymyssana.toUpperCase());
             kysymys.setOikeaVastaus(this.kysymyksetJaVastaukset.get(kysymyssana));
-            kysymys.setVaaratVastaukset(arvoVaaratVastausvaihtoehdot(kysymys));
+            ArrayList<String> vaaratVastausvaihtoehdot = annaKysymyksenVaaratVastausvaihtoehdot(kysymys);
+            kysymys.setVaaratVastaukset(vaaratVastausvaihtoehdot);
 
             kysymyssarja.lisaaKysymys(kysymys);
 
@@ -61,14 +64,13 @@ public class Tiedonkasittelija {
      * @return vaaratVastaukset metodi palauttaa listan, jossa on kysymyksen
      * väärät vastausvaihtoehdot.
      */
-    private ArrayList<String> arvoVaaratVastausvaihtoehdot(Kysymys kysymys) {
+    private ArrayList<String> annaKysymyksenVaaratVastausvaihtoehdot(Kysymys kysymys) {
         ArrayList<String> kaikkiVastaukset = new ArrayList<String>();
         for (String vastaus : this.kysymyksetJaVastaukset.values()) {
             kaikkiVastaukset.add(vastaus);
         }
-        Vastausarpoja vastausarpoja = new Vastausarpoja();
         ArrayList<String> vaaratVastaukset = new ArrayList<String>();
-        vaaratVastaukset = vastausarpoja.arvoVastauksetKysymykselle(kaikkiVastaukset, kysymys);
+        vaaratVastaukset = this.vastausvaihtoehtoArpoja.arvoVastausvaihtoehdotKysymykselle(kaikkiVastaukset, kysymys);
         return vaaratVastaukset;
     }
 }

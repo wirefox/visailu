@@ -8,12 +8,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import sovellus.domain.Kysymys;
-import sovellus.logiikka.Vastausarpoja;
+import sovellus.logiikka.VastausvaihtoehtoArpoja;
 
 public class VastausarpojaTest {
 
     private ArrayList<String> vastauksia;
-    private Vastausarpoja vastausarpoja;
+    private VastausvaihtoehtoArpoja vastausarpoja;
     private Kysymys kysymys;
     private ArrayList<String> vaaratVastaukset;
 
@@ -43,10 +43,10 @@ public class VastausarpojaTest {
         vastauksia.add("Berliini");
         vastauksia.add("Praha");
         vastauksia.add("Peking");
-        this.vastausarpoja = new Vastausarpoja();
+        this.vastausarpoja = new VastausvaihtoehtoArpoja();
 
         this.vaaratVastaukset = new ArrayList<String>();
-        vaaratVastaukset = this.vastausarpoja.arvoVastauksetKysymykselle(this.vastauksia, this.kysymys);
+        vaaratVastaukset = this.vastausarpoja.arvoVastausvaihtoehdotKysymykselle(this.vastauksia, this.kysymys);
     }
 
     @After

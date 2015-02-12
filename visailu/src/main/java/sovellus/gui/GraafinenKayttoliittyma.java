@@ -3,6 +3,7 @@ package sovellus.gui;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -39,8 +40,8 @@ public class GraafinenKayttoliittyma implements Runnable {
 
     @Override
     public void run() {
-        frame = new JFrame("Visailu");
-        frame.setPreferredSize(new Dimension(600, 300));
+        frame = new JFrame("       Visailu");
+        frame.setPreferredSize(new Dimension(600, 400));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,9 +52,15 @@ public class GraafinenKayttoliittyma implements Runnable {
     }
 
     private void luoKomponentitAloitusikkunaan(Container container) {
-        JLabel teksti = new JLabel();
+        BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
+        container.setLayout(layout);
+
+        container.add(Box.createRigidArea(new Dimension(60, 60)));
+
+        JLabel teksti = new JLabel("Tervetuloa visailuun!");
         container.add(teksti);
-        teksti.setText("Moikka! Tervetuloa visailuun!");
+
+        container.add(Box.createRigidArea(new Dimension(60, 30)));
 
         JButton nappi = new JButton("Aloita peli");
         nappi.addActionListener(new Tapahtumankuuntelija(this, nappi));
@@ -64,10 +71,14 @@ public class GraafinenKayttoliittyma implements Runnable {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
 
+        container.add(Box.createRigidArea(new Dimension(60, 20)));
+
         this.kysymyslause = new JLabel();
         this.kysymyssana = new JLabel();
         container.add(kysymyslause);
         container.add(kysymyssana);
+
+        container.add(Box.createRigidArea(new Dimension(60, 20)));
 
         this.vaihtoehto1 = new JRadioButton();
         this.vaihtoehto2 = new JRadioButton();
@@ -87,17 +98,25 @@ public class GraafinenKayttoliittyma implements Runnable {
         container.add(vaihtoehto3);
         container.add(vaihtoehto4);
         container.add(vaihtoehto5);
+        
+        container.add(Box.createRigidArea(new Dimension(60, 20)));
 
         this.tuloksenIlmoitus = new JLabel();
+
         this.pistetilanneTeksti = new JLabel();
+
         this.seuraavaKysymys = new JButton("Seuraava kysymys");
         this.seuraavaKysymys.setEnabled(false);
+
         this.lopetuslause = new JLabel();
         this.lopetuslause.setText("");
 
         container.add(this.tuloksenIlmoitus);
+        container.add(Box.createRigidArea(new Dimension(60, 20)));
         container.add(this.pistetilanneTeksti);
+        container.add(Box.createRigidArea(new Dimension(60, 20)));
         container.add(this.seuraavaKysymys);
+        container.add(Box.createRigidArea(new Dimension(60, 20)));
         container.add(this.lopetuslause);
 
         this.peli.vaihdaSeuraavaKysymys();

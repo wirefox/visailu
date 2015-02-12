@@ -30,7 +30,7 @@ public class Tapahtumankuuntelija implements ActionListener {
     private JLabel pistetilanneTeksti;
     private JLabel lopetuslause;
 
-    Tapahtumankuuntelija(Peli peli, Kysymys kysymys, ButtonGroup vaihtoehdot, JRadioButton vaihtoehto1, JRadioButton vaihtoehto2, JRadioButton vaihtoehto3, JRadioButton vaihtoehto4, JRadioButton vaihtoehto5, JButton seuraavaKysymys, JLabel kysymyslause, JLabel kysymyssana, JLabel tuloksenIlmoitus, JLabel pistetilanneTeksti, JLabel lopetuslause) {
+    public Tapahtumankuuntelija(Peli peli, Kysymys kysymys, ButtonGroup vaihtoehdot, JRadioButton vaihtoehto1, JRadioButton vaihtoehto2, JRadioButton vaihtoehto3, JRadioButton vaihtoehto4, JRadioButton vaihtoehto5, JButton seuraavaKysymys, JLabel kysymyslause, JLabel kysymyssana, JLabel tuloksenIlmoitus, JLabel pistetilanneTeksti, JLabel lopetuslause) {
         this.peli = peli;
         this.kysymys = kysymys;
         this.vaihtoehdot = vaihtoehdot;
@@ -105,16 +105,7 @@ public class Tapahtumankuuntelija implements ActionListener {
 
                 this.kysymyslause.setText(this.peli.getKierroksenKysymyslause());
                 this.kysymyssana.setText(this.kysymys.getKysymyssana());
-
-                ArrayList<String> vastausvaihtoehdot = new ArrayList<String>();
-
-                vastausvaihtoehdot.addAll(this.peli.muodostaVastausvaihtoehdot());
-
-                this.vaihtoehto1.setText(vastausvaihtoehdot.get(0));
-                this.vaihtoehto2.setText(vastausvaihtoehdot.get(1));
-                this.vaihtoehto3.setText(vastausvaihtoehdot.get(2));
-                this.vaihtoehto4.setText(vastausvaihtoehdot.get(3));
-                this.vaihtoehto5.setText(vastausvaihtoehdot.get(4));
+                kierroksenVaihtoehdot();
             } else {
                 this.seuraavaKysymys.setEnabled(false);
                 String lopetusTeksti = this.peli.pelinLopetusteksti();
@@ -122,6 +113,18 @@ public class Tapahtumankuuntelija implements ActionListener {
             }
         }
 
+    }
+
+    private void kierroksenVaihtoehdot() {
+        ArrayList<String> vastausvaihtoehdot = new ArrayList<String>();
+
+        vastausvaihtoehdot.addAll(this.peli.muodostaVastausvaihtoehdot());
+
+        this.vaihtoehto1.setText(vastausvaihtoehdot.get(0));
+        this.vaihtoehto2.setText(vastausvaihtoehdot.get(1));
+        this.vaihtoehto3.setText(vastausvaihtoehdot.get(2));
+        this.vaihtoehto4.setText(vastausvaihtoehdot.get(3));
+        this.vaihtoehto5.setText(vastausvaihtoehdot.get(4));
     }
 
     private void laitaKaikkiVastausvaihtoEhdotPaalle() {

@@ -10,8 +10,14 @@ import sovellus.domain.Kysymys;
  *
  * @author elina
  */
-public class Vastausarpoja {
-
+public class VastausvaihtoehtoArpoja {
+    
+    private Random arpoja;
+    
+    public VastausvaihtoehtoArpoja() {
+        this.arpoja = new Random();
+    }
+            
     /**
      * Metodissa arvotaan neljä väärää vastausvaihtoehtoa kysymykselle.
      *
@@ -22,12 +28,11 @@ public class Vastausarpoja {
      * @return vastaukset metodi palauttaa listan, jossa on väärät
      * vastausvaihtoehdot
      */
-    public ArrayList<String> arvoVastauksetKysymykselle(ArrayList<String> listaVastauksia, Kysymys kysymys) {
+    public ArrayList<String> arvoVastausvaihtoehdotKysymykselle(ArrayList<String> listaVastauksia, Kysymys kysymys) {
         ArrayList<String> vastaukset = new ArrayList<String>();
 
         for (int i = 0; vastaukset.size() < 4; i++) {
-            Random arpoja = new Random();
-            int vastauksenNro = arpoja.nextInt(listaVastauksia.size());
+            int vastauksenNro = this.arpoja.nextInt(listaVastauksia.size());
             String vastaus = listaVastauksia.get(vastauksenNro);
 
             if (!vastaukset.contains(vastaus) && !kysymys.getOikeaVastaus().equals(vastaus)) {

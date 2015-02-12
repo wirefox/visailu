@@ -28,8 +28,9 @@ public class Visailukoordinaattori {
      */
     public void kaynnista() {
         HashMap<String, String> kysymyksetJaVastaukset = lueTiedosto();
-        Kysymyssarja kysymyssarja = muodostaKysymyssarja(kysymyksetJaVastaukset, this.tiedostonlukija.getKysymyslause());
-        visaile(this.tiedostonlukija.getKysymyslause(), kysymyssarja);
+        String kysymyslause = this.tiedostonlukija.getKysymyslause();
+        Kysymyssarja kysymyssarja = muodostaKysymyssarja(kysymyksetJaVastaukset, kysymyslause);
+        visaile(kysymyslause, kysymyssarja);
     }
 
     /**
@@ -41,7 +42,6 @@ public class Visailukoordinaattori {
      */
     private HashMap<String, String> lueTiedosto() {
         this.tiedostonlukija = new Tiedostonlukija();
-        String kysymyslause = this.tiedostonlukija.getKysymyslause();
         HashMap<String, String> kysymyksetJaVastaukset = this.tiedostonlukija.lueTiedosto("maatJaPaakaupungit.txt");
         return kysymyksetJaVastaukset;
     }

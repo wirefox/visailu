@@ -6,7 +6,6 @@ import javax.swing.SwingUtilities;
 import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 import sovellus.gui.GraafinenKayttoliittyma;
-import sovellus.gui.Tekstikayttoliittyma;
 
 /**
  * Luokassa on pelin pelaamisen toiminnallisuus.
@@ -17,7 +16,7 @@ import sovellus.gui.Tekstikayttoliittyma;
  */
 public class Peli {
 
-    private Tekstikayttoliittyma tekstikayttoliittyma;
+//    private Tekstikayttoliittyma tekstikayttoliittyma;
     private Kysymyssarja kysymyssarja;
     private Kysymys kysymys;
     private int pisteitaPelaajalla;
@@ -44,8 +43,8 @@ public class Peli {
     }
 
     /**
-     * Metodissa pyydetään kysymyssarjaa antamaan pelikierrokselle uuden
-     * kysymyksen.
+     * Metodissa pyydetään kysymyssarjaa antamaan uudelle pelikierrokselle
+     * kysymysolion
      */
     public void vaihdaSeuraavaKysymys() {
         this.kysymys = this.kysymyssarja.annaSeuraavaKysymys(this.kierroksenNumero);
