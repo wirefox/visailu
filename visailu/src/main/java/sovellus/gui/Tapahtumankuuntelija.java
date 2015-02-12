@@ -145,6 +145,6 @@ public class Tapahtumankuuntelija implements ActionListener {
     private void vastausJaArviointi(String vastaus, JRadioButton vaihtoehto) {
         vastaus = this.peli.vastauksenArviointi(vaihtoehto.getText());
         this.tuloksenIlmoitus.setText(vastaus);
-        this.pistetilanneTeksti.setText(this.peli.pistetilanteenTulostus());
+        this.pistetilanneTeksti.setText(this.peli.pistetilanneTeksti());
     }
 }

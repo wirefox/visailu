@@ -39,7 +39,7 @@ public class Tekstikayttoliittyma {
         tulostaNaytolle(getVastausvaihtoehdot());
         String vastaus = otaVastaus("\nKirjoita arvauksesi: ");
         tulostaNaytolle(this.peli.vastauksenArviointi(vastaus));
-        tulostaNaytolle(this.peli.pistetilanteenTulostus());
+        tulostaNaytolle(this.peli.pistetilanneTeksti());
     }
 
     //miksi tämä metodi on täällä? on myös peli-luokassa..
