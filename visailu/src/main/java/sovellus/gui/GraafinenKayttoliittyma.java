@@ -63,6 +63,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         container.add(Box.createRigidArea(new Dimension(60, 30)));
 
         JButton nappi = new JButton("Aloita peli");
+        nappi.setToolTipText("aloita peli");
         nappi.addActionListener(new Tapahtumankuuntelija(this, nappi));
         container.add(nappi);
     }
@@ -106,6 +107,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         this.pistetilanneTeksti = new JLabel();
 
         this.seuraavaKysymys = new JButton("Seuraava kysymys");
+        this.seuraavaKysymys.setToolTipText("seuraava kysymys");
         this.seuraavaKysymys.setEnabled(false);
 
         this.lopetuslause = new JLabel();

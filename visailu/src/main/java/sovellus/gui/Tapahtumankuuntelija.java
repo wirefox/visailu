@@ -1,8 +1,14 @@
 package sovellus.gui;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.font.TextAttribute;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -97,7 +103,7 @@ public class Tapahtumankuuntelija implements ActionListener {
             this.seuraavaKysymys.setEnabled(false);
 
             if (this.peli.jatketaankoPelia()) {
-                laitaKaikkiVastausvaihtoEhdotPaalle();
+                laitaKaikkiVastausvaihtoEhdotMustaksiJaPaalle();
                 this.peli.vaihdaSeuraavaKysymys();
                 this.kysymys = this.peli.getKysymys();
                 this.vaihtoehdot.clearSelection();
@@ -127,12 +133,21 @@ public class Tapahtumankuuntelija implements ActionListener {
         this.vaihtoehto5.setText(vastausvaihtoehdot.get(4));
     }
 
-    private void laitaKaikkiVastausvaihtoEhdotPaalle() {
-        this.vaihtoehto1.setEnabled(true);
-        this.vaihtoehto2.setEnabled(true);
-        this.vaihtoehto3.setEnabled(true);
-        this.vaihtoehto4.setEnabled(true);
-        this.vaihtoehto5.setEnabled(true);
+    private void laitaKaikkiVastausvaihtoEhdotMustaksiJaPaalle() {
+        Collection<JRadioButton> nappiLista = new ArrayList<JRadioButton>();
+        nappiLista.add(this.vaihtoehto1);
+        nappiLista.add(this.vaihtoehto2);
+        nappiLista.add(this.vaihtoehto3);
+        nappiLista.add(this.vaihtoehto4);
+        nappiLista.add(this.vaihtoehto5);
+
+        Font perusfontti = new Font("Dialog", 1, 12);
+
+        for (JRadioButton nappi : nappiLista) {
+            nappi.setForeground(Color.BLACK);
+            nappi.setFont(perusfontti);
+            nappi.setEnabled(true);
+        }
     }
 
     private void seuraavaPainikkeenNakyminen() {
@@ -144,7 +159,33 @@ public class Tapahtumankuuntelija implements ActionListener {
 
     private void vastausJaArviointi(String vastaus, JRadioButton vaihtoehto) {
         vastaus = this.peli.vastauksenArviointi(vaihtoehto.getText());
+        if (this.kysymys.onkoOikeaVastaus(vaihtoehto.getText())) {
+            vaihtoehto.setForeground(Color.GREEN);
+        } else {
+            vaihtoehto.setForeground(Color.RED);
+            paikallistaOikeaVastausvaihtoehtoJaMuutaVihreaksi();
+        }
         this.tuloksenIlmoitus.setText(vastaus);
         this.pistetilanneTeksti.setText(this.peli.pistetilanneTeksti());
+    }
+
+    private void paikallistaOikeaVastausvaihtoehtoJaMuutaVihreaksi() {
+
+        Map<TextAttribute, Integer> fontAttributes = new HashMap<TextAttribute, Integer>();
+        fontAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        Font alleviivaus = new Font("Dialog", Font.BOLD, 12).deriveFont(fontAttributes);
+
+        String oikeaVastaus = this.kysymys.getOikeaVastaus();
+        if (this.vaihtoehto1.getText().equals(oikeaVastaus)) {
+            this.vaihtoehto1.setFont(alleviivaus);
+        } else if (this.vaihtoehto2.getText().equals(oikeaVastaus)) {
+            this.vaihtoehto2.setFont(alleviivaus);
+        } else if (this.vaihtoehto3.getText().equals(oikeaVastaus)) {
+            this.vaihtoehto3.setFont(alleviivaus);
+        } else if (this.vaihtoehto4.getText().equals(oikeaVastaus)) {
+            this.vaihtoehto4.setFont(alleviivaus);
+        } else if (this.vaihtoehto5.getText().equals(oikeaVastaus)) {
+            this.vaihtoehto5.setFont(alleviivaus);
+        }
     }
 }
