@@ -27,4 +27,4 @@ Päivämäärä | Tuntia | Selite
 10.2.2015 | 6 | tehty testitapauksia, muokattu visailukoordinaattori-luokkaa, tehty javadocia
 11.2.2015 | 2 | päivitetty luokkakaaviota, aloitettu sekvenssikaaviota, tehty javadocia ja pieniä korjauksia koodiin
 13.2.2015 | 5 | sekvenssikaavioita, pieniä korjauksia koodiin, uusin pit-raportti ym. viikon deadlineen liittyvää
-
+17.2.2015 | 6 | toteutettu värinvaihtumisefekti riippuen onko vastaus oikein vai väärin, tehty laajennus = uusi visa visailuun, koodia täytynee tältä osin vielä tarkastaa/siistiä; kaikki ratkaisut eivät ehkä niin kivoja, fiksattu testejä
