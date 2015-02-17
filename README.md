@@ -12,4 +12,4 @@ To do:
 - päivitä luokkakaavio laajennuksen jälkeen, ainakin gui:n suhde visailukoordinaattoriin ja peliin (?)
 - päivitä sekvenssikaaviot
 - päivitä aihemäärittely, jos tarpeen
-
+- aja uusi pit-raportti
