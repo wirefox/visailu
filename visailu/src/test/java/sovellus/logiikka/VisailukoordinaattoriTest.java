@@ -41,7 +41,7 @@ public class VisailukoordinaattoriTest {
     @Test
     public void kaynnistysmetodinJalkeenOnMuodostettuKysymyssarja() {
         Visailukoordinaattori visailukoordinaattori = new Visailukoordinaattori();
-        visailukoordinaattori.kaynnista();
+        visailukoordinaattori.kaynnistaGUI();
 
         assertEquals("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.kysymyslause);
     }

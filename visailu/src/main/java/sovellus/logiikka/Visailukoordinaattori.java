@@ -1,7 +1,9 @@
 package sovellus.logiikka;
 
 import java.util.HashMap;
+import javax.swing.SwingUtilities;
 import sovellus.domain.Kysymyssarja;
+import sovellus.gui.GraafinenKayttoliittyma;
 import sovellus.gui.Tekstikayttoliittyma;
 
 //KOrjausehdotus: korjaa luokan javadoc-kuvausta
@@ -16,9 +18,10 @@ import sovellus.gui.Tekstikayttoliittyma;
  */
 public class Visailukoordinaattori {
 
-    private Peli peli;
+    //   private Peli peli;
     private Tiedonkasittelija tiedonkasittelija;
     private Tiedostonlukija tiedostonlukija;
+    private GraafinenKayttoliittyma graafinenKayttis;
 
     /**
      * Metodissa kutsutaan lueTiedosto-, muodostaKysymyssarja- ja
@@ -26,8 +29,13 @@ public class Visailukoordinaattori {
      *
      * Tähän tarvitaan vielä lisää tietoa.
      */
-    public void kaynnista() {
-        HashMap<String, String> kysymyksetJaVastaukset = lueTiedosto();
+    public void kaynnistaGUI() {
+        this.graafinenKayttis = new GraafinenKayttoliittyma(this);
+        SwingUtilities.invokeLater(this.graafinenKayttis);
+    }
+
+    public void pelinValmistelutoimet(String pelinNimi) {
+        HashMap<String, String> kysymyksetJaVastaukset = lueTiedosto(pelinNimi);
         String kysymyslause = this.tiedostonlukija.getKysymyslause();
         Kysymyssarja kysymyssarja = muodostaKysymyssarja(kysymyksetJaVastaukset, kysymyslause);
         visaile(kysymyslause, kysymyssarja);
@@ -40,9 +48,15 @@ public class Visailukoordinaattori {
      * @return kysymyksetJaVastaukset metodi palauttaa HashMapin, jossa on
      * luetusta tiedostosta muodostetut kysymys-vastaus -parit.
      */
-    private HashMap<String, String> lueTiedosto() {
+    public HashMap<String, String> lueTiedosto(String pelinNimi) {
         this.tiedostonlukija = new Tiedostonlukija();
-        HashMap<String, String> kysymyksetJaVastaukset = this.tiedostonlukija.lueTiedosto("maatJaPaakaupungit.txt");
+        HashMap<String, String> kysymyksetJaVastaukset = new HashMap<String, String>();
+
+        if (pelinNimi.equals("valtiot ja pääkaupungit")) {
+            kysymyksetJaVastaukset = this.tiedostonlukija.lueTiedosto("maatJaPaakaupungit.txt");
+        } else if (pelinNimi.equals("kiinan numerot")) {
+            kysymyksetJaVastaukset = this.tiedostonlukija.lueTiedosto("kiinaNumerot.txt");
+        }
         return kysymyksetJaVastaukset;
     }
 
@@ -72,7 +86,8 @@ public class Visailukoordinaattori {
      * kysymyssarjan
      */
     private void visaile(String kysymyslause, Kysymyssarja kysymyssarja) {
-        this.peli = new Peli(kysymyslause, kysymyssarja);
-        this.peli.pelaaPeli();
+        Peli peli = new Peli(kysymyslause, kysymyssarja);
+        //       this.peli.pelaaPeli();
+        this.graafinenKayttis.luoKomponentitPeliIkkunaan(this.graafinenKayttis.getFrame().getContentPane(), peli);
     }
 }

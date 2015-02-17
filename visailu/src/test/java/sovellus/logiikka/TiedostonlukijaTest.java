@@ -36,7 +36,22 @@ public class TiedostonlukijaTest {
     }
     
     @Test
-    public void testLueOikeaTiedosto() {
+    public void LueOikeaTiedostoKiina() {
+        Tiedostonlukija t = new Tiedostonlukija();
+        HashMap <String,String> kysymykset = null;
+        try {
+            kysymykset = t.lueTiedosto("kiinaNumerot.txt");
+        } catch (Exception e) {
+            System.out.println("lukuvirhe");
+        }
+        
+        assertNotNull(kysymykset);
+        assertNotNull(t.getKysymyslause());
+        
+    }
+    
+    @Test
+    public void LueOikeaTiedostoPaakaupungit() {
         Tiedostonlukija t = new Tiedostonlukija();
         HashMap <String,String> kysymykset = null;
         try {

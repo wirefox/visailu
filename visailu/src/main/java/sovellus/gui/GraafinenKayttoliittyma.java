@@ -15,9 +15,11 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import sovellus.domain.Kysymys;
 import sovellus.logiikka.Peli;
+import sovellus.logiikka.Visailukoordinaattori;
 
 public class GraafinenKayttoliittyma implements Runnable {
 
+    private Visailukoordinaattori visailukoordinaattori;
     private Peli peli;
     private Kysymys kysymys;
     private JFrame frame;
@@ -34,6 +36,10 @@ public class GraafinenKayttoliittyma implements Runnable {
     private JButton seuraavaKysymys;
     private JLabel lopetuslause;
 
+    public GraafinenKayttoliittyma(Visailukoordinaattori visailukoordinaattori) {
+        this.visailukoordinaattori = visailukoordinaattori;
+    }
+
     public GraafinenKayttoliittyma(Peli peli) {
         this.peli = peli;
     }
@@ -41,7 +47,7 @@ public class GraafinenKayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("       Visailu");
-        frame.setPreferredSize(new Dimension(600, 400));
+        frame.setPreferredSize(new Dimension(700, 400));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,18 +63,40 @@ public class GraafinenKayttoliittyma implements Runnable {
 
         container.add(Box.createRigidArea(new Dimension(60, 60)));
 
-        JLabel teksti = new JLabel("Tervetuloa visailuun!");
-        container.add(teksti);
+        JLabel tervetuloaTeksti = new JLabel("Tervetuloa oppimaan!");
+        container.add(tervetuloaTeksti);
+
+        container.add(Box.createRigidArea(new Dimension(60, 10)));
+
+        JLabel valintaTeksti = new JLabel("Valitse peli, jota haluat pelata:");
+        container.add(valintaTeksti);
+
+        container.add(Box.createRigidArea(new Dimension(60, 10)));
+
+        JRadioButton paakaupunkiPeli = new JRadioButton("valtiot ja pääkaupungit");
+        JRadioButton kiinaNumeroPeli = new JRadioButton("kiinan numerot");
+        ButtonGroup pelinValinta = new ButtonGroup();
+        pelinValinta.add(paakaupunkiPeli);
+        pelinValinta.add(kiinaNumeroPeli);
+        container.add(paakaupunkiPeli);
+        container.add(kiinaNumeroPeli);
 
         container.add(Box.createRigidArea(new Dimension(60, 30)));
 
-        JButton nappi = new JButton("Aloita peli");
-        nappi.setToolTipText("aloita peli");
-        nappi.addActionListener(new Tapahtumankuuntelija(this, nappi));
-        container.add(nappi);
+        JButton aloitusNappi = new JButton("Aloita peli");
+        aloitusNappi.setToolTipText("aloita peli");
+        aloitusNappi.setEnabled(false);
+
+        container.add(aloitusNappi);
+
+        Tapahtumankuuntelija tapahtumankuuntelija = new Tapahtumankuuntelija(this, paakaupunkiPeli, kiinaNumeroPeli, aloitusNappi);
+        aloitusNappi.addActionListener(tapahtumankuuntelija);
+        paakaupunkiPeli.addActionListener(tapahtumankuuntelija);
+        kiinaNumeroPeli.addActionListener(tapahtumankuuntelija);
     }
 
-    private void luoKomponentitPeliIkkunaan(Container container) {
+    public void luoKomponentitPeliIkkunaan(Container container, Peli peli) {
+        this.peli = peli;
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
 
@@ -99,7 +127,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         container.add(vaihtoehto3);
         container.add(vaihtoehto4);
         container.add(vaihtoehto5);
-        
+
         container.add(Box.createRigidArea(new Dimension(60, 20)));
 
         this.tuloksenIlmoitus = new JLabel();
@@ -145,6 +173,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         this.vaihtoehto4.setText(vastausvaihtoehdot.get(3));
         this.vaihtoehto5.setText(vastausvaihtoehdot.get(4));
 
+        frame.setVisible(true);
     }
 
     void tyhjennaIkkuna() {
@@ -153,11 +182,15 @@ public class GraafinenKayttoliittyma implements Runnable {
     }
 
     void teeIkkunaanUusiSisalto() {
-        luoKomponentitPeliIkkunaan(frame.getContentPane());
-        frame.setVisible(true);
+//        luoKomponentitPeliIkkunaan(frame.getContentPane());
+
     }
 
     public JFrame getFrame() {
         return frame;
+    }
+
+    public void pyydaVisailukoordinaattoriltaPelinAloitus(String text) {
+        this.visailukoordinaattori.pelinValmistelutoimet(text);
     }
 }

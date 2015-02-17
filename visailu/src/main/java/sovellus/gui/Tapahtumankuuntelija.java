@@ -13,7 +13,6 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
 import sovellus.domain.Kysymys;
 import sovellus.logiikka.Peli;
 
@@ -22,6 +21,8 @@ public class Tapahtumankuuntelija implements ActionListener {
     private Peli peli;
     private Kysymys kysymys;
     private GraafinenKayttoliittyma graafinenKayttis;
+    private JRadioButton paakaupunkiVisa;
+    private JRadioButton kiinaNumeroVisa;
     private ButtonGroup vaihtoehdot;
     private JRadioButton vaihtoehto1;
     private JRadioButton vaihtoehto2;
@@ -35,6 +36,8 @@ public class Tapahtumankuuntelija implements ActionListener {
     private JLabel tuloksenIlmoitus;
     private JLabel pistetilanneTeksti;
     private JLabel lopetuslause;
+    private boolean paakaupunkiPeliValittu;
+    private boolean kiinaNumeroVisaValittu;
 
     public Tapahtumankuuntelija(Peli peli, Kysymys kysymys, ButtonGroup vaihtoehdot, JRadioButton vaihtoehto1, JRadioButton vaihtoehto2, JRadioButton vaihtoehto3, JRadioButton vaihtoehto4, JRadioButton vaihtoehto5, JButton seuraavaKysymys, JLabel kysymyslause, JLabel kysymyssana, JLabel tuloksenIlmoitus, JLabel pistetilanneTeksti, JLabel lopetuslause) {
         this.peli = peli;
@@ -53,9 +56,13 @@ public class Tapahtumankuuntelija implements ActionListener {
         this.lopetuslause = lopetuslause;
     }
 
-    Tapahtumankuuntelija(GraafinenKayttoliittyma graafinenKayttis, JButton nappi) {
+    public Tapahtumankuuntelija(GraafinenKayttoliittyma graafinenKayttis, JRadioButton paakaupunkiVisa, JRadioButton kiinaNumeroVisa, JButton aloitusnappi) {
         this.graafinenKayttis = graafinenKayttis;
-        this.aloitusnappi = nappi;
+        this.paakaupunkiVisa = paakaupunkiVisa;
+        this.kiinaNumeroVisa = kiinaNumeroVisa;
+        this.aloitusnappi = aloitusnappi;
+        this.kiinaNumeroVisaValittu = false;
+        this.paakaupunkiPeliValittu = false;
     }
 
     @Override
@@ -96,9 +103,23 @@ public class Tapahtumankuuntelija implements ActionListener {
             this.vaihtoehto4.setEnabled(false);
             seuraavaPainikkeenNakyminen();
             vastausJaArviointi(vastaus, this.vaihtoehto5);
+        } else if (ae.getSource() == this.paakaupunkiVisa) {
+            this.aloitusnappi.setEnabled(true);
+            this.paakaupunkiPeliValittu = true;
+            this.kiinaNumeroVisaValittu = false;
+        } else if (ae.getSource() ==this.kiinaNumeroVisa) {
+            this.aloitusnappi.setEnabled(true);
+            this.kiinaNumeroVisaValittu = true;
+            this.paakaupunkiPeliValittu = false;
         } else if (ae.getSource() == this.aloitusnappi) {
-            this.graafinenKayttis.tyhjennaIkkuna();
-            this.graafinenKayttis.teeIkkunaanUusiSisalto();
+            if (this.paakaupunkiPeliValittu) {
+                this.graafinenKayttis.tyhjennaIkkuna();
+                this.graafinenKayttis.pyydaVisailukoordinaattoriltaPelinAloitus(this.paakaupunkiVisa.getText());
+            } else if (this.kiinaNumeroVisaValittu) {
+                this.graafinenKayttis.tyhjennaIkkuna();
+                this.graafinenKayttis.pyydaVisailukoordinaattoriltaPelinAloitus(this.kiinaNumeroVisa.getText());
+            }
+
         } else if (ae.getSource() == this.seuraavaKysymys) {
             this.seuraavaKysymys.setEnabled(false);
 

@@ -9,6 +9,6 @@ public class Main {
 
     public static void main(String[] args) {
         Visailukoordinaattori visailukoordinaattori = new Visailukoordinaattori();
-        visailukoordinaattori.kaynnista();
+        visailukoordinaattori.kaynnistaGUI();
     }
 }

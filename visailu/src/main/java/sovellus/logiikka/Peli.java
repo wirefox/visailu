@@ -35,8 +35,8 @@ public class Peli {
      * siinä kutsutaan myös pelin lopetustekstiä
      */
     public void pelaaPeli() {
-        GraafinenKayttoliittyma graafinenKayttoliittyma = new GraafinenKayttoliittyma(this);
-        SwingUtilities.invokeLater(graafinenKayttoliittyma);
+     //   GraafinenKayttoliittyma graafinenKayttoliittyma = new GraafinenKayttoliittyma(this);
+     //   SwingUtilities.invokeLater(graafinenKayttoliittyma);
         //       Tekstikayttoliittyma tekstikayttoliittyma = new Tekstikayttoliittyma(this);
     }
 
