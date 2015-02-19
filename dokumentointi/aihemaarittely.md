@@ -19,7 +19,7 @@ Visailun pelaajat
 - sovellus.domain:
   - Main (luo visailukoordinaattorin ja graafisenKayttoliittyman ja pyytää sitä käynnistymään)
   - Kysymys (kysymysolio, johon tallennettuna kysymyssana, oikea vastaus sekä väärät vastaukset; getterit ja setterit. Kysymyksen vastauksen tarkistus)
-  - Kysymyssarja (kysymysoliot talletetaan kysymyssarjaan. Kysymyssarja tietää myös pelin kysymyslauseen. Kysymyssarja sekoitetaan, jotta joka pelissä kysymykset eivät tule samassa järjestyksessä. Kysymyssarja antaa kierroksen kysymyksen listaan)
+  - Kysymyssarja (kysymysoliot talletetaan kysymyssarjaan. Kysymyssarja tietää myös pelin kysymyslauseen. Sekoittaa listan, jossa kysymys-oliot ovat, jotta joka pelissä kysymykset eivät tule samassa järjestyksessä. Kysymyssarja antaa pelin jokaiselle kierrokselle kysymyksen listaltaan)
 
 - sovellus.gui:
   - GraafinenKayttoliittyma (luodaan pelin aloitusikkunaan komponentit, sekä päivitetään ikkuna ja luodaan uudet komponentit, jolloin siitä tulee peli-ikkuna)
