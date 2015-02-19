@@ -3,8 +3,10 @@ package sovellus.domain;
 import java.util.ArrayList;
 
 /**
- * Luokassa luodaan pelin kysymykset; siinä on kysymyksen kysymyssanan, oikean
- * vastauksen ja väärien vastausten asetus ja näitä vastaavat getterit
+ * Luokassa luodaan pelin kysymykset
+ * 
+ * Kysymysolioilla on talletettuna niiden kysymyssana, oikea vastaus ja
+ * väärät vastaukset.
  *
  * @author elina
  */

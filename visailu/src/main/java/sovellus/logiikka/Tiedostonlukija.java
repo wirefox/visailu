@@ -7,10 +7,9 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//KOrjausehdotus: metodien nimet
-
+//Korjausehdotus: metodien nimet
 /**
- * Luokka lukee sisään tiedoston.
+ * Luokasta luotu tiedostonlukija-olio lukee sisään tiedoston.
  *
  * Visan kysymyslause ja kysymys-vastaus parin talletetaan.
  *

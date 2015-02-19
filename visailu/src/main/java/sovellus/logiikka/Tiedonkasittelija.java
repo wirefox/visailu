@@ -25,13 +25,13 @@ public class Tiedonkasittelija {
     }
 
     /**
-     * Metodissa luodaan kysymykset, niiden muuttujat sekä kysymyssarja, jonne
-     * kysymykset lisätään.
+     * Metodissa luodaan kysymysoliot, niiden muuttujat sekä kysymyssarjaolio,
+     * jonne kysymysoliot lisätään.
      *
-     * Jokaiselle luodulle kysymykselle lisätään kysymyssana, oikea vastaus ja
+     * Jokaiselle luodulle kysymysoliolle lisätään kysymyssana, oikea vastaus ja
      * väärät vastaukset.
      *
-     * @return kysymyssarja palautetaan valmis kysymyssarja
+     * @return kysymyssarja palautetaan valmis kysymyssarjaolio
      */
     public Kysymyssarja muodostaKysymyssarja() {
         Kysymyssarja kysymyssarja = new Kysymyssarja(this.kysymyslause);
@@ -54,14 +54,14 @@ public class Tiedonkasittelija {
     }
 
     /**
-     * Metodissa arvotaan kysymykselle väärät vastausvaihtoehdot.
+     * Metodissa arvotaan kysymysoliolle väärät vastausvaihtoehdot.
      *
-     * Metodissa luodaan uusi vastausarpoja, jolta pyydetään neljä väärää
+     * Metodissa luodaan uusi vastausarpojaolio, jolta pyydetään neljä väärää
      * vastausvaihtoehtoa.
      *
-     * @param kysymys metodille annetaan pelikierroksen kysymys, jolle väärät
-     * vastausvaihtoehdot tulee arpoa.
-     * @return vaaratVastaukset metodi palauttaa listan, jossa on kysymyksen
+     * @param kysymys metodille annetaan pelikierroksen kysymysolio, jolle
+     * väärät vastausvaihtoehdot tulee arpoa.
+     * @return vaaratVastaukset metodi palauttaa listan, jossa on kysymysolion
      * väärät vastausvaihtoehdot.
      */
     private ArrayList<String> annaKysymyksenVaaratVastausvaihtoehdot(Kysymys kysymys) {

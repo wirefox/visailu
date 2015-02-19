@@ -10,19 +10,19 @@ import sovellus.gui.GraafinenKayttoliittyma;
 /**
  * Luokassa on pelin pelaamisen toiminnallisuus.
  *
- * Luokassa on talletettuna pelin kierroksen numero ja pelaajan pistetilanne.
+ * Luokassa on talletettuna kysymyssarja-olio, kierroksen kysymysolio ja pelin
+ * kierroksen numero ja pelaajan pistetilanne.
  *
  * @author elina
  */
 public class Peli {
 
-//    private Tekstikayttoliittyma tekstikayttoliittyma;
     private Kysymyssarja kysymyssarja;
     private Kysymys kysymys;
     private int pisteitaPelaajalla;
     private int kierroksenNumero;
 
-    //Korjausidea: kierroksen numeron voisi ehkä vaihtaa alkamaan 1:stä..
+    //Korjausidea: kierroksen numeron voisi ehkä vaihtaa alkamaan 1:stä, jos onnistuu helposti..
     public Peli(String kysymyslause, Kysymyssarja kysymyssarja) {
         this.kysymyssarja = kysymyssarja;
         this.kysymys = new Kysymys();
@@ -31,18 +31,8 @@ public class Peli {
     }
 
     /**
-     * Metodissa käynnistetään käyttöliittymä eli aloitetaan pelaamaan peliä, ja
-     * siinä kutsutaan myös pelin lopetustekstiä
-     */
-    public void pelaaPeli() {
-     //   GraafinenKayttoliittyma graafinenKayttoliittyma = new GraafinenKayttoliittyma(this);
-     //   SwingUtilities.invokeLater(graafinenKayttoliittyma);
-        //       Tekstikayttoliittyma tekstikayttoliittyma = new Tekstikayttoliittyma(this);
-    }
-
-    /**
-     * Metodissa pyydetään kysymyssarjaa antamaan uudelle pelikierrokselle
-     * kysymysolion
+     * Metodissa pyydetään kysymyssarjaa vaihtamaan uudelle pelikierrokselle
+     * seuraavan kysymysolion
      */
     public void vaihdaSeuraavaKysymys() {
         this.kysymys = this.kysymyssarja.annaSeuraavaKysymys(this.kierroksenNumero);
@@ -88,8 +78,8 @@ public class Peli {
     /**
      * Metodissa muodostetaan kysymykselle vastausvaihtoehdot.
      *
-     * Metodi kysyy oikean vastauksen ja väärät vaihtoehdot kysymykseltä, lisää
-     * ne listaan ja sekoittaa järjestyksen.
+     * Metodi kysyy oikean vastauksen ja väärät vaihtoehdot kysymysoliolta,
+     * lisää ne listaan ja sekoittaa järjestyksen.
      *
      * @return vastausvaihtoehdot palautetaan lista, jossa on vastausvaihtoehdot
      * kysymykselle
@@ -113,7 +103,7 @@ public class Peli {
      * Metodissa arvioidaan pelaajan vastaus ja kasvatetaan pelin kierrosnumeroa
      * ja tarvittaessa pelaajan pistesaldoa.
      *
-     * Metodi kysyy kysymykseltä oikean vastauksen ja vertaa sitä pelaajan
+     * Metodi kysyy kysymysoliolta oikean vastauksen ja vertaa sitä pelaajan
      * vastaukseen. Kierrosnumeroa kasvatetaan joka kerta, pelaajan pistesaldoa
      * kasvatetaan, jos pelaaja vastasi oikein.
      *

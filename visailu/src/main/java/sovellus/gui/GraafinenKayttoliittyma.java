@@ -21,7 +21,6 @@ public class GraafinenKayttoliittyma implements Runnable {
 
     private Visailukoordinaattori visailukoordinaattori;
     private Peli peli;
-    private Kysymys kysymys;
     private JFrame frame;
     private JLabel kysymyslause;
     private JLabel kysymyssana;
@@ -57,6 +56,12 @@ public class GraafinenKayttoliittyma implements Runnable {
         frame.setVisible(true);
     }
 
+    /**
+     * Metodi luo komponentit ja tapahtumankuuntelijan pelin aloitusikkunaan,
+     * jossa pelaaja valitsee pelin
+     *
+     * @param container-olio
+     */
     private void luoKomponentitAloitusikkunaan(Container container) {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
@@ -89,12 +94,19 @@ public class GraafinenKayttoliittyma implements Runnable {
 
         container.add(aloitusNappi);
 
-        Tapahtumankuuntelija tapahtumankuuntelija = new Tapahtumankuuntelija(this, paakaupunkiPeli, kiinaNumeroPeli, aloitusNappi);
+        Tapahtumankuuntelija tapahtumankuuntelija = new Tapahtumankuuntelija(this, this.visailukoordinaattori, paakaupunkiPeli, kiinaNumeroPeli, aloitusNappi);
         aloitusNappi.addActionListener(tapahtumankuuntelija);
         paakaupunkiPeli.addActionListener(tapahtumankuuntelija);
         kiinaNumeroPeli.addActionListener(tapahtumankuuntelija);
     }
 
+    /**
+     * Metodi luo ikkunaan uudet komponentit ja tapahtumankuuntelijan, jotta
+     * pelin pelaus voi alkaa
+     *
+     * @param container-olio
+     * @param peli-olio
+     */
     public void luoKomponentitPeliIkkunaan(Container container, Peli peli) {
         this.peli = peli;
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
@@ -150,9 +162,8 @@ public class GraafinenKayttoliittyma implements Runnable {
         container.add(this.lopetuslause);
 
         this.peli.vaihdaSeuraavaKysymys();
-        this.kysymys = this.peli.getKysymys();
 
-        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(this.peli, this.kysymys, this.vaihtoehdot, this.vaihtoehto1, this.vaihtoehto2, this.vaihtoehto3, this.vaihtoehto4, this.vaihtoehto5, this.seuraavaKysymys, this.kysymyslause, this.kysymyssana, this.tuloksenIlmoitus, this.pistetilanneTeksti, this.lopetuslause);
+        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(this.peli, this.vaihtoehdot, this.vaihtoehto1, this.vaihtoehto2, this.vaihtoehto3, this.vaihtoehto4, this.vaihtoehto5, this.seuraavaKysymys, this.kysymyslause, this.kysymyssana, this.tuloksenIlmoitus, this.pistetilanneTeksti, this.lopetuslause);
         this.vaihtoehto1.addActionListener(tapahtumanKuuntelija);
         this.vaihtoehto2.addActionListener(tapahtumanKuuntelija);
         this.vaihtoehto3.addActionListener(tapahtumanKuuntelija);
@@ -181,16 +192,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         frame.getContentPane().repaint();
     }
 
-    void teeIkkunaanUusiSisalto() {
-//        luoKomponentitPeliIkkunaan(frame.getContentPane());
-
-    }
-
     public JFrame getFrame() {
         return frame;
-    }
-
-    public void pyydaVisailukoordinaattoriltaPelinAloitus(String text) {
-        this.visailukoordinaattori.pelinValmistelutoimet(text);
     }
 }

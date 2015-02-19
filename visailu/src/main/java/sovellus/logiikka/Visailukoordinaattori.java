@@ -6,35 +6,29 @@ import sovellus.domain.Kysymyssarja;
 import sovellus.gui.GraafinenKayttoliittyma;
 import sovellus.gui.Tekstikayttoliittyma;
 
-//KOrjausehdotus: korjaa luokan javadoc-kuvausta
 /**
  * Luokka ohjaa visailua ylätasolta ja valmistelee ohjelman pelaamista varten.
- *
- * Luokka tulee olemaan merkityksellisempi, jos/kun visailua laajennetaan siten,
- * että siihen lisätään muitakin pelejä kuin maavisailu. Tässä tapauksessa
- * visailukoordinaatio ehkä loisi käyttöliittymän ja peli alkaisi.
  *
  * @author elina
  */
 public class Visailukoordinaattori {
 
-    //   private Peli peli;
+    private Peli peli;
     private Tiedonkasittelija tiedonkasittelija;
     private Tiedostonlukija tiedostonlukija;
     private GraafinenKayttoliittyma graafinenKayttis;
 
     /**
-     * Metodissa kutsutaan lueTiedosto-, muodostaKysymyssarja- ja
-     * visaile-metodeita.
+     * Metodissa valmistellaan pelaajan valitsema peli pelausvalmiiksi.
      *
-     * Tähän tarvitaan vielä lisää tietoa.
+     * Kutsutaan olion omia lueTiedosto-, muodostaKysymyssarja- ja
+     * visaile-metodeja.
+     *
+     * @param kayttoliittyma
+     * @param pelinNimi pelaajan valitseman pelin nimi
      */
-    public void kaynnistaGUI() {
-        this.graafinenKayttis = new GraafinenKayttoliittyma(this);
-        SwingUtilities.invokeLater(this.graafinenKayttis);
-    }
-
-    public void pelinValmistelutoimet(String pelinNimi) {
+    public void pelinValmistelutoimet(GraafinenKayttoliittyma kayttoliittyma, String pelinNimi) {
+        this.graafinenKayttis = kayttoliittyma;
         HashMap<String, String> kysymyksetJaVastaukset = lueTiedosto(pelinNimi);
         String kysymyslause = this.tiedostonlukija.getKysymyslause();
         Kysymyssarja kysymyssarja = muodostaKysymyssarja(kysymyksetJaVastaukset, kysymyslause);
@@ -42,13 +36,15 @@ public class Visailukoordinaattori {
     }
 
     /**
-     * Metodissa luodaan tiedostonlukija ja pyydetään lukemaan tiedosto ja peliä
-     * varten.
+     * Metodissa luodaan tiedostonlukijaolio ja pyydetään tätä lukemaan pelaajan
+     * valitseman pelin tiedosto.
+     *
+     * @param String pelinNimi pelaajan valitseman pelin nimi
      *
      * @return kysymyksetJaVastaukset metodi palauttaa HashMapin, jossa on
      * luetusta tiedostosta muodostetut kysymys-vastaus -parit.
      */
-    public HashMap<String, String> lueTiedosto(String pelinNimi) {
+    private HashMap<String, String> lueTiedosto(String pelinNimi) {
         this.tiedostonlukija = new Tiedostonlukija();
         HashMap<String, String> kysymyksetJaVastaukset = new HashMap<String, String>();
 
@@ -61,7 +57,7 @@ public class Visailukoordinaattori {
     }
 
     /**
-     * Metodissa luodaan tiedonkäsittelijä ja pyydetään sitä luomaan ja
+     * Metodissa luodaan tiedonkäsittelijäolio ja pyydetään sitä luomaan ja
      * muodostamaan pelin kysymyssarja.
      *
      * @param kysymyksetJaVastaukset metodi saa parametrinaan HashMapin, jossa
@@ -78,7 +74,8 @@ public class Visailukoordinaattori {
     }
 
     /**
-     * Metodissa luodaan peli-olio ja pyydetään aloittamaan peli.
+     * Metodissa luodaan peli-olio ja pyydetään käyttöliittymää päivittämään
+     * ikkuna pelaamista varten.
      *
      * @param kysymyslause metodi saa parametrina pelissä käytettävän
      * kysymyslauseen
@@ -86,8 +83,7 @@ public class Visailukoordinaattori {
      * kysymyssarjan
      */
     private void visaile(String kysymyslause, Kysymyssarja kysymyssarja) {
-        Peli peli = new Peli(kysymyslause, kysymyssarja);
-        //       this.peli.pelaaPeli();
+        this.peli = new Peli(kysymyslause, kysymyssarja);
         this.graafinenKayttis.luoKomponentitPeliIkkunaan(this.graafinenKayttis.getFrame().getContentPane(), peli);
     }
 }
