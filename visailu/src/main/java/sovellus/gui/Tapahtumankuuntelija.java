@@ -167,7 +167,7 @@ public class Tapahtumankuuntelija implements ActionListener {
                 this.kysymyssana.setText(this.peli.getKysymys().getKysymyssana());
                 kierroksenVaihtoehdot();
             } else {
-                this.seuraavaKysymys.setEnabled(false);
+                this.seuraavaKysymys.setVisible(false);
                 String lopetusTeksti = this.peli.pelinLopetusteksti();
                 this.lopetuslause.setText(lopetusTeksti);
             }
