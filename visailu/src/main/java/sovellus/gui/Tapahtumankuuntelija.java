@@ -18,7 +18,7 @@ import sovellus.logiikka.Peli;
 import sovellus.logiikka.Visailukoordinaattori;
 
 public class Tapahtumankuuntelija implements ActionListener {
-    
+
     private Peli peli;
     private Visailukoordinaattori visailukoordinaattori;
     private GraafinenKayttoliittyma graafinenKayttis;
@@ -32,7 +32,6 @@ public class Tapahtumankuuntelija implements ActionListener {
     private JRadioButton vaihtoehto5;
     private JButton aloitusnappi;
     private JButton seuraavaKysymys;
-    private JButton seuraavaPeli;
     private JLabel kysymyslause;
     private JLabel kysymyssana;
     private JLabel tuloksenIlmoitus;
@@ -79,7 +78,7 @@ public class Tapahtumankuuntelija implements ActionListener {
      * @param tuloksenIlmoitus
      * @param lopetuslause
      */
-    public Tapahtumankuuntelija(Peli peli, ButtonGroup vaihtoehdot, JRadioButton vaihtoehto1, JRadioButton vaihtoehto2, JRadioButton vaihtoehto3, JRadioButton vaihtoehto4, JRadioButton vaihtoehto5, JButton seuraavaKysymys, JLabel kysymyslause, JLabel kysymyssana, JLabel tuloksenIlmoitus, JLabel pistetilanneTeksti, JLabel lopetuslause, JButton seuraavaPeli) {
+    public Tapahtumankuuntelija(Peli peli, ButtonGroup vaihtoehdot, JRadioButton vaihtoehto1, JRadioButton vaihtoehto2, JRadioButton vaihtoehto3, JRadioButton vaihtoehto4, JRadioButton vaihtoehto5, JButton seuraavaKysymys, JLabel kysymyslause, JLabel kysymyssana, JLabel tuloksenIlmoitus, JLabel pistetilanneTeksti, JLabel lopetuslause) {
         this.peli = peli;
         this.vaihtoehdot = vaihtoehdot;
         this.vaihtoehto1 = vaihtoehto1;
@@ -93,9 +92,8 @@ public class Tapahtumankuuntelija implements ActionListener {
         this.tuloksenIlmoitus = tuloksenIlmoitus;
         this.pistetilanneTeksti = pistetilanneTeksti;
         this.lopetuslause = lopetuslause;
-        this.seuraavaPeli = seuraavaPeli;
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
 //Aloitusikkunan toimenpiteet; pelaaja valitsee pelin ja aloittaa pelaamisen:
@@ -114,7 +112,7 @@ public class Tapahtumankuuntelija implements ActionListener {
             } else if (this.kiinaNumeroVisaValittu) {
                 this.graafinenKayttis.tyhjennaIkkuna();
                 this.visailukoordinaattori.pelinValmistelutoimet(this.graafinenKayttis, this.kiinaNumeroVisa.getText());
-                
+
             }
 
 //Peli-ikkunan toimenpiteet; pelaaja pelaa peliä kierros kierrokselta:    
@@ -157,14 +155,14 @@ public class Tapahtumankuuntelija implements ActionListener {
 //Peli-ikkunan seuraava-painike ja pelin kierrosten pyörittäminen:
         } else if (ae.getSource() == this.seuraavaKysymys) {
             this.seuraavaKysymys.setEnabled(false);
-            
+
             if (this.peli.jatketaankoPelia()) {
                 laitaKaikkiVastausvaihtoEhdotMustaksiJaPaalle();
                 this.peli.vaihdaSeuraavaKysymys();
                 this.vaihtoehdot.clearSelection();
                 this.tuloksenIlmoitus.setText("");
                 this.pistetilanneTeksti.setText("");
-                
+
                 this.kysymyslause.setText(this.peli.getKierroksenKysymyslause());
                 this.kysymyssana.setText(this.peli.getKysymys().getKysymyssana());
                 kierroksenVaihtoehdot();
@@ -172,7 +170,6 @@ public class Tapahtumankuuntelija implements ActionListener {
                 this.seuraavaKysymys.setEnabled(false);
                 String lopetusTeksti = this.peli.pelinLopetusteksti();
                 this.lopetuslause.setText(lopetusTeksti);
-                this.seuraavaPeli.setVisible(true);
             }
         }
     }
@@ -183,9 +180,9 @@ public class Tapahtumankuuntelija implements ActionListener {
      */
     private void kierroksenVaihtoehdot() {
         ArrayList<String> vastausvaihtoehdot = new ArrayList<String>();
-        
+
         vastausvaihtoehdot.addAll(this.peli.muodostaVastausvaihtoehdot());
-        
+
         this.vaihtoehto1.setText(vastausvaihtoehdot.get(0));
         this.vaihtoehto2.setText(vastausvaihtoehdot.get(1));
         this.vaihtoehto3.setText(vastausvaihtoehdot.get(2));
@@ -205,9 +202,9 @@ public class Tapahtumankuuntelija implements ActionListener {
         nappiLista.add(this.vaihtoehto3);
         nappiLista.add(this.vaihtoehto4);
         nappiLista.add(this.vaihtoehto5);
-        
+
         Font perusfontti = new Font("Dialog", 1, 12);
-        
+
         for (JRadioButton nappi : nappiLista) {
             nappi.setForeground(Color.BLACK);
             nappi.setFont(perusfontti);
@@ -255,11 +252,11 @@ public class Tapahtumankuuntelija implements ActionListener {
      * alleviivataan se.
      */
     private void paikallistaOikeaVastausvaihtoehtoJaAlleviivaa() {
-        
+
         Map<TextAttribute, Integer> fontAttributes = new HashMap<TextAttribute, Integer>();
         fontAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
         Font alleviivaus = new Font("Dialog", Font.BOLD, 12).deriveFont(fontAttributes);
-        
+
         String oikeaVastaus = this.peli.getKysymys().getOikeaVastaus();
         if (this.vaihtoehto1.getText().equals(oikeaVastaus)) {
             this.vaihtoehto1.setFont(alleviivaus);
