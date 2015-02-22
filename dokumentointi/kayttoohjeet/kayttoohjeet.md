@@ -7,13 +7,14 @@ Sovelluksen voi sulkea missä tahansa vaiheessa peliä ikkunan yläkulman x-merk
 ## Sovelluksen käynnistys ja pelattavan pelin valitseminen
 Sovelluksen käynnistämisen jälkeen avautuu ikkuna, jossa on listattuna visailun pelit. Valitse peli, jota haluat pelata, ja klikkaa Aloita peli -painiketta. Peli käynnistyy.
 
-![pelin_valitseminen_prtScr.png](https://github.com/wirefox/visailu/blob/master/dokumentointi/pelin_valitseminen_prtScr.png)
+![pelin_valitseminen_prtScr.png](https://github.com/wirefox/visailu/blob/master/dokumentointi/kayttoohjeet/pelin_valitseminen_prtScr.png)
 
 ## Pelaaminen
 Pelissä on yhteensä kymmenen kierrosta. Vastaamalla oikein saat yhden pisteen. Jos vastaat väärin, pistettä ei tule, muttet myöskään menetä jo saamiasi pisteitä.
 
-Valitse jokaisella kierroksella haluamasi vastausvaihtoehto ja klikkaa Seuraava kysymys -painiketta.
+Valitse jokaisella kierroksella haluamasi vastausvaihtoehto. 
+Sovellus kertoo onko vastaus oikein vai väärin, minkä avulla voit opetella paremmaksi tietäjäksi. Klikkaa Seuraava kysymys -painiketta, kun olet valmis siirtymään seuraavaan kysymykseen.
 
 Peli loppuu, kun kymmenen kierrosta on pelattu.
 
-![pelin_pelaaminen_prtScr.png](https://github.com/wirefox/visailu/blob/master/dokumentointi/pelin_pelaaminen_prtScr.png)
+![pelin_pelaaminen_prtScr.png](https://github.com/wirefox/visailu/blob/master/dokumentointi/kayttoohjeet/pelin_pelaaminen_prtScr.png)
