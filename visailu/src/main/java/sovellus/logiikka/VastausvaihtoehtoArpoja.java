@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import sovellus.domain.Kysymys;
 
-//Korjausehdotus: luokan ja metodin nimet!
 /**
  * Luokka arpoo pelikierroksen kysymysoliolle listan vääriä vastausvaihtoehtoja
  *

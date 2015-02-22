@@ -4,7 +4,6 @@ import java.util.HashMap;
 import javax.swing.SwingUtilities;
 import sovellus.domain.Kysymyssarja;
 import sovellus.gui.GraafinenKayttoliittyma;
-import sovellus.gui.Tekstikayttoliittyma;
 
 /**
  * Luokka ohjaa visailua ylätasolta ja valmistelee ohjelman pelaamista varten.
@@ -32,7 +31,7 @@ public class Visailukoordinaattori {
         HashMap<String, String> kysymyksetJaVastaukset = lueTiedosto(pelinNimi);
         String kysymyslause = this.tiedostonlukija.getKysymyslause();
         Kysymyssarja kysymyssarja = muodostaKysymyssarja(kysymyksetJaVastaukset, kysymyslause);
-        visaile(kysymyslause, kysymyssarja);
+        visaile(kysymyssarja);
     }
 
     /**
@@ -82,8 +81,8 @@ public class Visailukoordinaattori {
      * @param kysymyssarja metodi saa parametrina pelissä käytettävän
      * kysymyssarjan
      */
-    private void visaile(String kysymyslause, Kysymyssarja kysymyssarja) {
-        this.peli = new Peli(kysymyslause, kysymyssarja);
+    private void visaile(Kysymyssarja kysymyssarja) {
+        this.peli = new Peli(kysymyssarja);
         this.graafinenKayttis.luoKomponentitPeliIkkunaan(this.graafinenKayttis.getFrame().getContentPane(), peli);
     }
 }

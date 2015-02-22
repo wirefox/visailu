@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 /**
  * Luokassa luodaan pelin kysymykset
- * 
- * Kysymysolioilla on talletettuna niiden kysymyssana, oikea vastaus ja
- * väärät vastaukset.
+ *
+ * Kysymysolioilla on talletettuna niiden kysymyssana, oikea vastaus ja väärät
+ * vastaukset.
  *
  * @author elina
  */
@@ -18,12 +18,10 @@ public class Kysymys {
 
     public Kysymys() {
         this.vaaratVastausvaihtoehdot = new ArrayList<String>();
-        this.kysymyssana = null;
-        this.oikeaVastaus = null;
     }
 
     public void setKysymyssana(String kysymyssana) {
-        this.kysymyssana = kysymyssana.toUpperCase();
+        this.kysymyssana = kysymyssana;
     }
 
     public void setOikeaVastaus(String oikeaVastaus) {
@@ -56,9 +54,7 @@ public class Kysymys {
      * @return boolean palautetaan true, jos oikea vastaus ja false, jos väärä
      */
     public boolean onkoOikeaVastaus(String vastaus) {
-        String vastausIsoilla = vastaus.toUpperCase();
-        String oikeaVastausIsoilla = getOikeaVastaus().toUpperCase();
-        if (vastausIsoilla.equals(oikeaVastausIsoilla)) {
+        if (vastaus.equals(getOikeaVastaus())) {
             return true;
         } else {
             return false;

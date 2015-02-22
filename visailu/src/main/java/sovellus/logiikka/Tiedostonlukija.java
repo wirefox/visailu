@@ -7,7 +7,6 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//Korjausehdotus: metodien nimet
 /**
  * Luokasta luotu tiedostonlukija-olio lukee sisään tiedoston.
  *
@@ -45,16 +44,16 @@ public class Tiedostonlukija {
             Logger.getLogger(Tiedostonlukija.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        ositaTiedostostaLuettuTekstiJaTalleta();
+        muokkaaLuettuaTekstiaJaTalleta();
         return this.kysymysJaVastaus;
     }
 
     /**
-     * Metodissa luetaan tiedostoa, ositetaan riveillä oleva teksti ja
-     * talletetaan HashMapiin.
+     * Metodissa luetaan tiedostoa, ositetaan/pilkotaan luettujen rivien teksti
+     * ja talletetaan HashMapiin.
      *
      */
-    private void ositaTiedostostaLuettuTekstiJaTalleta() {
+    private void muokkaaLuettuaTekstiaJaTalleta() {
         this.kysymyslause = lukija.nextLine();
 
         while (lukija.hasNextLine()) {

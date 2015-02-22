@@ -22,12 +22,10 @@ public class Peli {
     private int pisteitaPelaajalla;
     private int kierroksenNumero;
 
-    //Korjausidea: kierroksen numeron voisi ehkä vaihtaa alkamaan 1:stä, jos onnistuu helposti..
-    public Peli(String kysymyslause, Kysymyssarja kysymyssarja) {
+    public Peli(Kysymyssarja kysymyssarja) {
         this.kysymyssarja = kysymyssarja;
-        this.kysymys = new Kysymys();
         this.pisteitaPelaajalla = 0;
-        this.kierroksenNumero = 0;
+        this.kierroksenNumero = 1;
     }
 
     /**
@@ -35,7 +33,7 @@ public class Peli {
      * seuraavan kysymysolion
      */
     public void vaihdaSeuraavaKysymys() {
-        this.kysymys = this.kysymyssarja.annaSeuraavaKysymys(this.kierroksenNumero);
+        this.kysymys = this.kysymyssarja.annaSeuraavaKysymys(this.kierroksenNumero - 1);
     }
 
     /**
@@ -47,15 +45,15 @@ public class Peli {
      * jatketaan
      */
     public boolean jatketaankoPelia() {
-        if (getKierroksenNumero() >= 10) {
+        if (getKierroksenNumero() == 11) {
             return false;
         } else {
             return true;
         }
     }
 
-    public void setKierroksenNumero(int kierroksenNumero) {
-        this.kierroksenNumero = kierroksenNumero;
+    public void kasvataKierroksenNumeroa() {
+        this.kierroksenNumero++;
     }
 
     public void setPisteitaPelaajalla(int pisteitaPelaajalla) {
@@ -72,7 +70,7 @@ public class Peli {
      * @return String
      */
     public String getKierroksenKysymyslause() {
-        return this.kierroksenNumero + 1 + ": " + this.kysymyssarja.getKysymyslause();
+        return this.kierroksenNumero + ": " + this.kysymyssarja.getKysymyslause();
     }
 
     /**
@@ -111,9 +109,8 @@ public class Peli {
      * @return String palaute pelaajalle hänen vastauksestaan
      */
     public String vastauksenArviointi(String vastaus) {
-        setKierroksenNumero(getKierroksenNumero() + 1);
         if (this.kysymys.onkoOikeaVastaus(vastaus)) {
-            setPisteitaPelaajalla(getPisteitaPelaajalla() + 1);
+            this.pisteitaPelaajalla++;
             return "Hienoa, oikea vastaus!";
         } else {
             return "Nyt meni väärin. Oikea vastaus olisi ollut " + this.kysymys.getOikeaVastaus();

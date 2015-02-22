@@ -37,6 +37,10 @@ public class Kysymyssarja {
         return this.kysymykset.get(i);
     }
 
+    public String getKysymyslause() {
+        return this.kysymyslause;
+    }
+
     /**
      * Metodi antaa kysymyslistalta seuraavan kysymysolion
      *
@@ -57,9 +61,5 @@ public class Kysymyssarja {
      */
     public void sekoitaSarjanKysymykset() {
         Collections.shuffle(this.kysymykset);
-    }
-
-    public String getKysymyslause() {
-        return this.kysymyslause;
     }
 }

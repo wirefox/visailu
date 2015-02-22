@@ -243,6 +243,7 @@ public class Tapahtumankuuntelija implements ActionListener {
         }
         this.tuloksenIlmoitus.setText(vastaus);
         this.pistetilanneTeksti.setText(this.peli.pistetilanneTeksti());
+        this.peli.kasvataKierroksenNumeroa();
     }
 
     /**
