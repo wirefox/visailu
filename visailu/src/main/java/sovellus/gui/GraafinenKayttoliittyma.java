@@ -18,7 +18,7 @@ import sovellus.logiikka.Peli;
 import sovellus.logiikka.Visailukoordinaattori;
 
 public class GraafinenKayttoliittyma implements Runnable {
-
+    
     private Visailukoordinaattori visailukoordinaattori;
     private Peli peli;
     private JFrame frame;
@@ -33,25 +33,26 @@ public class GraafinenKayttoliittyma implements Runnable {
     private JLabel tuloksenIlmoitus;
     private JLabel pistetilanneTeksti;
     private JButton seuraavaKysymys;
+    private JButton seuraavaPeli;
     private JLabel lopetuslause;
-
+    
     public GraafinenKayttoliittyma(Visailukoordinaattori visailukoordinaattori) {
         this.visailukoordinaattori = visailukoordinaattori;
     }
-
+    
     public GraafinenKayttoliittyma(Peli peli) {
         this.peli = peli;
     }
-
+    
     @Override
     public void run() {
         frame = new JFrame("       Visailu");
-        frame.setPreferredSize(new Dimension(700, 400));
-
+        frame.setPreferredSize(new Dimension(700, 500));
+        
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
+        
         luoKomponentitAloitusikkunaan(frame.getContentPane());
-
+        
         frame.pack();
         frame.setVisible(true);
     }
@@ -65,19 +66,19 @@ public class GraafinenKayttoliittyma implements Runnable {
     private void luoKomponentitAloitusikkunaan(Container container) {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
-
+        
         container.add(Box.createRigidArea(new Dimension(60, 60)));
-
+        
         JLabel tervetuloaTeksti = new JLabel("Tervetuloa oppimaan!");
         container.add(tervetuloaTeksti);
-
+        
         container.add(Box.createRigidArea(new Dimension(60, 10)));
-
+        
         JLabel valintaTeksti = new JLabel("Valitse peli, jota haluat pelata:");
         container.add(valintaTeksti);
-
+        
         container.add(Box.createRigidArea(new Dimension(60, 10)));
-
+        
         JRadioButton paakaupunkiPeli = new JRadioButton("valtiot ja pääkaupungit");
         JRadioButton kiinaNumeroPeli = new JRadioButton("kiinan numerot");
         ButtonGroup pelinValinta = new ButtonGroup();
@@ -85,15 +86,15 @@ public class GraafinenKayttoliittyma implements Runnable {
         pelinValinta.add(kiinaNumeroPeli);
         container.add(paakaupunkiPeli);
         container.add(kiinaNumeroPeli);
-
+        
         container.add(Box.createRigidArea(new Dimension(60, 30)));
-
+        
         JButton aloitusNappi = new JButton("Aloita peli");
         aloitusNappi.setToolTipText("aloita peli");
         aloitusNappi.setEnabled(false);
-
+        
         container.add(aloitusNappi);
-
+        
         Tapahtumankuuntelija tapahtumankuuntelija = new Tapahtumankuuntelija(this, this.visailukoordinaattori, paakaupunkiPeli, kiinaNumeroPeli, aloitusNappi);
         aloitusNappi.addActionListener(tapahtumankuuntelija);
         paakaupunkiPeli.addActionListener(tapahtumankuuntelija);
@@ -111,48 +112,52 @@ public class GraafinenKayttoliittyma implements Runnable {
         this.peli = peli;
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
-
+        
         container.add(Box.createRigidArea(new Dimension(60, 20)));
-
+        
         this.kysymyslause = new JLabel();
         this.kysymyssana = new JLabel();
         container.add(kysymyslause);
         container.add(kysymyssana);
-
+        
         container.add(Box.createRigidArea(new Dimension(60, 20)));
-
+        
         this.vaihtoehto1 = new JRadioButton();
         this.vaihtoehto2 = new JRadioButton();
         this.vaihtoehto3 = new JRadioButton();
         this.vaihtoehto4 = new JRadioButton();
         this.vaihtoehto5 = new JRadioButton();
-
+        
         this.vaihtoehdot = new ButtonGroup();
         this.vaihtoehdot.add(vaihtoehto1);
         this.vaihtoehdot.add(vaihtoehto2);
         this.vaihtoehdot.add(vaihtoehto3);
         this.vaihtoehdot.add(vaihtoehto4);
         this.vaihtoehdot.add(vaihtoehto5);
-
+        
         container.add(vaihtoehto1);
         container.add(vaihtoehto2);
         container.add(vaihtoehto3);
         container.add(vaihtoehto4);
         container.add(vaihtoehto5);
-
+        
         container.add(Box.createRigidArea(new Dimension(60, 20)));
-
+        
         this.tuloksenIlmoitus = new JLabel();
-
+        
         this.pistetilanneTeksti = new JLabel();
-
+        
         this.seuraavaKysymys = new JButton("Seuraava kysymys");
         this.seuraavaKysymys.setToolTipText("seuraava kysymys");
         this.seuraavaKysymys.setEnabled(false);
-
+        
+        this.seuraavaPeli = new JButton("Pelaa uudestaan");
+        this.seuraavaPeli.setToolTipText("pelaa uudestaan");
+        this.seuraavaPeli.setVisible(false);
+        
         this.lopetuslause = new JLabel();
         this.lopetuslause.setText("");
-
+        
         container.add(this.tuloksenIlmoitus);
         container.add(Box.createRigidArea(new Dimension(60, 20)));
         container.add(this.pistetilanneTeksti);
@@ -160,38 +165,41 @@ public class GraafinenKayttoliittyma implements Runnable {
         container.add(this.seuraavaKysymys);
         container.add(Box.createRigidArea(new Dimension(60, 20)));
         container.add(this.lopetuslause);
-
+        container.add(Box.createRigidArea(new Dimension(60, 20)));
+        container.add(this.seuraavaPeli);
+        
         this.peli.vaihdaSeuraavaKysymys();
-
-        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(this.peli, this.vaihtoehdot, this.vaihtoehto1, this.vaihtoehto2, this.vaihtoehto3, this.vaihtoehto4, this.vaihtoehto5, this.seuraavaKysymys, this.kysymyslause, this.kysymyssana, this.tuloksenIlmoitus, this.pistetilanneTeksti, this.lopetuslause);
+        
+        Tapahtumankuuntelija tapahtumanKuuntelija = new Tapahtumankuuntelija(this.peli, this.vaihtoehdot, this.vaihtoehto1, this.vaihtoehto2, this.vaihtoehto3, this.vaihtoehto4, this.vaihtoehto5, this.seuraavaKysymys, this.kysymyslause, this.kysymyssana, this.tuloksenIlmoitus, this.pistetilanneTeksti, this.lopetuslause, this.seuraavaPeli);
         this.vaihtoehto1.addActionListener(tapahtumanKuuntelija);
         this.vaihtoehto2.addActionListener(tapahtumanKuuntelija);
         this.vaihtoehto3.addActionListener(tapahtumanKuuntelija);
         this.vaihtoehto4.addActionListener(tapahtumanKuuntelija);
         this.vaihtoehto5.addActionListener(tapahtumanKuuntelija);
         this.seuraavaKysymys.addActionListener(tapahtumanKuuntelija);
-
+        this.seuraavaPeli.addActionListener(tapahtumanKuuntelija);
+        
         this.kysymyslause.setText(this.peli.getKierroksenKysymyslause());
         this.kysymyssana.setText(this.peli.getKysymys().getKysymyssana());
-
+        
         ArrayList<String> vastausvaihtoehdot = new ArrayList<String>();
-
+        
         vastausvaihtoehdot.addAll(this.peli.muodostaVastausvaihtoehdot());
-
+        
         this.vaihtoehto1.setText(vastausvaihtoehdot.get(0));
         this.vaihtoehto2.setText(vastausvaihtoehdot.get(1));
         this.vaihtoehto3.setText(vastausvaihtoehdot.get(2));
         this.vaihtoehto4.setText(vastausvaihtoehdot.get(3));
         this.vaihtoehto5.setText(vastausvaihtoehdot.get(4));
-
+        
         frame.setVisible(true);
     }
-
+    
     void tyhjennaIkkuna() {
         frame.getContentPane().removeAll();
         frame.getContentPane().repaint();
     }
-
+    
     public JFrame getFrame() {
         return frame;
     }

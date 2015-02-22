@@ -32,6 +32,7 @@ public class Tapahtumankuuntelija implements ActionListener {
     private JRadioButton vaihtoehto5;
     private JButton aloitusnappi;
     private JButton seuraavaKysymys;
+    private JButton seuraavaPeli;
     private JLabel kysymyslause;
     private JLabel kysymyssana;
     private JLabel tuloksenIlmoitus;
@@ -78,7 +79,7 @@ public class Tapahtumankuuntelija implements ActionListener {
      * @param tuloksenIlmoitus
      * @param lopetuslause
      */
-    public Tapahtumankuuntelija(Peli peli, ButtonGroup vaihtoehdot, JRadioButton vaihtoehto1, JRadioButton vaihtoehto2, JRadioButton vaihtoehto3, JRadioButton vaihtoehto4, JRadioButton vaihtoehto5, JButton seuraavaKysymys, JLabel kysymyslause, JLabel kysymyssana, JLabel tuloksenIlmoitus, JLabel pistetilanneTeksti, JLabel lopetuslause) {
+    public Tapahtumankuuntelija(Peli peli, ButtonGroup vaihtoehdot, JRadioButton vaihtoehto1, JRadioButton vaihtoehto2, JRadioButton vaihtoehto3, JRadioButton vaihtoehto4, JRadioButton vaihtoehto5, JButton seuraavaKysymys, JLabel kysymyslause, JLabel kysymyssana, JLabel tuloksenIlmoitus, JLabel pistetilanneTeksti, JLabel lopetuslause, JButton seuraavaPeli) {
         this.peli = peli;
         this.vaihtoehdot = vaihtoehdot;
         this.vaihtoehto1 = vaihtoehto1;
@@ -92,6 +93,7 @@ public class Tapahtumankuuntelija implements ActionListener {
         this.tuloksenIlmoitus = tuloksenIlmoitus;
         this.pistetilanneTeksti = pistetilanneTeksti;
         this.lopetuslause = lopetuslause;
+        this.seuraavaPeli = seuraavaPeli;
     }
     
     @Override
@@ -170,6 +172,7 @@ public class Tapahtumankuuntelija implements ActionListener {
                 this.seuraavaKysymys.setEnabled(false);
                 String lopetusTeksti = this.peli.pelinLopetusteksti();
                 this.lopetuslause.setText(lopetusTeksti);
+                this.seuraavaPeli.setVisible(true);
             }
         }
     }
