@@ -1,7 +1,8 @@
 # Käyttöohjeet
 
 Visailupelin käyttämiseen ei tarvita juurikaan käyttöohjeita - se on hyvin itsensä selittävä ja looginen.
-Sovelluksen voi sulkea missä vaiheessa vain ikkunan yläkulman x-merkistä.
+Tällä hetkellä sovelluksessa voi pelata vain yhden pelin kerrallaan.
+Sovelluksen voi sulkea missä tahansa vaiheessa peliä ikkunan yläkulman x-merkistä.
 
 ## Sovelluksen käynnistys ja pelattavan pelin valitseminen
 Sovelluksen käynnistämisen jälkeen avautuu ikkuna, jossa on listattuna visailun pelit. Valitse peli, jota haluat pelata, ja klikkaa Aloita peli -painiketta. Peli käynnistyy.
