@@ -56,7 +56,7 @@ public class KysymysTest {
 
     @Test
     public void kysymyssanaOnOikein() {
-        assertEquals("ESPANJA", this.kysymys1.getKysymyssana());
+        assertEquals("Espanja", this.kysymys1.getKysymyssana());
     }
 
     @Test

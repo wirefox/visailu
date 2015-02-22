@@ -72,7 +72,6 @@ public class KysymyssarjaTest {
     public void kahdenKysymyksenLisaamisenJalkeenListanKokoOnKaksi() {
         assertEquals(2, this.kysymyssarja2.getKysymystenLkm());
     }
-    
 
     @Test
     public void kysymysEiOleNull() {

@@ -10,7 +10,6 @@ import static org.junit.Assert.*;
 import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 import sovellus.gui.GraafinenKayttoliittyma;
-import sovellus.gui.Tekstikayttoliittyma;
 
 public class VisailukoordinaattoriTest {
 
@@ -50,20 +49,6 @@ public class VisailukoordinaattoriTest {
 //
 //        assertEquals("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.kysymyslause);
 //    }
-    @Test
-    public void pelinValmistelutoimienAikanaMuodostetaanKysymyssarjaJossaKysymyksia() {
-        //GraafinenKayttoliittyma kayttis = new GraafinenKayttoliittyma(this.peli);
-        Visailukoordinaattori visailukoordinaattori = new Visailukoordinaattori();
-        this.tiedostonlukija = new Tiedostonlukija();
-        String kysymyslause = this.tiedostonlukija.getKysymyslause();
-        HashMap<String, String> kysymyksetJaVastaukset = new HashMap<String, String>();
-        this.tiedonkasittelija = new Tiedonkasittelija(kysymyksetJaVastaukset, kysymyslause);
-        this.kysymyssarja = this.tiedonkasittelija.muodostaKysymyssarja();
-        Peli peli = new Peli(kysymyslause, this.kysymyssarja);
-        this.kysymys = peli.getKysymys();
-        assertNotNull(this.kysymys);
-    }
-
     @Test
     public void visailukoordinaattoriLuodaan() {
         Visailukoordinaattori visailukoordinaattori = new Visailukoordinaattori();

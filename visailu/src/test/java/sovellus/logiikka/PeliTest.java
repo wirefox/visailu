@@ -15,10 +15,6 @@ import sovellus.logiikka.Peli;
 
 public class PeliTest {
 
-// TÄMÄNLAISELLA VOI ANTAA TESTISSÄ SYÖTTEEN:       
-//      "laita seuraavaksi syötteeksi "Madrid""
-//       String data = "Madrid";
-//       System.setIn(new ByteArrayInputStream(data.getBytes()));
     private Kysymyssarja kysymyssarjaYksiKysymys;
     private Kysymyssarja kysymyssarja10Kysymysta;
     private Kysymys kysymys;
@@ -102,11 +98,11 @@ public class PeliTest {
         this.kysymyssarja10Kysymysta.lisaaKysymys(k9);
         this.kysymyssarja10Kysymysta.lisaaKysymys(k10);
 
-        this.peliJossaEiVielaPelattuKierroksia = new Peli("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.kysymyssarjaYksiKysymys);
+        this.peliJossaEiVielaPelattuKierroksia = new Peli(this.kysymyssarjaYksiKysymys);
 
-        this.peliJossaPelattuYksiKierrosJaOikeaVastaus = new Peli("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.kysymyssarja10Kysymysta);
+        this.peliJossaPelattuYksiKierrosJaOikeaVastaus = new Peli(this.kysymyssarja10Kysymysta);
 
-        this.peliJossaPelattuYksiKierrosJaVaaraVastaus = new Peli("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ", this.kysymyssarja10Kysymysta);
+        this.peliJossaPelattuYksiKierrosJaVaaraVastaus = new Peli(this.kysymyssarja10Kysymysta);
     }
 
     @After
@@ -127,13 +123,15 @@ public class PeliTest {
 
     @Test
     public void pelinVikallaKierroksellaEiJatketaPelia() {
-        this.peliJossaEiVielaPelattuKierroksia.setKierroksenNumero(10);
+        for (int i = 0; i < 10; i++) {
+            this.peliJossaEiVielaPelattuKierroksia.kasvataKierroksenNumeroa();
+        }
         assertFalse(this.peliJossaEiVielaPelattuKierroksia.jatketaankoPelia());
     }
 
     @Test
     public void pelinAlussaOnEnsimmäinenKierros() {
-        assertEquals(0, this.peliJossaEiVielaPelattuKierroksia.getKierroksenNumero());
+        assertEquals(1, this.peliJossaEiVielaPelattuKierroksia.getKierroksenNumero());
     }
 
     @Test
@@ -144,7 +142,7 @@ public class PeliTest {
 
     @Test
     public void kierroksenNumeroOnKaksiKunOllaanKierroksessaKaksi() {
-        this.peliJossaEiVielaPelattuKierroksia.setKierroksenNumero(2);
+        this.peliJossaEiVielaPelattuKierroksia.kasvataKierroksenNumeroa();
         assertEquals(2, this.peliJossaEiVielaPelattuKierroksia.getKierroksenNumero());
     }
 
@@ -195,7 +193,7 @@ public class PeliTest {
 
     @Test
     public void pistetilanneTulostuuOikein() {
-        assertEquals("Pisteesi: 0 / 0", this.peliJossaEiVielaPelattuKierroksia.pistetilanneTeksti());
+        assertEquals("Pisteesi: 0 / 1", this.peliJossaEiVielaPelattuKierroksia.pistetilanneTeksti());
     }
 
     @Test
@@ -205,15 +203,16 @@ public class PeliTest {
 
     @Test
     public void kierroksenKysymyslauseTulostuuOikeinKunYhdeksasKierros() {
-        this.peliJossaPelattuYksiKierrosJaVaaraVastaus.setKierroksenNumero(8);
-
+        for (int i = 0; i < 8; i++) {
+            this.peliJossaPelattuYksiKierrosJaVaaraVastaus.kasvataKierroksenNumeroa();
+        }
         assertEquals("9: Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:", this.peliJossaPelattuYksiKierrosJaVaaraVastaus.getKierroksenKysymyslause());
     }
 
     @Test
     public void kierroksenKysymyssanaTulostuuOikein() {
         this.peliJossaEiVielaPelattuKierroksia.vaihdaSeuraavaKysymys();
-        assertEquals("ESPANJA", this.peliJossaEiVielaPelattuKierroksia.getKysymys().getKysymyssana());
+        assertEquals("Espanja", this.peliJossaEiVielaPelattuKierroksia.getKysymys().getKysymyssana());
     }
 
     @Test
