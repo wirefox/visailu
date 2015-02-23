@@ -29,14 +29,6 @@ public class KysymyssarjaTest {
         this.kysymys2 = new Kysymys();
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
         this.kysymys1.setKysymyssana("Espanja");
@@ -57,10 +49,6 @@ public class KysymyssarjaTest {
         this.kysymyssarja1.lisaaKysymys(this.kysymys1);
         this.kysymyssarja2.lisaaKysymys(this.kysymys1);
         this.kysymyssarja2.lisaaKysymys(this.kysymys2);
-    }
-
-    @After
-    public void tearDown() {
     }
 
     @Test

@@ -18,14 +18,6 @@ public class KysymysTest {
     public KysymysTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
         this.kysymys1 = new Kysymys();
@@ -43,10 +35,6 @@ public class KysymysTest {
 
         this.kysymys2 = new Kysymys();
         this.kysymys3 = new Kysymys();
-    }
-
-    @After
-    public void tearDown() {
     }
 
     @Test
