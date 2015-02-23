@@ -30,3 +30,5 @@ Päivämäärä | Tuntia | Selite
 17.2.2015 | 6 | toteutettu värinvaihtumisefekti riippuen onko vastaus oikein vai väärin, tehty laajennus = uusi visa visailuun, koodia täytynee tältä osin vielä tarkastaa/siistiä; kaikki ratkaisut eivät ehkä niin kivoja, fiksattu testejä
 19.2.2015 | 6 | tehty muutoksia/selkeytyksiä koodiin, muokattu javadocia, muokattu luokkakaavio, sekvenssikaaviot, tehty uusia sekvenssikaavioita, päivitetty aihemäärittelyä, pureuduttu huonolla menestyksellä visailukoordinaattorin testeihin
 21.2.2015 | 2 | koodikatselmointi 2, tutkittu parasTetris-projektia ja annettu palautetta projektista (git issue)
+22.2.2015 | 5 | koodin läpikäymistä ja selkeyttämistä, turhia muuttujia pois, uudet sekvenssikaaviot, käyttöohjeet, seuraava kysymys -painike, kierrosnumero
+23.2.2015 | 3 | käyty testaamassa, että ohjelma toimii laitoksen koneella, siistitty testiluokkia, yritetty tehdä visailukoordinaattoriluokalle lisää testejä, mutta se ei tunnu olevan mahdollista
