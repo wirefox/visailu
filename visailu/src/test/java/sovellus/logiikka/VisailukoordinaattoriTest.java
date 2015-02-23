@@ -18,27 +18,13 @@ public class VisailukoordinaattoriTest {
     private Tiedostonlukija tiedostonlukija;
     private Tiedonkasittelija tiedonkasittelija;
     private Kysymyssarja kysymyssarja;
-    //   private Peli peli;
 
     public VisailukoordinaattoriTest() {
-
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
     }
 
     @Before
     public void setUp() {
         this.kysymyslause = "Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista: ";
-    }
-
-    @After
-    public void tearDown() {
     }
 
 //    //TÄMÄ ON IHAN HÖPÖLÖPÖ-TESTI

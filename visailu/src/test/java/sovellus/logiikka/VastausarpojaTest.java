@@ -20,14 +20,6 @@ public class VastausarpojaTest {
     public VastausarpojaTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
         this.kysymys = new Kysymys();
@@ -47,14 +39,6 @@ public class VastausarpojaTest {
 
         this.vaaratVastaukset = new ArrayList<String>();
         vaaratVastaukset = this.vastausarpoja.arvoVastausvaihtoehdotKysymykselle(this.vastauksia, this.kysymys);
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    @Test
-    public void hello() {
     }
 
     @Test

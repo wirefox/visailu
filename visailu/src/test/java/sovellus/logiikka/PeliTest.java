@@ -25,14 +25,6 @@ public class PeliTest {
     public PeliTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
         this.kysymyssarjaYksiKysymys = new Kysymyssarja("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:");
@@ -103,10 +95,6 @@ public class PeliTest {
         this.peliJossaPelattuYksiKierrosJaOikeaVastaus = new Peli(this.kysymyssarja10Kysymysta);
 
         this.peliJossaPelattuYksiKierrosJaVaaraVastaus = new Peli(this.kysymyssarja10Kysymysta);
-    }
-
-    @After
-    public void tearDown() {
     }
 
     @Test

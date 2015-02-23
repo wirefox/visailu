@@ -13,27 +13,11 @@ import sovellus.domain.Kysymyssarja;
 
 public class TiedonkasittelijaTest {
 
-    //   private Kysymys kysymys;
-    //   private HashMap<String, String> kysymyksetJaVastaukset;
     public TiedonkasittelijaTest() {
-
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
     }
 
     @Before
     public void setUp() {
-        //     this.kysymyksetJaVastaukset = new HashMap<String, String>();
-    }
-
-    @After
-    public void tearDown() {
     }
 
     @Test
