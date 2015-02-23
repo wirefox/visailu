@@ -1,8 +1,7 @@
 # Aihemäärittely
 
 ## Aihe: 
-Visailusovellus, hyötypeli. Kyseessä on visailusovellus, joka tehdään helposti laajennettavaksi. Visailussa pelaaja oppii pelin avulla asioita mukavalla tavalla. Alussa sovellus sisältää yhden pelin, pääkaupunkivisan, jossa pelaaja arvaa maiden pääkaupunkeja. Jatkossa sovellukseen voi lisätä erilaisia visoja, esimerkiksi toisenlaisen tietovisan, eri kielten harjoitteluvisoja ym.
-Alussa peli on automaattisesti pääkaupunkivisailu, mutta jos pelejä on useita, valitsee pelaaja  aloitusnäkymästä haluamansa pelin. Pelaajan pelatessa näkee hän kuinka monta kysymyksistä on mennyt oikein (xx/xx). Pelin lopussa pelaajalle näytetään lopputulos.
+Kyseessä on visailusovellus/hyötypeli. Visailussa pelaaja oppii pelin avulla asioita mukavalla tavalla ja helposti. Pelaaja valitsee aloitusnäkymästä haluamansa pelin. Pelaajan pelatessa näkee hän kuinka monta kysymyksistä on mennyt oikein (xx/xx). Pelin lopussa pelaajalle näytetään lopputulos.
 
 ## Käyttäjät: 
 Visailun pelaajat
