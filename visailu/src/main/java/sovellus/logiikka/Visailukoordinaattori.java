@@ -50,4 +50,8 @@ public class Visailukoordinaattori {
 
         return kysymyssarja;
     }
+
+    public HashMap<String, String> getKysymyksetJaVastaukset() {
+        return this.kysymyksetJaVastaukset;
+    }
 }
