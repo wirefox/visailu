@@ -13,7 +13,6 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
-import sovellus.domain.Kysymys;
 import sovellus.logiikka.Peli;
 import sovellus.logiikka.Visailukoordinaattori;
 
@@ -163,7 +162,7 @@ public class Tapahtumankuuntelija implements ActionListener {
             this.seuraavaKysymys.setEnabled(false);
 
             if (this.peli.jatketaankoPelia()) {
-                laitaKaikkiVastausvaihtoEhdotMustaksiJaPaalle();
+                laitaVastausvaihtoehdotValmiiksi();
                 this.peli.vaihdaSeuraavaKysymys();
                 this.vaihtoehdot.clearSelection();
                 this.tuloksenIlmoitus.setText("");
@@ -201,7 +200,7 @@ public class Tapahtumankuuntelija implements ActionListener {
      * vastaamista varten.
      *
      */
-    private void laitaKaikkiVastausvaihtoEhdotMustaksiJaPaalle() {
+    private void laitaVastausvaihtoehdotValmiiksi() {
         Collection<JRadioButton> nappiLista = new ArrayList<JRadioButton>();
         nappiLista.add(this.vaihtoehto1);
         nappiLista.add(this.vaihtoehto2);
@@ -246,7 +245,7 @@ public class Tapahtumankuuntelija implements ActionListener {
             vaihtoehto.setForeground(Color.GREEN);
         } else {
             vaihtoehto.setForeground(Color.RED);
-            paikallistaOikeaVastausvaihtoehtoJaAlleviivaa();
+            alleviivaaOikeaVastaus();
         }
         this.tuloksenIlmoitus.setText(vastaus);
         this.pistetilanneTeksti.setText(this.peli.pistetilanneTeksti());
@@ -257,7 +256,7 @@ public class Tapahtumankuuntelija implements ActionListener {
      * Jos pelaaja vastannut väärin, paikallistetaan metodissa oikea vastaus ja
      * alleviivataan se.
      */
-    private void paikallistaOikeaVastausvaihtoehtoJaAlleviivaa() {
+    private void alleviivaaOikeaVastaus() {
 
         Map<TextAttribute, Integer> fontAttributes = new HashMap<TextAttribute, Integer>();
         fontAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);

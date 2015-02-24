@@ -10,10 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
-import sovellus.domain.Kysymys;
 import sovellus.logiikka.Peli;
 import sovellus.logiikka.Visailukoordinaattori;
 

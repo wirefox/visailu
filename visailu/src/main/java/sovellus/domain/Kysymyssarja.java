@@ -2,7 +2,6 @@ package sovellus.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 /**
  * Luokka tallettaa kysymysoliot listaan, sekoittaa listan, ja antaa visan

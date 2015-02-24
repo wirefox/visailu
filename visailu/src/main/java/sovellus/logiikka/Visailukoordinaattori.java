@@ -1,7 +1,6 @@
 package sovellus.logiikka;
 
 import java.util.HashMap;
-import javax.swing.SwingUtilities;
 import sovellus.domain.Kysymyssarja;
 import sovellus.gui.GraafinenKayttoliittyma;
 

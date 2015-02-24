@@ -2,10 +2,8 @@ package sovellus.logiikka;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import javax.swing.SwingUtilities;
 import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
-import sovellus.gui.GraafinenKayttoliittyma;
 
 /**
  * Luokassa on pelin pelaamisen toiminnallisuus.

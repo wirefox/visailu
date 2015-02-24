@@ -6,7 +6,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sun.audio.AudioPlayer;
 
 /**
  * Luokasta luotu tiedostonlukija-olio lukee sisään tiedoston.
@@ -37,7 +36,7 @@ public class Tiedostonlukija {
      * tallennettuna kysymys-vastaus -parit.
      */
     public HashMap<String, String> lueTiedosto(String tiedostonnimi) {
-        InputStream teksti = this.getClass().getResourceAsStream(tiedostonnimi);
+        InputStream teksti = this.getClass().getResourceAsStream("/" + tiedostonnimi);
 
         try {
             this.lukija = new Scanner(teksti);

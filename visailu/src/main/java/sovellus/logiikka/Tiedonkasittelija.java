@@ -1,8 +1,6 @@
 package sovellus.logiikka;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
