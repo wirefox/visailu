@@ -17,7 +17,7 @@ public class Kysymys {
     private ArrayList<String> vaaratVastausvaihtoehdot;
 
     public Kysymys() {
-        this.vaaratVastausvaihtoehdot = new ArrayList<String>();
+        this.vaaratVastausvaihtoehdot = new ArrayList<>();
     }
 
     public void setKysymyssana(String kysymyssana) {
@@ -54,11 +54,7 @@ public class Kysymys {
      * @return boolean palautetaan true, jos oikea vastaus ja false, jos väärä
      */
     public boolean onkoOikeaVastaus(String vastaus) {
-        if (vastaus.equals(getOikeaVastaus())) {
-            return true;
-        } else {
-            return false;
-        }
+        return vastaus.equals(getOikeaVastaus());
     }
 
     public ArrayList<String> getVaaratVastaukset() {

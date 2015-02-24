@@ -21,7 +21,7 @@ public class Tiedostonlukija {
     private String kysymyslause;
 
     public Tiedostonlukija() {
-        this.kysymysJaVastaus = new HashMap<String, String>();
+        this.kysymysJaVastaus = new HashMap<>();
     }
 
     /**

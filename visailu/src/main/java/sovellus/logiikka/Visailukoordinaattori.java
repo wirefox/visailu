@@ -44,12 +44,15 @@ public class Visailukoordinaattori {
      */
     private HashMap<String, String> lueTiedosto(String pelinNimi) {
         this.tiedostonlukija = new Tiedostonlukija();
-        HashMap<String, String> kysymyksetJaVastaukset = new HashMap<String, String>();
+        HashMap<String, String> kysymyksetJaVastaukset = new HashMap<>();
 
-        if (pelinNimi.equals("valtiot ja pääkaupungit")) {
-            kysymyksetJaVastaukset = this.tiedostonlukija.lueTiedosto("maatJaPaakaupungit.txt");
-        } else if (pelinNimi.equals("kiinan numerot")) {
-            kysymyksetJaVastaukset = this.tiedostonlukija.lueTiedosto("kiinaNumerot.txt");
+        switch (pelinNimi) {
+            case "valtiot ja pääkaupungit":
+                kysymyksetJaVastaukset = this.tiedostonlukija.lueTiedosto("maatJaPaakaupungit.txt");
+                break;
+            case "kiinan numerot":
+                kysymyksetJaVastaukset = this.tiedostonlukija.lueTiedosto("kiinaNumerot.txt");
+                break;
         }
         return kysymyksetJaVastaukset;
     }

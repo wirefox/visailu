@@ -43,11 +43,7 @@ public class Peli {
      * jatketaan
      */
     public boolean jatketaankoPelia() {
-        if (getKierroksenNumero() == 11) {
-            return false;
-        } else {
-            return true;
-        }
+        return getKierroksenNumero() < 11;
     }
 
     public void kasvataKierroksenNumeroa() {

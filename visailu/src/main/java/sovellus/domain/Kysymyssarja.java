@@ -15,7 +15,7 @@ public class Kysymyssarja {
     private String kysymyslause;
 
     public Kysymyssarja(String kysymyslause) {
-        this.kysymykset = new ArrayList<Kysymys>();
+        this.kysymykset = new ArrayList<>();
         this.kysymyslause = kysymyslause;
     }
 

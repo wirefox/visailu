@@ -63,12 +63,11 @@ public class Tiedonkasittelija {
      * väärät vastausvaihtoehdot.
      */
     private ArrayList<String> annaKysymyksenVaaratVastausvaihtoehdot(Kysymys kysymys) {
-        ArrayList<String> kaikkiVastaukset = new ArrayList<String>();
+        ArrayList<String> kaikkiVastaukset = new ArrayList<>();
         for (String vastaus : this.kysymyksetJaVastaukset.values()) {
             kaikkiVastaukset.add(vastaus);
         }
-        ArrayList<String> vaaratVastaukset = new ArrayList<String>();
-        vaaratVastaukset = this.vastausvaihtoehtoArpoja.arvoVastausvaihtoehdotKysymykselle(kaikkiVastaukset, kysymys);
+        ArrayList<String> vaaratVastaukset = this.vastausvaihtoehtoArpoja.arvoVastausvaihtoehdotKysymykselle(kaikkiVastaukset, kysymys);
         return vaaratVastaukset;
     }
 }

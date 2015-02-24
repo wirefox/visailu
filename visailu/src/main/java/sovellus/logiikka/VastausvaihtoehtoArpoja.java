@@ -28,7 +28,7 @@ public class VastausvaihtoehtoArpoja {
      * vastausvaihtoehdot
      */
     public ArrayList<String> arvoVastausvaihtoehdotKysymykselle(ArrayList<String> listaVastauksia, Kysymys kysymys) {
-        ArrayList<String> vastaukset = new ArrayList<String>();
+        ArrayList<String> vastaukset = new ArrayList<>();
 
         for (int i = 0; vastaukset.size() < 4; i++) {
             int vastauksenNro = this.arpoja.nextInt(listaVastauksia.size());
