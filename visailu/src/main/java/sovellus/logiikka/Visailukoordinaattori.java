@@ -23,7 +23,7 @@ public class Visailukoordinaattori {
      * Kutsutaan olion omia lueTiedosto-, muodostaKysymyssarja- ja
      * visaile-metodeja.
      *
-     * @param kayttoliittyma
+     * @param kayttoliittyma graafinen käyttöliittymä -olio
      * @param pelinNimi pelaajan valitseman pelin nimi
      */
     public void pelinValmistelutoimet(GraafinenKayttoliittyma kayttoliittyma, String pelinNimi) {

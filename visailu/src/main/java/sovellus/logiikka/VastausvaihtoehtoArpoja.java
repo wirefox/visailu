@@ -5,7 +5,7 @@ import java.util.Random;
 import sovellus.domain.Kysymys;
 
 /**
- * Luokka arpoo pelikierroksen kysymysoliolle listan vääriä vastausvaihtoehtoja
+ * Luokka arpoo pelikierroksen kysymysoliolle listan vääriä vastausvaihtoehtoja.
  *
  * @author elina
  */

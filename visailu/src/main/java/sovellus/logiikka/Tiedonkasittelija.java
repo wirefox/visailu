@@ -8,7 +8,7 @@ import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 
 /**
- * Luokassa jatkokäsitellään tiedostonlukijan sisään lukemaa tietoa
+ * Luokassa jatkokäsitellään tiedostonlukijan sisään lukemaa tietoa.
  *
  * @author elina
  */

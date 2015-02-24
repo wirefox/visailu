@@ -28,8 +28,8 @@ public class Tiedostonlukija {
      * Metodissa luetaan sisään tiedosto ja muodostetaan siitä kysymys-vastaus
      * -HashMap.
      *
-     * Metodi kutsuu ositaTiedostostaLuettuTekstiJaTalleta()-metodia, jolle
-     * vastuuta on jaettu.
+     * Metodi kutsuu muokkaaLuettuaTekstiaJaTalleta()-metodia, jolle vastuuta on
+     * jaettu.
      *
      * @param tiedostonnimi Metodi saa parametrina luettavan tiedoston nimen.
      * @return this.kysymysJaVastaus Metodi palauttaa HashMapin, jossa on
@@ -51,7 +51,6 @@ public class Tiedostonlukija {
     /**
      * Metodissa luetaan tiedostoa, ositetaan/pilkotaan luettujen rivien teksti
      * ja talletetaan HashMapiin.
-     *
      */
     private void muokkaaLuettuaTekstiaJaTalleta() {
         this.kysymyslause = lukija.nextLine();

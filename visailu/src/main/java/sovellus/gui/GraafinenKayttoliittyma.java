@@ -17,6 +17,12 @@ import sovellus.domain.Kysymys;
 import sovellus.logiikka.Peli;
 import sovellus.logiikka.Visailukoordinaattori;
 
+/**
+ * Luokassa luodaan pelin graafinen käyttöliittymä: ikkuna, jossa pelin
+ * aloitusnäkymä, ja siitä päivitetty pelinäkymä.
+ *
+ * @author elina
+ */
 public class GraafinenKayttoliittyma implements Runnable {
 
     private Visailukoordinaattori visailukoordinaattori;
@@ -46,7 +52,7 @@ public class GraafinenKayttoliittyma implements Runnable {
 
     /**
      * Metodi luo komponentit ja tapahtumankuuntelijan pelin aloitusikkunaan,
-     * jossa pelaaja valitsee pelin
+     * jossa pelaaja valitsee pelin.
      *
      * @param container-olio
      */

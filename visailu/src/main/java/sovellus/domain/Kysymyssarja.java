@@ -6,7 +6,7 @@ import java.util.Random;
 
 /**
  * Luokka tallettaa kysymysoliot listaan, sekoittaa listan, ja antaa visan
- * seuraavan kysymyksen
+ * seuraavan kysymysolion.
  *
  * @author elina
  */

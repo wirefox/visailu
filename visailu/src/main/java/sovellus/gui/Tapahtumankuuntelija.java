@@ -17,6 +17,12 @@ import sovellus.domain.Kysymys;
 import sovellus.logiikka.Peli;
 import sovellus.logiikka.Visailukoordinaattori;
 
+/**
+ * Luokassa luodaan tapahtumankuuntelija, joka seuraa pelaajan tekemiä valintoja
+ * peliä pelatessaan.
+ *
+ * @author elina
+ */
 public class Tapahtumankuuntelija implements ActionListener {
 
     private Peli peli;

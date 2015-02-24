@@ -3,7 +3,7 @@ package sovellus.domain;
 import java.util.ArrayList;
 
 /**
- * Luokassa luodaan pelin kysymykset
+ * Luokassa luodaan pelin kysymykset.
  *
  * Kysymysolioilla on talletettuna niiden kysymyssana, oikea vastaus ja väärät
  * vastaukset.
