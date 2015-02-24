@@ -1,11 +1,12 @@
 package sovellus.logiikka;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import sun.audio.AudioPlayer;
 
 /**
  * Luokasta luotu tiedostonlukija-olio lukee sisään tiedoston.
@@ -36,12 +37,12 @@ public class Tiedostonlukija {
      * tallennettuna kysymys-vastaus -parit.
      */
     public HashMap<String, String> lueTiedosto(String tiedostonnimi) {
-        File tiedosto = new File(tiedostonnimi);
+        InputStream teksti = this.getClass().getResourceAsStream(tiedostonnimi);
 
         try {
-            this.lukija = new Scanner(tiedosto);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Tiedostonlukija.class.getName()).log(Level.SEVERE, null, ex);
+            this.lukija = new Scanner(teksti);
+        } catch (InputMismatchException ip) {
+            Logger.getLogger(Tiedostonlukija.class.getName()).log(Level.SEVERE, null, ip);
         }
 
         muokkaaLuettuaTekstiaJaTalleta();
@@ -55,13 +56,15 @@ public class Tiedostonlukija {
     private void muokkaaLuettuaTekstiaJaTalleta() {
         this.kysymyslause = lukija.nextLine();
 
-        while (lukija.hasNextLine()) {
+        while (this.lukija.hasNextLine()) {
             String rivi = lukija.nextLine();
             String[] osat = rivi.split(",");
             String osa1 = osat[0];
             String osa2 = osat[1];
             this.kysymysJaVastaus.put(osa1, osa2);
         }
+
+        this.lukija.close();
     }
 
     public String getKysymyslause() {
