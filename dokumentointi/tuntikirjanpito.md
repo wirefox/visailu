@@ -32,3 +32,4 @@ Päivämäärä | Tuntia | Selite
 21.2.2015 | 2 | koodikatselmointi 2, tutkittu parasTetris-projektia ja annettu palautetta projektista (git issue)
 22.2.2015 | 5 | koodin läpikäymistä ja selkeyttämistä, turhia muuttujia pois, uudet sekvenssikaaviot, käyttöohjeet, seuraava kysymys -painike, kierrosnumero
 23.2.2015 | 3 | käyty testaamassa, että ohjelma toimii laitoksen koneella, siistitty testiluokkia, yritetty tehdä visailukoordinaattoriluokalle lisää testejä, mutta se ei tunnu olevan mahdollista
+24.2.2015 | 9 | checkstyle, koodin siistimistä, ohjeiden tulkitsemista,  pom.xml:n, jar-tiedoston ja tiedostonlukemisen kanssa taistelua, demoissa käyminen, koodikatselmoinnin huomioiden soveltaminen ohjelmaan, visailukoordinaattorin ja guin/tapahtumankuuntelijan väliset vastuut 
