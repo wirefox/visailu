@@ -1,6 +1,6 @@
 # Käyttöohjeet
 
-Visailupelin käyttämiseen ei tarvita juurikaan käyttöohjeita - peli etenee omalla painollaan ja ohjaa pelaajaa.
+Visailupelin pelaamiseen ei oikeastaan tarvita käyttöohjeita - peli etenee omalla painollaan ja ohjaa pelaajaa.
 Tällä hetkellä sovelluksessa voi pelata vain yhden pelin kerrallaan, mutta kehityslistalla on, että pelaamista voi jatkaa pelattuaan yhden pelin.
 Sovelluksen voi sulkea missä tahansa vaiheessa peliä ikkunan yläkulman x-merkistä.
 
