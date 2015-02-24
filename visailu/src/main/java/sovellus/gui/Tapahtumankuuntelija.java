@@ -1,6 +1,7 @@
 package sovellus.gui;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -111,10 +112,14 @@ public class Tapahtumankuuntelija implements ActionListener {
         } else if (ae.getSource() == this.aloitusnappi) {
             if (this.paakaupunkiPeliValittu) {
                 this.graafinenKayttis.tyhjennaIkkuna();
-                this.visailukoordinaattori.pelinValmistelutoimet(this.graafinenKayttis, this.paakaupunkiVisa.getText());
+                this.visailukoordinaattori.lueTiedosto(this.paakaupunkiVisa.getText());
+                this.peli = new Peli(this.visailukoordinaattori.muodostaKysymyssarja());
+                this.graafinenKayttis.luoKomponentitPeliIkkunaan(this.graafinenKayttis.getFrame().getContentPane(), this.peli);
             } else if (this.kiinaNumeroVisaValittu) {
                 this.graafinenKayttis.tyhjennaIkkuna();
-                this.visailukoordinaattori.pelinValmistelutoimet(this.graafinenKayttis, this.kiinaNumeroVisa.getText());
+                this.visailukoordinaattori.lueTiedosto(this.kiinaNumeroVisa.getText());
+                this.peli = new Peli(this.visailukoordinaattori.muodostaKysymyssarja());
+                this.graafinenKayttis.luoKomponentitPeliIkkunaan(this.graafinenKayttis.getFrame().getContentPane(), this.peli);
             }
         }
     }
