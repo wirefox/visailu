@@ -1,6 +1,7 @@
 package sovellus.logiikka;
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -20,7 +21,7 @@ public class TiedostonlukijaTest {
         HashMap<String, String> kysymykset = null;
         try {
             kysymykset = t.lueTiedosto("kiinaNumerot.txt");
-        } catch (Exception e) {
+        } catch (InputMismatchException e) {
             System.out.println("lukuvirhe");
         }
 
@@ -35,7 +36,7 @@ public class TiedostonlukijaTest {
         HashMap<String, String> kysymykset = null;
         try {
             kysymykset = t.lueTiedosto("maatJaPaakaupungit.txt");
-        } catch (Exception e) {
+        } catch (InputMismatchException e) {
             System.out.println("lukuvirhe");
         }
 

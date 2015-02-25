@@ -61,4 +61,8 @@ public class Visailukoordinaattori {
     public HashMap<String, String> getKysymyksetJaVastaukset() {
         return this.kysymyksetJaVastaukset;
     }
+
+    public Peli getPeli() {
+        return this.peli;
+    }
 }
