@@ -74,7 +74,6 @@ public class Peli {
      * lisää ne listaan ja sekoittaa järjestyksen.
      *
      * @return vastausvaihtoehdot palautetaan lista, jossa on vastausvaihtoehdot
-     * kysymykselle
      */
     public ArrayList<String> muodostaVastausvaihtoehdot() {
         ArrayList<String> vastausvaihtoehdot = this.kysymys.getVaaratVastaukset();

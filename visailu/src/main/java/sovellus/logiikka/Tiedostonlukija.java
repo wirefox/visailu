@@ -53,7 +53,7 @@ public class Tiedostonlukija {
      * ja talletetaan HashMapiin.
      */
     private void muokkaaLuettuaTekstiaJaTalleta() {
-        this.kysymyslause = lukija.nextLine();
+        setKysymyslause(lukija.nextLine());
 
         while (this.lukija.hasNextLine()) {
             String rivi = lukija.nextLine();
@@ -68,5 +68,9 @@ public class Tiedostonlukija {
 
     public String getKysymyslause() {
         return this.kysymyslause;
+    }
+
+    public void setKysymyslause(String kysymyslause) {
+        this.kysymyslause = kysymyslause;
     }
 }

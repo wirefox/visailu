@@ -1,7 +1,6 @@
 package sovellus.gui;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -113,14 +112,13 @@ public class Tapahtumankuuntelija implements ActionListener {
             if (this.paakaupunkiPeliValittu) {
                 this.graafinenKayttis.tyhjennaIkkuna();
                 this.visailukoordinaattori.lueTiedosto(this.paakaupunkiVisa.getText());
-                this.peli = new Peli(this.visailukoordinaattori.muodostaKysymyssarja());
-                this.graafinenKayttis.luoKomponentitPeliIkkunaan(this.graafinenKayttis.getFrame().getContentPane(), this.peli);
+
             } else if (this.kiinaNumeroVisaValittu) {
                 this.graafinenKayttis.tyhjennaIkkuna();
                 this.visailukoordinaattori.lueTiedosto(this.kiinaNumeroVisa.getText());
-                this.peli = new Peli(this.visailukoordinaattori.muodostaKysymyssarja());
-                this.graafinenKayttis.luoKomponentitPeliIkkunaan(this.graafinenKayttis.getFrame().getContentPane(), this.peli);
             }
+            this.peli = new Peli(this.visailukoordinaattori.muodostaKysymyssarja());
+            this.graafinenKayttis.luoKomponentitPeliIkkunaanJaAlustaEkaKierros(this.peli);
         }
     }
 
@@ -214,7 +212,7 @@ public class Tapahtumankuuntelija implements ActionListener {
      */
     private void alleviivaaOikeaVastaus() {
 
-        Map<TextAttribute, Integer> fontAttributes = new HashMap<TextAttribute, Integer>();
+        Map<TextAttribute, Integer> fontAttributes = new HashMap<>();
         fontAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
         Font alleviivaus = new Font("Dialog", Font.BOLD, 12).deriveFont(fontAttributes);
 
