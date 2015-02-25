@@ -1,14 +1,9 @@
 package sovellus.logiikka;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 
 public class TiedonkasittelijaTest {
@@ -27,7 +22,7 @@ public class TiedonkasittelijaTest {
         String kysymys2 = "kysymys2";
         String vastaus2 = "vastaus2";
 
-        HashMap<String, String> kysymysVastaus = new HashMap<String, String>();
+        HashMap<String, String> kysymysVastaus = new HashMap<>();
         kysymysVastaus.put(kysymys1, vastaus1);
         kysymysVastaus.put(kysymys2, vastaus2);
 
@@ -50,7 +45,7 @@ public class TiedonkasittelijaTest {
         String kysymys6 = "kysymys6";
         String vastaus6 = "vastaus6";
 
-        HashMap<String, String> kysymysVastaus = new HashMap<String, String>();
+        HashMap<String, String> kysymysVastaus = new HashMap<>();
         kysymysVastaus.put(kysymys1, vastaus1);
         kysymysVastaus.put(kysymys2, vastaus2);
         kysymysVastaus.put(kysymys3, vastaus3);

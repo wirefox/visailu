@@ -1,14 +1,10 @@
 package sovellus.logiikka;
 
 import java.util.ArrayList;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import sovellus.domain.Kysymys;
-import sovellus.logiikka.VastausvaihtoehtoArpoja;
 
 public class VastausarpojaTest {
 
@@ -25,7 +21,7 @@ public class VastausarpojaTest {
         this.kysymys = new Kysymys();
         this.kysymys.setKysymyssana("Espanja");
         this.kysymys.setOikeaVastaus("Madrid");
-        this.vastauksia = new ArrayList<String>();
+        this.vastauksia = new ArrayList<>();
         vastauksia.add("Helsinki");
         vastauksia.add("Tukholma");
         vastauksia.add("Tallinna");
@@ -37,13 +33,12 @@ public class VastausarpojaTest {
         vastauksia.add("Peking");
         this.vastausarpoja = new VastausvaihtoehtoArpoja();
 
-        this.vaaratVastaukset = new ArrayList<String>();
+        this.vaaratVastaukset = new ArrayList<>();
         vaaratVastaukset = this.vastausarpoja.arvoVastausvaihtoehdotKysymykselle(this.vastauksia, this.kysymys);
     }
 
     @Test
     public void vastausarpojaArpooNeljaVaaraaVastausta() {
-
         assertEquals(4, vaaratVastaukset.size());
     }
 

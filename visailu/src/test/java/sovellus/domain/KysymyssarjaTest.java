@@ -2,10 +2,7 @@ package sovellus.domain;
 
 import java.util.ArrayList;
 import java.util.Random;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -24,7 +21,7 @@ public class KysymyssarjaTest {
         this.kysymyssarja2 = new Kysymyssarja("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:");
         this.kysymyssarja3 = new Kysymyssarja("Mikä on allaolevan valtion pääkaupunki, valitse vaihtoehdoista:");
         this.arpoja = new Random();
-        this.arvotutKysymyksenNumerot = new ArrayList<Integer>();
+        this.arvotutKysymyksenNumerot = new ArrayList<>();
         this.kysymys1 = new Kysymys();
         this.kysymys2 = new Kysymys();
     }
@@ -69,7 +66,7 @@ public class KysymyssarjaTest {
 
     @Test
     public void kysymyslistallaOnOikeatKaksiKysymysta() {
-        ArrayList<Kysymys> kysymyksetListalla = new ArrayList<Kysymys>();
+        ArrayList<Kysymys> kysymyksetListalla = new ArrayList<>();
         kysymyksetListalla.add(kysymys1);
         kysymyksetListalla.add(kysymys2);
         assertEquals(kysymyksetListalla.get(0), this.kysymyssarja2.getKysymys(0));

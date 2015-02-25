@@ -1,17 +1,11 @@
 package sovellus.logiikka;
 
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
-import java.util.Scanner;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
-import sovellus.logiikka.Peli;
 
 public class PeliTest {
 
@@ -70,7 +64,7 @@ public class PeliTest {
         k10.setOikeaVastaus("Madrid");
         k10.setKysymyssana("Espanja");
 
-        ArrayList<String> vaaratVastaukset = new ArrayList<String>();
+        ArrayList<String> vaaratVastaukset = new ArrayList<>();
         vaaratVastaukset.add("Helsinki");
         vaaratVastaukset.add("Tukholma");
         vaaratVastaukset.add("Berliini");

@@ -1,13 +1,9 @@
 package sovellus.domain;
 
 import java.util.ArrayList;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import sovellus.domain.Kysymys;
 
 public class KysymysTest {
 
@@ -94,7 +90,7 @@ public class KysymysTest {
         String vaara2 = "Tukholma";
         String vaara3 = "Berliini";
         String vaara4 = "Tokio";
-        ArrayList<String> vaarat = new ArrayList<String>();
+        ArrayList<String> vaarat = new ArrayList<>();
         vaarat.add(vaara1);
         vaarat.add(vaara2);
         vaarat.add(vaara3);
