@@ -44,7 +44,7 @@ public class Tiedostonlukija {
             Logger.getLogger(Tiedostonlukija.class.getName()).log(Level.SEVERE, null, ip);
         }
 
-        muokkaaLuettuaTekstiaJaTalleta();
+        lueTekstiaJaTalleta();
         return this.kysymysJaVastaus;
     }
 
@@ -52,7 +52,7 @@ public class Tiedostonlukija {
      * Metodissa luetaan tiedostoa, ositetaan/pilkotaan luettujen rivien teksti
      * ja talletetaan HashMapiin.
      */
-    private void muokkaaLuettuaTekstiaJaTalleta() {
+    private void lueTekstiaJaTalleta() {
         setKysymyslause(lukija.nextLine());
 
         while (this.lukija.hasNextLine()) {

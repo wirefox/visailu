@@ -41,7 +41,7 @@ public class Visailukoordinaattori {
      * @return kysymyssarja Metodi palauttaa pelissä käytettävän kysymyssarjan.
      */
     public Kysymyssarja muodostaKysymyssarja() {
-        this.tiedonkasittelija = new Tiedonkasittelija(kysymyksetJaVastaukset, this.tiedostonlukija.getKysymyslause());
+        this.tiedonkasittelija = new Tiedonkasittelija(this.kysymyksetJaVastaukset, this.tiedostonlukija.getKysymyslause());
         Kysymyssarja kysymyssarja = this.tiedonkasittelija.muodostaKysymyssarja();
         kysymyssarja.sekoitaSarjanKysymykset();
 
