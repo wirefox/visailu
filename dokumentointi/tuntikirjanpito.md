@@ -33,3 +33,5 @@ Päivämäärä | Tuntia | Selite
 22.2.2015 | 5 | koodin läpikäymistä ja selkeyttämistä, turhia muuttujia pois, uudet sekvenssikaaviot, käyttöohjeet, seuraava kysymys -painike, kierrosnumero
 23.2.2015 | 3 | käyty testaamassa, että ohjelma toimii laitoksen koneella, siistitty testiluokkia, yritetty tehdä visailukoordinaattoriluokalle lisää testejä, mutta se ei tunnu olevan mahdollista
 24.2.2015 | 9 | checkstyle, koodin siistimistä, ohjeiden tulkitsemista,  pom.xml:n, jar-tiedoston ja tiedostonlukemisen kanssa taistelua, demoissa käyminen, koodikatselmoinnin huomioiden soveltaminen ohjelmaan, visailukoordinaattorin ja guin/tapahtumankuuntelijan väliset vastuut 
+25.2.2015 | 5 | muokattu koodia, mm. visailukoordinaattorin ja guin vastuita, päivitetty luokkakaavio, paranneltu testejä, käyty kysymässä pajassa jar-tiedoston aiheuttamasta virheilmoituksesta, johon ei ilmeisesti tarvitse reagoida, koska kaikki toimii, päivitetty sekvenssikaavioita
+26.2.2015 | 5 | päivitetty sekvenssikaavioita, luettu läpi koodia tarkistusmielessä, päivitetty aihemäärittely/rakenne
