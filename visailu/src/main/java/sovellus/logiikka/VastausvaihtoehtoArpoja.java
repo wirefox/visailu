@@ -20,11 +20,12 @@ public class VastausvaihtoehtoArpoja {
     /**
      * Metodissa arvotaan neljä väärää vastausvaihtoehtoa kysymysoliolle.
      *
-     * @param listaVastauksia metodi saa parametrina listan, jossa on kaikki
+     * @param listaVastauksia Metodi saa parametrina listan, jossa on kaikki
      * mahdolliset vastaukset
-     * @param kysymys metodi saa parametrina pelikierroksen kysymysolion, jotta
-     * se ei arpoisi oikeaa vastausta väärien vastausvaihtoehtojen joukkoon
-     * @return vastaukset metodi palauttaa listan, jossa on väärät
+     * @param kysymys Metodi saa parametrina pelikierroksen kysymysolion, jotta
+     * se ei tietää olla arpomatta oikeaa vastausta väärien vastausvaihtoehtojen
+     * joukkoon
+     * @return vastaukset Metodi palauttaa listan, jossa on väärät
      * vastausvaihtoehdot
      */
     public ArrayList<String> arvoVastausvaihtoehdotKysymykselle(ArrayList<String> listaVastauksia, Kysymys kysymys) {

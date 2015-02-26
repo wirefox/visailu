@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Luokasta luotu tiedostonlukija-olio lukee sisään tiedoston.
+ * Luokassa luetaan sisään pelin tarvitsema tiedosto.
  *
  * Visan kysymyslause ja kysymys-vastaus parin talletetaan.
  *
@@ -33,7 +33,7 @@ public class Tiedostonlukija {
      *
      * @param tiedostonnimi Metodi saa parametrina luettavan tiedoston nimen.
      * @return this.kysymysJaVastaus Metodi palauttaa HashMapin, jossa on
-     * tallennettuna kysymys-vastaus -parit.
+     * talletettuna kysymys-vastaus -parit.
      */
     public HashMap<String, String> lueTiedosto(String tiedostonnimi) {
         InputStream teksti = this.getClass().getResourceAsStream("/" + tiedostonnimi);
@@ -49,8 +49,8 @@ public class Tiedostonlukija {
     }
 
     /**
-     * Metodissa luetaan tiedostoa, ositetaan/pilkotaan luettujen rivien teksti
-     * ja talletetaan HashMapiin.
+     * Metodissa luetaan tekstiä, ositetaan/pilkotaan luettujen rivien teksti ja
+     * talletetaan HashMapiin.
      */
     private void lueTekstiaJaTalleta() {
         setKysymyslause(lukija.nextLine());

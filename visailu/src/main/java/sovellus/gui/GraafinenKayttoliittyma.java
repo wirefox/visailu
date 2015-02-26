@@ -77,7 +77,7 @@ public class GraafinenKayttoliittyma implements Runnable {
 
     /**
      * Metodi luo ikkunaan uudet komponentit ja tapahtumankuuntelijan, jotta
-     * pelin pelaus voi alkaa
+     * pelin pelaus voi alkaa.
      *
      * @param peli-olio
      */

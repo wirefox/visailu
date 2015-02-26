@@ -28,7 +28,7 @@ public class Peli {
 
     /**
      * Metodissa pyydetään kysymyssarjaa vaihtamaan uudelle pelikierrokselle
-     * seuraavan kysymysolion
+     * seuraavan kysymysolion.
      */
     public void vaihdaSeuraavaKysymys() {
         this.kysymys = this.kysymyssarja.annaSeuraavaKysymys(this.kierroksenNumero - 1);
@@ -39,13 +39,16 @@ public class Peli {
      *
      * Pelissä on 10 kierrosta.
      *
-     * @return boolean palautetaan false, jos peliä ei jatketa ja true, jos
-     * jatketaan
+     * @return boolean Palautetaan true, jos peliä jatketaan ja false, jos peliä
+     * ei jatketa
      */
     public boolean jatketaankoPelia() {
         return getKierroksenNumero() < 11;
     }
 
+    /**
+     * Metodissa kasvatetaan kierroksen numeroa yhdellä.
+     */
     public void kasvataKierroksenNumeroa() {
         this.kierroksenNumero++;
     }
@@ -71,9 +74,10 @@ public class Peli {
      * Metodissa muodostetaan kysymykselle vastausvaihtoehdot.
      *
      * Metodi kysyy oikean vastauksen ja väärät vaihtoehdot kysymysoliolta,
-     * lisää ne listaan ja sekoittaa järjestyksen.
+     * lisää ne listaan ja sekoittaa järjestyksen. Järjestys sekoitetaan, jotta
+     * oikea vastaus ei olisi aina samassa kohtaa.
      *
-     * @return vastausvaihtoehdot palautetaan lista, jossa on vastausvaihtoehdot
+     * @return vastausvaihtoehdot Palautetaan lista, jossa on vastausvaihtoehdot
      */
     public ArrayList<String> muodostaVastausvaihtoehdot() {
         ArrayList<String> vastausvaihtoehdot = this.kysymys.getVaaratVastaukset();
@@ -91,14 +95,14 @@ public class Peli {
     }
 
     /**
-     * Metodissa arvioidaan pelaajan vastaus ja kasvatetaan pelin kierrosnumeroa
-     * ja tarvittaessa pelaajan pistesaldoa.
+     * Metodissa arvioidaan pelaajan vastaus ja kasvatetaan tarvittaessa
+     * pelaajan pistesaldoa.
      *
      * Metodi kysyy kysymysoliolta oikean vastauksen ja vertaa sitä pelaajan
-     * vastaukseen. Kierrosnumeroa kasvatetaan joka kerta, pelaajan pistesaldoa
-     * kasvatetaan, jos pelaaja vastasi oikein.
+     * vastaukseen. Pelaajan pistesaldoa kasvatetaan, jos pelaaja vastasi
+     * oikein.
      *
-     * @param vastaus pelaajan vastaus kysymykseen
+     * @param vastaus Pelaajan vastaus kysymykseen
      * @return String palaute pelaajalle hänen vastauksestaan
      */
     public String vastauksenArviointi(String vastaus) {
@@ -112,9 +116,9 @@ public class Peli {
 
     /**
      * Metodi antaa pelin lopetustekstin, jonka sisältö riippuu pelaajan
-     * pistesaldosta
+     * pistesaldosta,
      *
-     * @return String lopetustekstinä pelaajalle palautetta hänen
+     * @return String Lopetustekstinä pelaajalle palautetta hänen
      * onnistumisestaan
      */
     public String pelinLopetusteksti() {
@@ -132,7 +136,7 @@ public class Peli {
     /**
      * Metodi tulostaa pelaajan pistetilanteen joka kierroksen lopussa.
      *
-     * @return String pelaajan pistetilannetulostus
+     * @return String Pelaajan pistetilannetulostus
      */
     public String pistetilanneTeksti() {
         return "Pisteesi: " + getPisteitaPelaajalla() + " / " + getKierroksenNumero();

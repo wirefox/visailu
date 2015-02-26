@@ -6,7 +6,8 @@ import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 
 /**
- * Luokassa jatkokäsitellään tiedostonlukijan sisään lukemaa tietoa.
+ * Luokassa jatkokäsitellään tiedostonlukijan sisään lukemaa tietoa; tehdään
+ * olioita peliä varten.
  *
  * @author elina
  */
@@ -29,7 +30,7 @@ public class Tiedonkasittelija {
      * Jokaiselle luodulle kysymysoliolle lisätään kysymyssana, oikea vastaus ja
      * väärät vastaukset.
      *
-     * @return kysymyssarja palautetaan valmis kysymyssarjaolio
+     * @return kysymyssarja Palautetaan valmis kysymyssarjaolio
      */
     public Kysymyssarja muodostaKysymyssarja() {
         Kysymyssarja kysymyssarja = new Kysymyssarja(this.kysymyslause);
@@ -57,9 +58,9 @@ public class Tiedonkasittelija {
      * Metodissa luodaan uusi vastausarpojaolio, jolta pyydetään neljä väärää
      * vastausvaihtoehtoa.
      *
-     * @param kysymys metodille annetaan pelikierroksen kysymysolio, jolle
+     * @param kysymys Metodille annetaan pelikierroksen kysymysolio, jolle
      * väärät vastausvaihtoehdot tulee arpoa.
-     * @return vaaratVastaukset metodi palauttaa listan, jossa on kysymysolion
+     * @return vaaratVastaukset Metodi palauttaa listan, jossa on kysymysolion
      * väärät vastausvaihtoehdot.
      */
     private ArrayList<String> annaKysymyksenVaaratVastausvaihtoehdot(Kysymys kysymys) {

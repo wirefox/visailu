@@ -35,8 +35,10 @@ public class Visailukoordinaattori {
 
     /**
      * Metodissa luodaan tiedonkäsittelijäolio ja pyydetään sitä luomaan ja
-     * muodostamaan pelin kysymykset ja kysymyssarja, ja sekoittamaan
-     * kysymyssarjan järjestys.
+     * muodostamaan pelin kysymykset ja kysymyssarja.
+     *
+     * Kysymyssarja sekoitetaan, jotta kysymykset eivät tule joka pelissä
+     * samassa järjestyksessä.
      *
      * @return kysymyssarja Metodi palauttaa pelissä käytettävän kysymyssarjan.
      */
@@ -49,8 +51,9 @@ public class Visailukoordinaattori {
     }
 
     /**
-     * Metodissa luodaan peli-olio ja annetaan sille konstruktorin parametrina
-     * kysymyssarja-olio.
+     * Metodissa luodaan peli-olio.
+     *
+     * Kysymyssarja-olio annetaan pelille.
      *
      * @param kysymyssarja Kysymyssarja
      */

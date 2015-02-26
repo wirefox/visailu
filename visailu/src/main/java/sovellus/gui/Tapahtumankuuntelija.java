@@ -112,7 +112,6 @@ public class Tapahtumankuuntelija implements ActionListener {
             if (this.paakaupunkiPeliValittu) {
                 this.graafinenKayttis.tyhjennaIkkuna();
                 this.visailukoordinaattori.lueTiedosto(this.paakaupunkiVisa.getText());
-
             } else if (this.kiinaNumeroVisaValittu) {
                 this.graafinenKayttis.tyhjennaIkkuna();
                 this.visailukoordinaattori.lueTiedosto(this.kiinaNumeroVisa.getText());
@@ -128,6 +127,10 @@ public class Tapahtumankuuntelija implements ActionListener {
         vastausJaArviointi(ae);
     }
 
+    /**
+     * Metodissa pyöritetään pelin kierroksia ja peli-ikkunan komponenttien
+     * tilaa.
+     */
     private void pelinEtenemistoimenpiteet(ActionEvent ae) {
         if (ae.getSource() == this.seuraavaKysymys) {
             this.seuraavaKysymys.setEnabled(false);
@@ -186,7 +189,8 @@ public class Tapahtumankuuntelija implements ActionListener {
     }
 
     /**
-     * Metodissa arvioidaan pelaajan valitsema vastaus.
+     * Metodissa tehdään toimenpiteitä riippuen siitä, onko pelaajan vastaus
+     * oikein vai väärin.
      *
      * Jos vastaus on oikein, muutetaan fontin väri vihreäksi, jos väärin,
      * muutetaan fontin väri punaiseksi ja alleviivataan oikea vastaus.
@@ -208,10 +212,10 @@ public class Tapahtumankuuntelija implements ActionListener {
     }
 
     /**
-     * Jos pelaaja vastannut väärin, etsitään oikea vastaus ja alleviivataan se.
+     * Metodia kutsutaan, jos pelaaja on vastannut väärin; etsitään oikea
+     * vastaus ja alleviivataan se.
      */
     private void alleviivaaOikeaVastaus() {
-
         Map<TextAttribute, Integer> fontAttributes = new HashMap<>();
         fontAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
         Font alleviivaus = new Font("Dialog", Font.BOLD, 12).deriveFont(fontAttributes);
