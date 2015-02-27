@@ -8,7 +8,7 @@ import sovellus.domain.Kysymyssarja;
 /**
  * Luokassa on pelin pelaamisen toiminnallisuus.
  *
- * Luokassa on talletettuna kysymyssarja-olio, kierroksen kysymysolio ja pelin
+ * Luokassa on talletettuna kysymyssarja-olio, kierroksen kysymysolio sekä pelin
  * kierroksen numero ja pelaajan pistetilanne.
  *
  * @author elina
@@ -20,6 +20,13 @@ public class Peli {
     private int pisteitaPelaajalla;
     private int kierroksenNumero;
 
+    /**
+     * Konstruktori luo uuden peliolion.
+     *
+     * Pelaajan pistemäärä alustetaan: 0 ja kierroksen numero: 1.
+     *
+     * @param kysymyssarja Saa kysymyssarjaolion.
+     */
     public Peli(Kysymyssarja kysymyssarja) {
         this.kysymyssarja = kysymyssarja;
         this.pisteitaPelaajalla = 0;
@@ -64,7 +71,7 @@ public class Peli {
     /**
      * Metodi antaa kierroksen kysymyslauseen.
      *
-     * @return String
+     * @return String kysymyslause
      */
     public String getKierroksenKysymyslause() {
         return this.kierroksenNumero + ": " + this.kysymyssarja.getKysymyslause();
@@ -102,8 +109,8 @@ public class Peli {
      * vastaukseen. Pelaajan pistesaldoa kasvatetaan, jos pelaaja vastasi
      * oikein.
      *
-     * @param vastaus Pelaajan vastaus kysymykseen
-     * @return String palaute pelaajalle hänen vastauksestaan
+     * @param vastaus Pelaajan vastaus kysymykseen.
+     * @return String Palaute pelaajalle hänen vastauksestaan.
      */
     public String vastauksenArviointi(String vastaus) {
         if (this.kysymys.onkoOikeaVastaus(vastaus)) {
@@ -116,10 +123,10 @@ public class Peli {
 
     /**
      * Metodi antaa pelin lopetustekstin, jonka sisältö riippuu pelaajan
-     * pistesaldosta,
+     * pistesaldosta.
      *
      * @return String Lopetustekstinä pelaajalle palautetta hänen
-     * onnistumisestaan
+     * onnistumisestaan.
      */
     public String pelinLopetusteksti() {
         if (getPisteitaPelaajalla() == 10) {

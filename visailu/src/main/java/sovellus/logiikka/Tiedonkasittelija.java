@@ -6,8 +6,8 @@ import sovellus.domain.Kysymys;
 import sovellus.domain.Kysymyssarja;
 
 /**
- * Luokassa jatkokäsitellään tiedostonlukijan sisään lukemaa tietoa; tehdään
- * olioita peliä varten.
+ * Luokassa jatkokäsitellään tiedostonlukijan sisään lukemaa tietoa; luodaan
+ * kysymysolioita ja kysymyssarja, jonne kysymysoliot lisätään.
  *
  * @author elina
  */
@@ -17,6 +17,12 @@ public class Tiedonkasittelija {
     private HashMap<String, String> kysymyksetJaVastaukset;
     private String kysymyslause;
 
+    /**
+     * Konstruktori luo tiedonkasittelijaolion ja vastausvaihtoehtoArpojaolion.
+     *
+     * @param kysymyksetJaVastaukset Saa kysymys-vastaus -HashMapin.
+     * @param kysymyslause Saa pelin kysymyslauseen.
+     */
     public Tiedonkasittelija(HashMap<String, String> kysymyksetJaVastaukset, String kysymyslause) {
         this.kysymyksetJaVastaukset = kysymyksetJaVastaukset;
         this.kysymyslause = kysymyslause;
@@ -55,11 +61,11 @@ public class Tiedonkasittelija {
     /**
      * Metodissa arvotaan kysymysoliolle väärät vastausvaihtoehdot.
      *
-     * Metodissa luodaan uusi vastausarpojaolio, jolta pyydetään neljä väärää
-     * vastausvaihtoehtoa.
+     * Metodissa luodaan uusi vastausvaihtoehtoArpojaolio, jolta pyydetään neljä
+     * väärää vastausvaihtoehtoa.
      *
-     * @param kysymys Metodille annetaan pelikierroksen kysymysolio, jolle
-     * väärät vastausvaihtoehdot tulee arpoa.
+     * @param kysymys Metodille annetaan kysymysolio, jolle väärät
+     * vastausvaihtoehdot tulee arpoa.
      * @return vaaratVastaukset Metodi palauttaa listan, jossa on kysymysolion
      * väärät vastausvaihtoehdot.
      */

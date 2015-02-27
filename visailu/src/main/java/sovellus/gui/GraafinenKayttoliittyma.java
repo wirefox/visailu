@@ -15,7 +15,7 @@ import sovellus.logiikka.Peli;
 import sovellus.logiikka.Visailukoordinaattori;
 
 /**
- * Luokassa luodaan pelin graafinen käyttöliittymä: ikkuna, jossa alussa pelin
+ * Luokka luo pelin graafisen käyttöliittymän: ikkuna, jossa alussa pelin
  * aloitusnäkymä, ja pelin valinan jälkeen pelinäkymä.
  *
  * @author elina
@@ -25,6 +25,11 @@ public class GraafinenKayttoliittyma implements Runnable {
     private Visailukoordinaattori visailukoordinaattori;
     private JFrame frame;
 
+    /**
+     * Konstruktori luo graafinenKayttoliittyma-olion.
+     *
+     * @param visailukoordinaattori Saa visailukoordinaattoriolion.
+     */
     public GraafinenKayttoliittyma(Visailukoordinaattori visailukoordinaattori) {
         this.visailukoordinaattori = visailukoordinaattori;
     }

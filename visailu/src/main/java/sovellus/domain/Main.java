@@ -5,8 +5,8 @@ import sovellus.gui.GraafinenKayttoliittyma;
 import sovellus.logiikka.Visailukoordinaattori;
 
 /**
- * Main-luokka, jossa luodaan visailukoordinaattori- ja graafinenKayttoliittyma
- * -oliot ja käynnistetään graafinen käyttöliittymä
+ * Main-luokka, joka luo visailukoordinaattori- ja graafinenKayttoliittyma
+ * -oliot ja käynnistää graafisen käyttöliittymän
  *
  * @author elina
  */

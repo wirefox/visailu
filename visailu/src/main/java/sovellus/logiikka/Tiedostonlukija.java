@@ -20,6 +20,10 @@ public class Tiedostonlukija {
     private HashMap<String, String> kysymysJaVastaus;
     private String kysymyslause;
 
+    /**
+     * Konstruktori luo tiedostonlukijaolion ja sille kysymys-vastaus
+     * -HashMapin.
+     */
     public Tiedostonlukija() {
         this.kysymysJaVastaus = new HashMap<>();
     }

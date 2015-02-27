@@ -3,7 +3,7 @@ package sovellus.domain;
 import java.util.ArrayList;
 
 /**
- * Luokassa luodaan pelin kysymykset.
+ * Luokka luo pelin kysymykset.
  *
  * Kysymysolioilla on talletettuna niiden kysymyssana, oikea vastaus ja väärät
  * vastaukset.
@@ -16,6 +16,11 @@ public class Kysymys {
     private String oikeaVastaus;
     private ArrayList<String> vaaratVastausvaihtoehdot;
 
+    /**
+     * Konstruktori luo kysymysolion ja sille väärien vastausvaihtoehtojen
+     * listan.
+     *
+     */
     public Kysymys() {
         this.vaaratVastausvaihtoehdot = new ArrayList<>();
     }
@@ -31,7 +36,7 @@ public class Kysymys {
     /**
      * Metodi lisää kysymykselle neljä väärää vastausta.
      *
-     * @param vaaratVastaukset lista, jossa neljä väärää vastausta
+     * @param vaaratVastaukset Lista, jossa neljä väärää vastausta.
      */
     public void setVaaratVastaukset(ArrayList<String> vaaratVastaukset) {
         for (String vaaraVastaus : vaaratVastaukset) {
@@ -48,10 +53,10 @@ public class Kysymys {
     }
 
     /**
-     * Metodi tarkistaa onko vastaus oikein
+     * Metodi tarkistaa onko vastaus oikein.
      *
-     * @param vastaus string, jossa pelaajan vastaus kysymykseen
-     * @return boolean palautetaan true, jos oikea vastaus ja false, jos väärä
+     * @param vastaus String, jossa pelaajan vastaus kysymykseen.
+     * @return boolean Palautetaan true, jos oikea vastaus ja false, jos väärä.
      */
     public boolean onkoOikeaVastaus(String vastaus) {
         return vastaus.equals(getOikeaVastaus());

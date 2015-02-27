@@ -14,10 +14,10 @@ public class Visailukoordinaattori {
     private Tiedonkasittelija tiedonkasittelija;
     private Tiedostonlukija tiedostonlukija;
     private Peli peli;
-    HashMap<String, String> kysymyksetJaVastaukset;
+    private HashMap<String, String> kysymyksetJaVastaukset;
 
     /**
-     * Metodissa luodaan tiedostonlukijaolio ja pyydetään tätä lukemaan pelaajan
+     * Metodissa luodaan tiedostonlukijaolio ja pyydetään sitä lukemaan pelaajan
      * valitseman pelin tiedosto HashMapiin.
      *
      * @param pelinNimi Metodi saa pelin nimen parametrina.
@@ -35,10 +35,10 @@ public class Visailukoordinaattori {
 
     /**
      * Metodissa luodaan tiedonkäsittelijäolio ja pyydetään sitä luomaan ja
-     * muodostamaan pelin kysymykset ja kysymyssarja.
+     * muodostamaan pelin kysymykset ja kysymyssarjan.
      *
-     * Kysymyssarja sekoitetaan, jotta kysymykset eivät tule joka pelissä
-     * samassa järjestyksessä.
+     * Pyydetään kysymyssarjaa sekoittamaan lista, jotta kysymykset eivät tule
+     * joka pelissä samassa järjestyksessä.
      *
      * @return kysymyssarja Metodi palauttaa pelissä käytettävän kysymyssarjan.
      */
@@ -55,7 +55,7 @@ public class Visailukoordinaattori {
      *
      * Kysymyssarja-olio annetaan pelille.
      *
-     * @param kysymyssarja Kysymyssarja
+     * @param kysymyssarja Kysymyssarja-olio.
      */
     public void luoUusiPeli(Kysymyssarja kysymyssarja) {
         this.peli = new Peli(kysymyssarja);

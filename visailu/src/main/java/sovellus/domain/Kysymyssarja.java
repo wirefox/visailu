@@ -14,6 +14,11 @@ public class Kysymyssarja {
     private ArrayList<Kysymys> kysymykset;
     private String kysymyslause;
 
+    /**
+     * Konstruktori luo kysymyssarjaolion ja sille kysymykset-listan.
+     *
+     * @param kysymyslause String, jossa pelin kysymyslause.
+     */
     public Kysymyssarja(String kysymyslause) {
         this.kysymykset = new ArrayList<>();
         this.kysymyslause = kysymyslause;
@@ -22,7 +27,8 @@ public class Kysymyssarja {
     /**
      * Metodi lisää sille parametrina annetun kysymysolion listalle
      *
-     * @param kysymys saa kysymysolion, jonka lisää listalle
+     * @param kysymys Saa metodin parametrina kysymysolion, jonka lisää
+     * listalle.
      */
     public void lisaaKysymys(Kysymys kysymys) {
         this.kysymykset.add(kysymys);
@@ -41,11 +47,11 @@ public class Kysymyssarja {
     }
 
     /**
-     * Metodi antaa kysymyslistalta seuraavan kysymysolion
+     * Metodi antaa kysymyslistalta seuraavan kysymysolion.
      *
-     * @param kierroksenNumero saa kierroksen numeron, joka määrää mistä
-     * kohdasta listaa kysymysolio otetaan
-     * @return kysymys palauttaa seuraavan kysymysolion
+     * @param kierroksenNumero Saa kierroksen numeron, joka määrää mistä
+     * kohdasta listaa kysymysolio otetaan.
+     * @return kysymys Palauttaa seuraavan kysymysolion.
      */
     public Kysymys annaSeuraavaKysymys(int kierroksenNumero) {
         Kysymys kysymys = this.kysymykset.get(kierroksenNumero);
@@ -53,10 +59,10 @@ public class Kysymyssarja {
     }
 
     /**
-     * Metodi sekoittaa kysymyslistan
+     * Metodi sekoittaa kysymyslistan.
      *
      * Sekoitus tehdään, jossa kysymysoliot eivät tulisi joka pelissä samassa
-     * järjestyksessä
+     * järjestyksessä.
      */
     public void sekoitaSarjanKysymykset() {
         Collections.shuffle(this.kysymykset);

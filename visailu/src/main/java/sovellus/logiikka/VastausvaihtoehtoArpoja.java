@@ -5,7 +5,7 @@ import java.util.Random;
 import sovellus.domain.Kysymys;
 
 /**
- * Luokka arpoo pelikierroksen kysymysoliolle listan vääriä vastausvaihtoehtoja.
+ * Luokka arpoo kysymysoliolle listan (4 kpl) vääriä vastausvaihtoehtoja.
  *
  * @author elina
  */
@@ -13,6 +13,9 @@ public class VastausvaihtoehtoArpoja {
 
     private Random arpoja;
 
+    /**
+     * Konstruktori luo uuden vastausvaihtoehtoArpoja-olion ja random-olion.
+     */
     public VastausvaihtoehtoArpoja() {
         this.arpoja = new Random();
     }
@@ -21,12 +24,12 @@ public class VastausvaihtoehtoArpoja {
      * Metodissa arvotaan neljä väärää vastausvaihtoehtoa kysymysoliolle.
      *
      * @param listaVastauksia Metodi saa parametrina listan, jossa on kaikki
-     * mahdolliset vastaukset
+     * mahdolliset vastaukset.
      * @param kysymys Metodi saa parametrina pelikierroksen kysymysolion, jotta
      * se ei tietää olla arpomatta oikeaa vastausta väärien vastausvaihtoehtojen
-     * joukkoon
+     * joukkoon.
      * @return vastaukset Metodi palauttaa listan, jossa on väärät
-     * vastausvaihtoehdot
+     * vastausvaihtoehdot.
      */
     public ArrayList<String> arvoVastausvaihtoehdotKysymykselle(ArrayList<String> listaVastauksia, Kysymys kysymys) {
         ArrayList<String> vastaukset = new ArrayList<>();

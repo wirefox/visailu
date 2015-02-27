@@ -18,7 +18,7 @@ import sovellus.logiikka.Peli;
 import sovellus.logiikka.Visailukoordinaattori;
 
 /**
- * Luokassa luodaan tapahtumankuuntelija, joka seuraa pelaajan valintoja.
+ * Luokka luo tapahtumankuuntelijan, joka seuraa pelaajan valintoja.
  *
  * @author elina
  */
@@ -32,8 +32,7 @@ public class Tapahtumankuuntelija implements ActionListener {
     private JRadioButton vaihtoehto1, vaihtoehto2, vaihtoehto3, vaihtoehto4, vaihtoehto5;
     private JButton aloitusnappi, seuraavaKysymys;
     private JLabel kysymyslause, kysymyssana, tuloksenIlmoitus, pistetilanne, lopetuslause;
-    private boolean paakaupunkiPeliValittu, kiinaNumeroVisaValittu;
-    private boolean vastausValittu;
+    private boolean paakaupunkiPeliValittu, kiinaNumeroVisaValittu, vastausValittu;
 
     /**
      * Konstruktori luo aloitusnäkymän tapahtumankuuntelijan.
@@ -139,6 +138,8 @@ public class Tapahtumankuuntelija implements ActionListener {
     /**
      * Metodissa pyöritetään pelin kierroksia ja peli-ikkunan komponenttien
      * tilaa.
+     *
+     * @param ae
      */
     private void pelinEtenemistoimenpiteet(ActionEvent ae) {
         if (ae.getSource() == this.seuraavaKysymys) {
@@ -164,6 +165,8 @@ public class Tapahtumankuuntelija implements ActionListener {
 
     /**
      * Metodissa lukitaan muut vaihtoehdot, kun pelaaja on vastannut.
+     *
+     * @param ae
      */
     private void lukitseValinta(ActionEvent ae) {
         for (Enumeration<AbstractButton> e = this.vaihtoehdot.getElements(); e.hasMoreElements();) {
