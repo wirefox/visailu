@@ -60,9 +60,4 @@ public class VisailukoordinaattoriTest {
         this.visailukoordinaattori.luoUusiPeli(this.kysymyssarja);
         assertNotNull(this.visailukoordinaattori.getPeli());
     }
-    
-//    @Test
-//    public void kysymyssarjanMuodostamisenJalkeenKysymyssarjaOnOlemassa() {
-//        this.visailukoordinaattori.muodostaKysymyssarja();
-//    }
 }
