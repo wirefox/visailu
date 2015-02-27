@@ -33,6 +33,7 @@ public class Tapahtumankuuntelija implements ActionListener {
     private JButton aloitusnappi, seuraavaKysymys;
     private JLabel kysymyslause, kysymyssana, tuloksenIlmoitus, pistetilanne, lopetuslause;
     private boolean paakaupunkiPeliValittu, kiinaNumeroVisaValittu;
+    private boolean vastausValittu;
 
     /**
      * Konstruktori luo aloitusnäkymän tapahtumankuuntelijan.
@@ -86,6 +87,7 @@ public class Tapahtumankuuntelija implements ActionListener {
         this.tuloksenIlmoitus = tuloksenIlmoitus;
         this.pistetilanne = pistetilanneTeksti;
         this.lopetuslause = lopetuslause;
+        this.vastausValittu = false;
     }
 
     @Override
@@ -93,6 +95,10 @@ public class Tapahtumankuuntelija implements ActionListener {
         if (ae.getSource() == this.paakaupunkiVisa || ae.getSource() == this.kiinaNumeroVisa || ae.getSource() == this.aloitusnappi) {
             pelinAloitusikkunanToimenpiteet(ae);
         } else if (ae.getSource() == this.vaihtoehto1 || ae.getSource() == this.vaihtoehto2 || ae.getSource() == this.vaihtoehto3 || ae.getSource() == this.vaihtoehto4 || ae.getSource() == this.vaihtoehto5) {
+            if (this.vastausValittu == true) {
+                return;
+            }
+            this.vastausValittu = true;
             peliIkkunanToimenpiteet(ae);
         } else {
             pelinEtenemistoimenpiteet(ae);
@@ -134,6 +140,7 @@ public class Tapahtumankuuntelija implements ActionListener {
     private void pelinEtenemistoimenpiteet(ActionEvent ae) {
         if (ae.getSource() == this.seuraavaKysymys) {
             this.seuraavaKysymys.setEnabled(false);
+            this.vastausValittu = false;
 
             if (this.peli.jatketaankoPelia()) {
                 muutaVaihtoehtojenFonttiNormaaliksi();
