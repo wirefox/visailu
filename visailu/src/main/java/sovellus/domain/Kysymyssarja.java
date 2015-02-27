@@ -25,7 +25,7 @@ public class Kysymyssarja {
     }
 
     /**
-     * Metodi lisää sille parametrina annetun kysymysolion listalle
+     * Metodi lisää sille parametrina annetun kysymysolion kysymyslistalle
      *
      * @param kysymys Saa metodin parametrina kysymysolion, jonka lisää
      * listalle.
@@ -47,7 +47,7 @@ public class Kysymyssarja {
     }
 
     /**
-     * Metodi antaa kysymyslistalta seuraavan kysymysolion.
+     * Metodi antaa kysymyslistalta kysymysolion.
      *
      * @param kierroksenNumero Saa kierroksen numeron, joka määrää mistä
      * kohdasta listaa kysymysolio otetaan.
