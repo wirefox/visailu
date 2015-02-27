@@ -95,6 +95,9 @@ public class Tapahtumankuuntelija implements ActionListener {
         if (ae.getSource() == this.paakaupunkiVisa || ae.getSource() == this.kiinaNumeroVisa || ae.getSource() == this.aloitusnappi) {
             pelinAloitusikkunanToimenpiteet(ae);
         } else if (ae.getSource() == this.vaihtoehto1 || ae.getSource() == this.vaihtoehto2 || ae.getSource() == this.vaihtoehto3 || ae.getSource() == this.vaihtoehto4 || ae.getSource() == this.vaihtoehto5) {
+            if (this.peli.jatketaankoPelia() == false) {
+                return;
+            }
             if (this.vastausValittu == true) {
                 return;
             }
