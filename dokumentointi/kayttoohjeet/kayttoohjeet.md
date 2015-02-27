@@ -13,7 +13,8 @@ Sovelluksen käynnistämisen jälkeen avautuu ikkuna, jossa on listattuna visail
 Pelissä on yhteensä kymmenen kierrosta. Vastaamalla oikein saat yhden pisteen. Jos vastaat väärin, pistettä ei tule, muttet myöskään menetä jo saamiasi pisteitä.
 
 Valitse jokaisella kierroksella haluamasi vastausvaihtoehto. 
-Sovellus kertoo onko vastaus oikein vai väärin, minkä avulla voit opetella paremmaksi tietäjäksi. Klikkaa Seuraava kysymys -painiketta, kun olet valmis siirtymään seuraavaan kysymykseen.
+Sovellus kertoo onko vastaus oikein vai väärin, minkä avulla voit opetella paremmaksi tietäjäksi. Jos valitsemasi vastaus on oikein, muuttuu se vihreäksi. Jos taas valitsemasi vastaus on väärin, muuttuu se punaiseksi, jonka lisäksi oikea vastaus alleviivataan.
+Klikkaa Seuraava kysymys -painiketta, kun olet valmis siirtymään seuraavaan kysymykseen.
 
 Peli loppuu, kun kymmenen kierrosta on pelattu.
 
